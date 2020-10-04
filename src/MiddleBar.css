@@ -1,0 +1,66 @@
+.MedicationTitle{
+    position: fixed;
+    left: 17.5%;
+    top: 5.9%;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.FolderPath{
+    position: fixed;
+    left: 17.5%;
+    top: 11.9%;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.Divider{
+    position: fixed;
+    top: 15.6%;
+    left: 17.3%;
+    width: 42.4%;
+    background-color:  #088E80;
+    border-color:  #088E80;
+    height: 1.5px;
+}
+
+.UnitsTitle{
+    position: fixed;
+    top: 17.6%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ConcentrationTitle{
+    position: fixed;
+    top: 24.3%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.DosageConfigurationTitle{
+    position: fixed;
+    top: 31.6%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ConstraintsTitle{
+    position:fixed;
+    top: 41.7%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.Background{
+    position: fixed;
+    right: 0;
+    top: 5.185185%;
+    height: 100%;
+    width: 38.8%;
+    background-color: #F8F8F8;
+}
