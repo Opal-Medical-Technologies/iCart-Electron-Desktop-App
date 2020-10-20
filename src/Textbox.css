@@ -1,0 +1,15 @@
+.ConcentrationText{
+    position: fixed;
+    top: 24.7%;
+    left: 28.7%;
+}
+.FirstDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 22.5%;
+}
+.SubsequentDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 44%;
+}
