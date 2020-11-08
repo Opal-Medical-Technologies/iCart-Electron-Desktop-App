@@ -32,12 +32,24 @@
     font-weight: 600;
 }
 
+.Units{
+    position: fixed;
+    top: 17.6%;
+    left: 20%;
+}
+
 .ConcentrationTitle{
     position: fixed;
     top: 24.3%;
     left: 17.5%;
     font-size: 20px;
     font-weight: 600;
+}
+
+.ConcentrationUnits{
+    position: fixed;
+    top: 24.8%;
+    left: 33%
 }
 
 .DosageConfigurationTitle{
@@ -63,4 +75,58 @@
     height: 100%;
     width: 38.8%;
     background-color: #F8F8F8;
+}
+
+.FirstDosageTitle{
+    position: fixed;
+    left: 17.5%;
+    top: 36.6%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+
+.FirstDosageUnits{
+    position: fixed;
+    left: 27.2%;
+    top: 37.0%;    
+}
+
+.SubsequentTitle{
+    position: fixed;
+    top: 36.6%;
+    left: 33.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+
+.SubsequentDosageUnits{
+    position: fixed;
+    top: 37%;
+    left: 48.5%;
+}
+
+.Units{
+    position: fixed;
+    top: 16.5%;
+    left: 22%;
+}
+.ConcentrationText{
+    position: fixed;
+    top: 24.7%;
+    left: 28.7%;
+}
+.FirstDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 22.5%;
+}
+.SubsequentDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 44%;
+}
+.SingleMin {
+    position:fixed;
+    top: 50%;
+    left: 30%;
 }

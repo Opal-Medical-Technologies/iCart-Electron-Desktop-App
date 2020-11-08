@@ -2,22 +2,45 @@ import React from 'react';
 import "./MiddleBar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-import { Form } from './TextBoxes.js';
-
+import { ConstraintsCheckbox } from './ConstraintsCheckbox'
 
 class MiddleBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            active : 'mg'
+            active : 'mg',
+            concentration: '',
+            firstDosage: '',
+            subsequentDosage: '',
         }
         this.toggleUnit = this.toggleUnit.bind(this)
+        this.handleConcentrationChange = this.handleConcentrationChange.bind(this)
+        this.handlefirstDosageChange = this.handlefirstDosageChange.bind(this)
+        this.handlesubsequentDosageChange = this.handlesubsequentDosageChange.bind(this)
     }
-toggleUnit (unit) {
-    this.setState({active : unit});
-}
-    render(){
+    toggleUnit (unit) {
+        this.setState({active : unit});
+    }
 
+    handleConcentrationChange = (event) => {
+        this.setState({
+            concentration: event.target.value
+        })
+    }
+
+    handlefirstDosageChange = (event) => {
+        this.setState({
+            firstDosage: event.target.value
+        })
+    }
+
+    handlesubsequentDosageChange = (event) => {
+        this.setState({
+            subsequentDosage: event.target.value
+        })
+    }
+
+    render(){
         return(
             <div className = "MiddleBar">
                 <MedicationTitle />
@@ -30,11 +53,26 @@ toggleUnit (unit) {
                 <DosageConfigurationTitle />
                 <ConstraintsTitle />
                 <UnitsToggle activeUnit = {this.state.active} toggleUnit = {this.toggleUnit} />
-                <Form />
+                <form>
+                    <div className = 'ConcentrationText'>
+                        <input type = 'text' value = {this.state.concentration} onChange = {this.handleConcentrationChange} style={{ width: "26%", textAlign: 'center'}}/>
+                    </div>
+                    <div className = 'FirstDosageText'>
+                        <input type = 'text' value = {this.state.firstDosage} onChange = {this.handlefirstDosageChange} style={{ width: "26%", textAlign: 'center'}}/>
+                    </div>
+                    <div className = 'SubsequentDosageText'>
+                        <input type = 'text' value = {this.state.subsequentDosage} onChange = {this.handlesubsequentDosageChange} style ={{ width: "26%", textAlign: 'center'}}/>
+                    </div>
+                </form>
                 <FirstDosageTitle />
                 <FirstDosageUnits unitType = {this.state.active}/>
                 <SubsequentTitle />
                 <SubsequentDosageUnits  unitType = {this.state.active}/>
+                <div className = 'SingleMin'>
+                    <p>Single Dose</p>
+                    <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MIN"/>
+                    <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MAX"/>
+                </div>
             </div>
         );
     }
@@ -183,3 +221,29 @@ function UnitsToggle (props) {
         </div>
     )
 }
+
+/* Button.defaultProps = {
+    theme: 'white'
+} */
+
+/* export function MiddleBar() {
+    return(
+        <div className = "MiddleBar">
+            <MedicationTitle />
+            <FolderPath />
+            <Divider />
+            <UnitsTitle />
+            <Background />
+            <ConcentrationTitle />
+            <ConcentrationUnits />
+            <DosageConfigurationTitle />
+            <ConstraintsTitle />
+            <UnitButtons />
+            <Form />
+            <FirstDosageTitle />
+            <FirstDosageUnits />
+            <SubsequentTitle />
+            <SubsequentDosageUnits />
+        </div>
+    )
+} */
