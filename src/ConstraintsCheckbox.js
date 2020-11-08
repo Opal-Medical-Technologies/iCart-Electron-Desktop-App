@@ -25,12 +25,12 @@ export class ConstraintsCheckbox extends React.Component {
     
     render(){
         return(
-            <div className="constraintsCheckbox">
+            <div>
                 <form>
-                    <div>
+                    <div className="constraintsCheckbox">
                         <input type = "checkbox" onChange={this.handleChange}/>
                         <label>{this.props.constraintType}:</label>
-                        <input type="text" value={this.state.value} disabled={this.state.checkboxState} onChange={this.handleValueChange}/>
+                        <input type="text" value={this.state.value} disabled={this.state.checkboxState} onChange={this.handleValueChange} style={{ width: "26%", textAlign: 'center'}}/>
                         <label>{this.props.unitType}</label>
                     </div>
                 </form>

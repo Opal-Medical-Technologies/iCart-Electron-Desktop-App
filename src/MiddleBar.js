@@ -3,6 +3,7 @@ import "./MiddleBar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import { ConstraintsCheckbox } from './ConstraintsCheckbox'
+import { NotesLine } from './NotesLine'
 
 class MiddleBar extends React.Component {
     constructor(props) {
@@ -68,10 +69,31 @@ class MiddleBar extends React.Component {
                 <FirstDosageUnits unitType = {this.state.active}/>
                 <SubsequentTitle />
                 <SubsequentDosageUnits  unitType = {this.state.active}/>
+                <div className = 'SingleDoseHeader'>
+                    Single Dose
+                </div>
                 <div className = 'SingleMin'>
-                    <p>Single Dose</p>
                     <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MIN"/>
+                </div>
+                <div className = 'SingleMax'>
                     <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MAX"/>
+                </div>
+                <div className = 'CumlDoseHeader'>
+                    Cuml. Dose
+                </div>
+                <div className = 'CumlMin'>
+                    <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MIN"/>
+                </div>
+                <div className = 'CumlMax'>
+                    <ConstraintsCheckbox unitType = {this.state.active} constraintType = "MAX"/>
+                </div>
+                <div className= 'NotesHeader'>
+                    Notes:
+                </div>
+                <div className = 'NotesLines'>
+                    <NotesLine lineNum = "1"/>
+                    <NotesLine lineNum = "2"/>
+                    <NotesLine lineNum = "3"/>
                 </div>
             </div>
         );

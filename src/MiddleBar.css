@@ -40,7 +40,7 @@
 
 .ConcentrationTitle{
     position: fixed;
-    top: 24.3%;
+    top: 25.3%;
     left: 17.5%;
     font-size: 20px;
     font-weight: 600;
@@ -48,7 +48,7 @@
 
 .ConcentrationUnits{
     position: fixed;
-    top: 24.8%;
+    top: 25.8%;
     left: 33%
 }
 
@@ -62,7 +62,7 @@
 
 .ConstraintsTitle{
     position:fixed;
-    top: 41.7%;
+    top: 42.3%;
     left: 17.5%;
     font-size: 20px;
     font-weight: 600;
@@ -112,7 +112,7 @@
 }
 .ConcentrationText{
     position: fixed;
-    top: 24.7%;
+    top: 25.7%;
     left: 28.7%;
 }
 .FirstDosageText{
@@ -125,8 +125,49 @@
     top: 36.5%;
     left: 44%;
 }
-.SingleMin {
+.SingleDoseHeader {
     position:fixed;
-    top: 50%;
-    left: 30%;
+    top: 47.5%;
+    left: 17.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+.SingleMin {
+    position: fixed;
+    top: 47.5%;
+    left: 27.5%;
+}
+.SingleMax {
+    position: fixed;
+    top: 47.5%;
+    left: 42.5%
+}
+.CumlDoseHeader {
+    position:fixed;
+    top: 53.5%;
+    left: 17.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+.CumlMin {
+    position: fixed;
+    top: 53.5%;
+    left: 27.5%;
+}
+.CumlMax {
+    position: fixed;
+    top: 53.5%;
+    left: 42.5%
+}
+.NotesHeader {
+    position:fixed;
+    top: 60.5%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+.NotesLines {
+    position: fixed;
+    top: 66.5%;
+    left: 17.5%;
 }
