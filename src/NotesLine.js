@@ -18,11 +18,11 @@ export class NotesLine extends React.Component {
     
     render(){
         return(
-            <div className="notesLine">
+            <div>
                 <form>
-                    <div>
+                    <div className="notesLine">
                         <label>Line {this.props.lineNum}:</label>
-                        <input type="text" value={this.state.notes} onChange={this.handleNotesChange} style= {{width: "200%"}}/>
+                        <input type="text" value={this.state.notes} onChange={this.handleNotesChange} style= {{width: "79%"}}/>
                     </div>
                 </form>
             </div>

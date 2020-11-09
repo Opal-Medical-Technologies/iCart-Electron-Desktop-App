@@ -161,13 +161,40 @@
 }
 .NotesHeader {
     position:fixed;
-    top: 60.5%;
+    top: 59.5%;
     left: 17.5%;
     font-size: 20px;
     font-weight: 600;
 }
 .NotesLines {
     position: fixed;
-    top: 66.5%;
+    top: 64.5%;
     left: 17.5%;
+    width: 47%
+}
+.HistoryTracking {
+    position: fixed;
+    top: 89%;
+    left: 17.5%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1.5px;
+    width: 41.2%;
+    font-weight: 600;
+}
+.HistoryTracking input {
+    margin: 10px
+}
+.AdditionalInformation {
+    position: fixed;
+    top: 97%;
+    left: 17.5%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1.5px;
+    width: 41.2%;
+    font-weight: 600;
+}
+.AdditionalInformation input {
+    margin: 10px
 }

@@ -13,11 +13,14 @@ class MiddleBar extends React.Component {
             concentration: '',
             firstDosage: '',
             subsequentDosage: '',
+            historyTracking: false,
+            additionalInformation: false,
         }
         this.toggleUnit = this.toggleUnit.bind(this)
         this.handleConcentrationChange = this.handleConcentrationChange.bind(this)
         this.handlefirstDosageChange = this.handlefirstDosageChange.bind(this)
         this.handlesubsequentDosageChange = this.handlesubsequentDosageChange.bind(this)
+        this.handlehistoryTrackingChange = this.handlehistoryTrackingChange.bind(this)
     }
     toggleUnit (unit) {
         this.setState({active : unit});
@@ -38,6 +41,18 @@ class MiddleBar extends React.Component {
     handlesubsequentDosageChange = (event) => {
         this.setState({
             subsequentDosage: event.target.value
+        })
+    }
+
+    handlehistoryTrackingChange = (event) => {
+        this.setState({
+            historyTracking: !this.state.historyTracking
+        });
+    }
+
+    handleAdditionalInformationChange = (event) => {
+        this.setState({
+            additionalInformation: !this.state.additionalInformation
         })
     }
 
@@ -94,6 +109,14 @@ class MiddleBar extends React.Component {
                     <NotesLine lineNum = "1"/>
                     <NotesLine lineNum = "2"/>
                     <NotesLine lineNum = "3"/>
+                </div>
+                <div className = 'HistoryTracking'>
+                    <input type = "checkbox" onChange = {this.handlehistoryTrackingChange}/>
+                    <label> ENABLE HISTORY TRACKING </label>
+                </div>
+                <div className = 'AdditionalInformation'>
+                    <input type = "checkbox" onChange = {this.additionalInformationChange}/>
+                    <label> ADD ADDITIONAL INFORMATION </label>
                 </div>
             </div>
         );

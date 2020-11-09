@@ -54,7 +54,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 16.1%;
+  width: 16.0%;
   height: 6.666%;
   z-index: 1;
 }
@@ -118,7 +118,7 @@
 .Logo{
   position: fixed;
   left:1.2%;
-  bottom: -.5%;
+  bottom: 0%;
   z-index: 10000;
 }
 
