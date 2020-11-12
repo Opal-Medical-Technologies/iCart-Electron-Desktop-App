@@ -1,0 +1,86 @@
+.PreviewPane {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 39%;
+    height: 95%;
+}
+
+.PreviewBox {
+    margin: auto;
+    margin-top: 3%;
+    width: 80%;
+    height: 20%;
+    border-radius: 25px;
+    border: 3px solid black;
+    text-align: center;
+    padding: 100px;
+    
+}
+
+
+.PreviewText {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.WeightButtons {
+    margin: auto;
+    width: fit-content;
+    background: orange;
+    bottom: 0;
+}
+
+.w3 {
+    background: grey;
+    color: white;
+    
+}
+
+.w4 {
+    background: grey;
+    color: white;
+}
+
+.w5 {
+    background: grey;
+    color: white;
+}
+
+.w6-7 {
+    background: pink;
+    color: white;
+}
+
+.w8-9 {
+    background: red;
+    color: white;
+}
+
+.w10-11 {
+    background: purple;
+    color: white;
+}
+
+.w12-14 {
+    background: yellow;
+}
+
+.w15-18 {
+    background: white;
+}
+
+.w19-23 {
+    background: blue;
+    color: white;
+}
+
+.w24-29 {
+    background: orange;
+    color: white;
+}
+
+.w30-36 {
+    background: green;
+    color: white;
+}
