@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ConstraintsCheckbox.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class ConstraintsCheckbox extends React.Component {
     constructor(props) {

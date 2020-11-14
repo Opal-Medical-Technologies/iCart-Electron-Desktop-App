@@ -1,7 +1,7 @@
 import React from 'react';
 import {TopBar} from './TopBar'
 import {SideBar} from './SideBar'
-import {MiddleBar} from './MiddleBar'
+import MiddleBar from './MiddleBar'
 
 function App() {
   return (
