@@ -7,80 +7,55 @@
 }
 
 .PreviewBox {
+    position: relative;
     margin: auto;
     margin-top: 3%;
     width: 80%;
-    height: 20%;
+    height: 35%;
     border-radius: 25px;
     border: 3px solid black;
-    text-align: center;
-    padding: 100px;
-    
+    /* text-align: center; */
+    padding: 10px;
 }
 
 
 .PreviewText {
     text-align: center;
-    margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 .WeightButtons {
     margin: auto;
     width: fit-content;
-    background: orange;
     bottom: 0;
 }
 
-.w3 {
-    background: grey;
-    color: white;
-    
+.Heading {
+    display: inline-block;
 }
 
-.w4 {
-    background: grey;
-    color: white;
+.MedName {
+    font-size: 20px;
 }
 
-.w5 {
-    background: grey;
-    color: white;
+
+.InfoButton {
+    position: absolute;
+    display: inline-block;
+    right: 10px;
+    width:40px;
+    height:40px;
+    border-radius:30px;
 }
 
-.w6-7 {
-    background: pink;
-    color: white;
+.NotesBlock {
+    display: inline-block;
+    width: 70%;
 }
 
-.w8-9 {
-    background: red;
-    color: white;
-}
-
-.w10-11 {
-    background: purple;
-    color: white;
-}
-
-.w12-14 {
-    background: yellow;
-}
-
-.w15-18 {
-    background: white;
-}
-
-.w19-23 {
-    background: blue;
-    color: white;
-}
-
-.w24-29 {
-    background: orange;
-    color: white;
-}
-
-.w30-36 {
-    background: green;
-    color: white;
+.AdministerButtonBlock {
+    position: absolute;
+    display: inline-block;
+    width: 30%;
+    right: 10px;
 }

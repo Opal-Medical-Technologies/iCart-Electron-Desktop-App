@@ -2,6 +2,7 @@ import React from 'react';
 import {TopBar} from './TopBar'
 import {SideBar} from './SideBar'
 import MiddleBar from './MiddleBar'
+import PreviewPane from './preview'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <TopBar />
       <SideBar />
       <MiddleBar />
+      <PreviewPane />
     </div>
   );
 }
