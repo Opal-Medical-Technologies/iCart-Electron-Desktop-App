@@ -1,7 +1,5 @@
 import React from 'react';
 import "./preview.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components';
 
 class PreviewPane extends React.Component{
 
