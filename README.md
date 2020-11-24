@@ -15,3 +15,5 @@ Desktop application written in React and using Electron. Interface built for pha
 The application is developed by Opal Medical Technology LLC.
 
 Joshua Fink, Rahul Gopinath, Runxuan Jiang, and Ameer Mubarez
+
+Outside use is not permitted
