@@ -8,6 +8,7 @@ class MiddleBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            title: 'Untitled',
             active : 'mg',
             concentration: '',
             firstDosage: '',
@@ -15,6 +16,7 @@ class MiddleBar extends React.Component {
             historyTracking: false,
             additionalInformation: false,
         }
+        this.handleMedicationTitleChange = this.handleMedicationTitleChange.bind(this)
         this.toggleUnit = this.toggleUnit.bind(this)
         this.handleConcentrationChange = this.handleConcentrationChange.bind(this)
         this.handlefirstDosageChange = this.handlefirstDosageChange.bind(this)
@@ -23,6 +25,12 @@ class MiddleBar extends React.Component {
     }
     toggleUnit (unit) {
         this.setState({active : unit});
+    }
+
+    handleMedicationTitleChange = (event) => {
+        this.setState({
+            title: event.target.value
+        })
     }
 
     handleConcentrationChange = (event) => {
@@ -58,7 +66,11 @@ class MiddleBar extends React.Component {
     render(){
         return(
             <div className = "MiddleBar">
-                <MedicationTitle />
+                <form>
+                    <div className = 'MedicationTitleText'>
+                        <input type = 'text' value = {this.state.title} onChange = {this.handleMedicationTitleChange} />
+                    </div>
+                </form>
                 <FolderPath />
                 <Divider />
                 <UnitsTitle />
@@ -122,15 +134,6 @@ class MiddleBar extends React.Component {
     }
 }
     export default MiddleBar;
-
-
-function MedicationTitle() {
-    return(
-        <div className = "MedicationTitle">
-            Adenosine (IV)
-        </div>
-    )
-}
 
 function FolderPath() {
     return(
