@@ -1,6 +1,5 @@
 import React from 'react';
-import "./App.css";
-//import { Card } from '@material-ui/core';
+import "./index.css";
 
 function ActiveBarBackground() {
     return(
@@ -66,7 +65,7 @@ function LastUpdated(){
 function Logo(){
     return(
         <div className = "Logo">
-            <img src = "/images/logo.png" alt =""/>
+            <img src = "/images/Logo.png" alt =""/>
         </div>
     )
 }
