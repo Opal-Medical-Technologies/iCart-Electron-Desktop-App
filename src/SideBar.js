@@ -65,7 +65,7 @@ function LastUpdated(){
 function Logo(){
     return(
         <div className = "Logo">
-            <img src = "/images/Logo.png" alt =""/>
+            <img src = "/images/logo.png" alt =""/>
         </div>
     )
 }

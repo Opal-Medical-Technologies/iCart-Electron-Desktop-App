@@ -1,5 +1,6 @@
 import React from 'react';
 import "./index.css";
+import {Link} from 'react-router-dom';
 
 function Export(){
     return(
@@ -11,9 +12,13 @@ function Export(){
 
 function Preview(){
     return(
-        <div className = "Preview">
-            Preview
-        </div>
+        <nav>
+            <ul>
+                <Link className = 'Preview' to = "/AppPreview">
+                <div> Preview </div>
+                </Link>
+            </ul>
+        </nav>
     )
 }
 

@@ -1,23 +1,31 @@
 import React from 'react';
+import {Home} from './Home';
+import {AppPreview} from './AppPreview';
+import './index.css'
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-
-import {TopBar} from './TopBar'
-import {SideBar} from './SideBar'
-import MiddleBar from './MiddleBar'
-import PreviewPane from './preview'
 
 function App() {
-    return (
+  return (
+    <Router>
+      <Route render = {( {location} ) => (
         <div>
-            <TopBar />
-            <SideBar />
-            <MiddleBar />
-            <PreviewPane />
-        </div>
-    );
+        <TransitionGroup>
+          <CSSTransition in = { true } appear = { false } key = { location.key } timeout = { 900 } classNames = { "page-fade" }>
+            <Switch location = {location}>
+              <Route path = "/" exact component = {Home} />
+              <Route path = "/AppPreview" component = {AppPreview} />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
+       )}/>
+    </Router>
+  );
 }
+
+export default App;
 
 ReactDOM.render(
   <React.StrictMode>

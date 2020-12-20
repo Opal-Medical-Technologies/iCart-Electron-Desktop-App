@@ -1,5 +1,6 @@
 import React from 'react';
 import "./NotesLine.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class NotesLine extends React.Component {
     constructor(props) {
