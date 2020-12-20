@@ -1,241 +1,71 @@
-.MiddleBar{
+.MedicationTitle{
     position: fixed;
-    left: 16%;
-    top: 5.185185%;
-    width: 46.1%; /* 45.2% */
-    height: 94.814815%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.MedicationTitleText{
-    position: absolute;
-    left: 3.0%;
-    top: 0%; 
+    left: 17.5%;
+    top: 5.9%;
     font-weight: 600;
-    font-size: calc(1.1vh + 1.8vw);
-}
-
-.MedicationTitleText input{
-    border: none;
+    font-size: 30px;
 }
 
 .FolderPath{
-    position: absolute;
-    left: 3.6%;
-    top: 7.1%;
-    font-size: calc(.5vh + .85vw);
+    position: fixed;
+    left: 17.5%;
+    top: 11.9%;
+    font-size: 14px;
     font-weight: 100;
 }
 
 .Divider{
-    position: absolute;
-    top: 11.6%;
-    left: 3.6%;
-    width: 94%;
+    position: fixed;
+    top: 15.6%;
+    left: 17.3%;
+    width: 42.4%;
     background-color:  #088E80;
     border-color:  #088E80;
-    height: .5%;
+    height: 1.5px;
 }
 
 .UnitsTitle{
-    position: absolute;
-    top: 14.4%;
-    left: 3.6%;
-    font-size: calc(.93vh + 1.13vw); /*calc(1vh + 1.4vw); */
+    position: fixed;
+    top: 17.6%;
+    left: 17.5%;
+    font-size: 20px;
     font-weight: 600;
 }
 
 .Units{
-    position: absolute;
-    top: 13.1%;
-    left: 14%;
-    font-size: calc(.9vh + .7vw)
+    position: fixed;
+    top: 17.6%;
+    left: 20%;
 }
 
 .ConcentrationTitle{
-    position: absolute;
-    top: 22.8%;
-    left: 3.6%;
-    font-size: calc(.93vh + 1.13vw);
+    position: fixed;
+    top: 25.3%;
+    left: 17.5%;
+    font-size: 20px;
     font-weight: 600;
-}
-
-.ConcentrationText{
-    position: absolute;
-    top: 23.2%;
-    left: 29.2%;
-}
-.ConcentrationText input{
-    height: 5.5vh;
 }
 
 .ConcentrationUnits{
-    position: absolute;
-    top: 23.6%;
-    left: 40%;
-    font-size: calc(.8vh + 1vw);
+    position: fixed;
+    top: 25.8%;
+    left: 33%
 }
 
 .DosageConfigurationTitle{
-    position: absolute;
-    top: 30.7%;
-    left: 3.6%; /* left: 17.5%, 4.8611111 multiplier */
-    font-size: calc(.93vh + 1.13vw);
+    position: fixed;
+    top: 31.6%;
+    left: 17.5%;
+    font-size: 20px;
     font-weight: 600;
-}
-
-.FirstDosageTitle{
-    position: absolute;
-    left: 3.6%;
-    top: 37.1%;
-    font-weight: 400;
-    font-size: calc(.93vh + 1.13vw);
-}
-
-.FirstDosageText{
-    position: absolute;
-    top: 37.2%;
-    left: 14.5%;
-}
-
-.FirstDosageText input{
-    height: 5.5vh;
-}
-
-.FirstDosageUnits{
-    position: absolute;
-    left: 24.0%;
-    top: 37.6%;    
-    font-size: calc(.8vh + 1vw);
-}
-
-.SubsequentTitle{
-    position: absolute;
-    top: 37.1%;
-    left: 38.5%;
-    font-weight: 400;
-    font-size: calc(.93vh + 1.13vw);
-}
-
-.SubsequentDosageText{
-    position: absolute;
-    top: 37.2%;
-    left: 62%;
-}
-
-.SubsequentDosageText input{
-    height: 5.5vh;
-}
-
-.SubsequentDosageUnits{
-    position: absolute;
-    top: 37.6%;
-    left: 71.5%;
-    font-size: calc(.8vh + 1vw)
 }
 
 .ConstraintsTitle{
-    position: absolute;
-    top: 45.3%;
-    left: 3.6%;
-    font-size: calc(.93vh + 1.13vw);
+    position:fixed;
+    top: 42.3%;
+    left: 17.5%;
+    font-size: 20px;
     font-weight: 600;
-}
-
-.SingleDoseHeader {
-    position: absolute;
-    top: 50.8%;
-    left: 3.6%;
-    font-weight: 400;
-    font-size: calc(.93vh + 1.13vw);
-}
-
-.SingleMin {
-    position: absolute;
-    top: 50.8%;
-    left: 25.8%;
-}
-.SingleMax {
-    position: absolute;
-    top: 50.8%;
-    left: 57.0%;
-}
-.CumlDoseHeader {
-    position: absolute;
-    top: 57.3%;
-    left: 3.6%;
-    font-weight: 400;
-    font-size: calc(.93vh + 1.13vw);
-}
-.CumlMin {
-    position: absolute;
-    top: 57.3%;
-    left: 25.8%;
-}
-.CumlMax {
-    position: absolute;
-    top: 57.3%;
-    left: 57.0%
-}
-.NotesHeader {
-    position: absolute;
-    top: 64.0%;
-    left: 3.6%;
-    font-size: calc(.93vh + 1.13vw);
-    font-weight: 600;
-}
-.NotesLines {
-    position: absolute;
-    top: 69.5%;
-    left: 3.6%;
-    width: 44.8vw;
-    font-size: calc(1vh + 1vw);
-}
-
-input:focus{
-    outline: none;
-}
-.HistoryTracking {
-    position: absolute;
-    top: 96%;
-    left: 3.6%;
-    border-style: solid;
-    border-color: gray;
-    border-width: .3vh;
-    height: 6.5vh;
-    width: 40.3vw;
-    font-weight: 600;
-    font-size: calc(.5vh + 1.02vw);
-}
-.HistoryTracking input {
-    margin: 1.91%;
-    width: 2vh;
-    height: 2vh;
-}
-.AdditionalInformation {
-    position: absolute;
-    top: 105%;
-    left: 3.6%;
-    border-style: solid;
-    border-color: gray;
-    border-width: .3vh;
-    height: 6.5vh;
-    width: 40.3vw;
-    font-weight: 600;
-    font-size: calc(.5vh + 1.02vw);
-}
-.AdditionalInformation input {
-    margin: 1.91%;
-    width: 2vh;
-    height: 2vh;
-}
-.bottomPadding{
-    position: absolute;
-    top: 111%;
-    height: 4%;
-    border-style: solid;
-    border-color: white;
 }
 
 .Background{
@@ -245,4 +75,126 @@ input:focus{
     height: 100%;
     width: 38.8%;
     background-color: #F8F8F8;
-  }
+}
+
+.FirstDosageTitle{
+    position: fixed;
+    left: 17.5%;
+    top: 36.6%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+
+.FirstDosageUnits{
+    position: fixed;
+    left: 27.2%;
+    top: 37.0%;    
+}
+
+.SubsequentTitle{
+    position: fixed;
+    top: 36.6%;
+    left: 33.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+
+.SubsequentDosageUnits{
+    position: fixed;
+    top: 37%;
+    left: 48.5%;
+}
+
+.Units{
+    position: fixed;
+    top: 16.5%;
+    left: 22%;
+}
+.ConcentrationText{
+    position: fixed;
+    top: 25.7%;
+    left: 28.7%;
+}
+.FirstDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 22.5%;
+}
+.SubsequentDosageText{
+    position: fixed;
+    top: 36.5%;
+    left: 44%;
+}
+.SingleDoseHeader {
+    position:fixed;
+    top: 47.5%;
+    left: 17.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+.SingleMin {
+    position: fixed;
+    top: 47.5%;
+    left: 27.5%;
+}
+.SingleMax {
+    position: fixed;
+    top: 47.5%;
+    left: 42.5%
+}
+.CumlDoseHeader {
+    position:fixed;
+    top: 53.5%;
+    left: 17.5%;
+    font-weight: 60px;
+    font-size: 20px;
+}
+.CumlMin {
+    position: fixed;
+    top: 53.5%;
+    left: 27.5%;
+}
+.CumlMax {
+    position: fixed;
+    top: 53.5%;
+    left: 42.5%
+}
+.NotesHeader {
+    position:fixed;
+    top: 59.5%;
+    left: 17.5%;
+    font-size: 20px;
+    font-weight: 600;
+}
+.NotesLines {
+    position: fixed;
+    top: 64.5%;
+    left: 17.5%;
+    width: 47%
+}
+.HistoryTracking {
+    position: fixed;
+    top: 89%;
+    left: 17.5%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1.5px;
+    width: 41.2%;
+    font-weight: 600;
+}
+.HistoryTracking input {
+    margin: 10px
+}
+.AdditionalInformation {
+    position: fixed;
+    top: 97%;
+    left: 17.5%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1.5px;
+    width: 41.2%;
+    font-weight: 600;
+}
+.AdditionalInformation input {
+    margin: 10px
+}

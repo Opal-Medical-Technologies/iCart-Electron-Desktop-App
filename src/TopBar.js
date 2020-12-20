@@ -1,6 +1,5 @@
 import React from 'react';
-import "./App.css";
-import {Link} from 'react-router-dom';
+import "./index.css";
 
 function Export(){
     return(
@@ -12,13 +11,9 @@ function Export(){
 
 function Preview(){
     return(
-        <nav>
-            <ul>
-                <Link className = 'Preview' to = "/AppPreview">
-                <div> Preview </div>
-                </Link>
-            </ul>
-        </nav>
+        <div className = "Preview">
+            Preview
+        </div>
     )
 }
 

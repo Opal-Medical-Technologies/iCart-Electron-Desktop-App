@@ -1,35 +1,4 @@
 
-.constraintsCheckbox{
-    position: absolute;
-}
 .constraintsCheckbox label{
-    margin: 2%;
-    font-size: calc(.8vw + .8vh);
-    display: inline-block;
-}
-.constraintsCheckbox input{
-    line-height: 4vh;
-}
-.checkBox {
-    width: 2vh;
-    height: 2vw;
-}
-.text2{
-    height: 5vh;
-    width: 5vw;
-}
-.MaxMin{
-    position: absolute;
-    left: 120%;
-    top: 0;
-}
-.textbox {
-    position: absolute;
-    left: 120%;
-    top: 0;
-}
-.units{
-    position: absolute;
-    left: 120%;
-    top: 0;
+    margin: 5px;
 }

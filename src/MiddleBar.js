@@ -1,6 +1,5 @@
 import React from 'react';
 import "./MiddleBar.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import { ConstraintsCheckbox } from './ConstraintsCheckbox'
 import { NotesLine } from './NotesLine'
@@ -75,6 +74,7 @@ class MiddleBar extends React.Component {
                 <FolderPath />
                 <Divider />
                 <UnitsTitle />
+                <Background />
                 <ConcentrationTitle />
                 <ConcentrationUnits unitType = {this.state.active}/>
                 <DosageConfigurationTitle />
@@ -82,13 +82,13 @@ class MiddleBar extends React.Component {
                 <UnitsToggle activeUnit = {this.state.active} toggleUnit = {this.toggleUnit} />
                 <form>
                     <div className = 'ConcentrationText'>
-                        <input type = 'text' value = {this.state.concentration} onChange = {this.handleConcentrationChange} style={{ width: "3.5vw", textAlign: 'center' } }/>
+                        <input type = 'text' value = {this.state.concentration} onChange = {this.handleConcentrationChange} style={{ width: "26%", textAlign: 'center'}}/>
                     </div>
                     <div className = 'FirstDosageText'>
-                        <input type = 'text' value = {this.state.firstDosage} onChange = {this.handlefirstDosageChange} style={{ width: "3.5vw", textAlign: 'center'}}/>
+                        <input type = 'text' value = {this.state.firstDosage} onChange = {this.handlefirstDosageChange} style={{ width: "26%", textAlign: 'center'}}/>
                     </div>
                     <div className = 'SubsequentDosageText'>
-                        <input type = 'text' value = {this.state.subsequentDosage} onChange = {this.handlesubsequentDosageChange} style ={{ width: "3.5vw", textAlign: 'center'}}/>
+                        <input type = 'text' value = {this.state.subsequentDosage} onChange = {this.handlesubsequentDosageChange} style ={{ width: "26%", textAlign: 'center'}}/>
                     </div>
                 </form>
                 <FirstDosageTitle />
@@ -128,10 +128,6 @@ class MiddleBar extends React.Component {
                 <div className = 'AdditionalInformation'>
                     <input type = "checkbox" onChange = {this.additionalInformationChange}/>
                     <label> ADD ADDITIONAL INFORMATION </label>
-                </div>
-                <div className = 'bottomPadding'>
-                </div>
-                <div className = 'Background'>
                 </div>
             </div>
         );
@@ -186,6 +182,13 @@ function ConstraintsTitle() {
     )
 }
 
+function Background() {
+    return(
+        <div className = "Background">
+        </div>
+    )
+}
+
 function FirstDosageTitle() {
     return(
         <div className = "FirstDosageTitle">
@@ -232,11 +235,11 @@ color: black;
 border-radius: 30px;
 outline: none !important;
 border-width: 1px;
-width: 3.9vw;
-height: 4.9vh;
+width: 50px;
+height: 29px;
 transition: ease background-color 250ms;
 transition: ease color 250ms;
-margin: .8vw;
+margin: 10px;
 cursor: pointer;
 &: hover{
     background-color: grey;
