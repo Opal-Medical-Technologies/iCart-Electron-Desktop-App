@@ -48,7 +48,7 @@
 
 .Units{
     position: absolute;
-    top: 13.1%;
+    top: 13%;
     left: 14%;
     font-size: calc(.9vh + .7vw)
 }
@@ -246,3 +246,36 @@ input:focus{
     width: 38.8%;
     background-color: #F8F8F8;
   }
+
+.Inactive-Unit-Button{
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .8vw;
+    cursor: pointer;
+}
+
+.Inactive-Unit-Button:hover {
+    background-color: grey;
+    color: white;
+}
+
+.Active-Unit-Button{
+    background-color: grey;
+    color: white;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .8vw;
+    cursor: pointer;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import "./MiddleBar.css";
-import styled from 'styled-components';
 import { ConstraintsCheckbox } from './ConstraintsCheckbox'
 import { NotesLine } from './NotesLine'
 
@@ -23,6 +22,8 @@ class MiddleBar extends React.Component {
         this.handlesubsequentDosageChange = this.handlesubsequentDosageChange.bind(this)
         this.handlehistoryTrackingChange = this.handlehistoryTrackingChange.bind(this)
     }
+
+    units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
 
     toggleUnit (unit) {
         this.setState({active : unit});
@@ -64,22 +65,44 @@ class MiddleBar extends React.Component {
         })
     }
 
+    renderUnitButtons() {
+        return(
+            <div className = "Units">
+                {this.units.map(unit => (
+                    <button className={unit == this.state.active ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick = {() => this.toggleUnit(unit)}>
+                        {unit}
+                    </button>
+                ))}
+            </div>
+        )
+    }
+
     render(){
         return(
             <div className = "MiddleBar">
-                <form>
-                    <div className = 'MedicationTitleText'>
-                        <input type = 'text' value = {this.state.title} onChange = {this.handleMedicationTitleChange} />
-                    </div>
-                </form>
-                <FolderPath />
-                <Divider />
-                <UnitsTitle />
-                <ConcentrationTitle />
-                <ConcentrationUnits unitType = {this.state.active}/>
-                <DosageConfigurationTitle />
-                <ConstraintsTitle />
-                <UnitsToggle activeUnit = {this.state.active} toggleUnit = {this.toggleUnit} />
+                <div className = 'MedicationTitleText'>
+                    <input type = 'text' value = {this.state.title} onChange = {this.handleMedicationTitleChange} />
+                </div>
+                <div className = "FolderPath">
+                    ACTIVE/MEDICATIONS
+                </div>
+                <div className = "Divider"></div>
+                <div className = "UnitsTitle">
+                    Units:
+                </div>
+                <div className = "ConcentrationTitle">
+                    Concentration:
+                </div>
+                <div className = "ConcentrationUnits">
+                    {this.state.active}/mL
+                </div>
+                <div className = "DosageConfigurationTitle">
+                    Dosage Configuration:
+                </div>
+                <div className = "ConstraintsTitle">
+                    CONSTRAINTS
+                </div>
+                {this.renderUnitButtons()}
                 <form>
                     <div className = 'ConcentrationText'>
                         <input type = 'text' value = {this.state.concentration} onChange = {this.handleConcentrationChange} style={{ width: "3.5vw", textAlign: 'center' } }/>
@@ -91,10 +114,18 @@ class MiddleBar extends React.Component {
                         <input type = 'text' value = {this.state.subsequentDosage} onChange = {this.handlesubsequentDosageChange} style ={{ width: "3.5vw", textAlign: 'center'}}/>
                     </div>
                 </form>
-                <FirstDosageTitle />
-                <FirstDosageUnits unitType = {this.state.active}/>
-                <SubsequentTitle />
-                <SubsequentDosageUnits  unitType = {this.state.active}/>
+                <div className = "FirstDosageTitle">
+                    FIRST:
+                </div>
+                <div className = "FirstDosageUnits">
+                    {this.state.active}/kg
+                </div>
+                <div className = "SubsequentTitle">
+                    SUBSEQUENT:
+                </div>
+                <div className = "SubsequentDosageUnits">
+                    {this.state.active}/kg
+                </div>
                 <div className = 'SingleDoseHeader'>
                     Single Dose
                 </div>
@@ -137,131 +168,7 @@ class MiddleBar extends React.Component {
         );
     }
 }
-    export default MiddleBar;
+    
 
-function FolderPath() {
-    return(
-        <div className = "FolderPath">
-            ACTIVE/MEDICATIONS
-        </div>
-    )
-}
+export default MiddleBar;
 
-function Divider() {
-    return(
-        <div className = "Divider">
-        </div>
-    )
-}
-
-function UnitsTitle() {
-    return(
-        <div className = "UnitsTitle">
-            Units:
-        </div>
-    )
-}
-
-function ConcentrationTitle() {
-    return(
-        <div className = "ConcentrationTitle">
-            Concentration:
-        </div>
-    )
-}
-
-function DosageConfigurationTitle() {
-    return(
-        <div className = "DosageConfigurationTitle">
-            Dosage Configuration:
-        </div>
-    )
-}
-
-function ConstraintsTitle() {
-    return(
-        <div className = "ConstraintsTitle">
-            CONSTRAINTS
-        </div>
-    )
-}
-
-function FirstDosageTitle() {
-    return(
-        <div className = "FirstDosageTitle">
-            FIRST:
-        </div>
-    )
-}
-
-function FirstDosageUnits(props) {
-    return(
-        <div className = "FirstDosageUnits">
-            {props.unitType}/kg
-        </div>
-    )
-}
-
-function ConcentrationUnits(props) {
-    return(
-        <div className = "ConcentrationUnits">
-            {props.unitType}/mL
-        </div>
-    )
-}
-
-function SubsequentTitle() {
-    return(
-        <div className = "SubsequentTitle">
-            SUBSEQUENT:
-        </div>
-    )
-}
-
-function SubsequentDosageUnits(props) {
-    return(
-        <div className = "SubsequentDosageUnits">
-            {props.unitType}/kg
-        </div>
-    )
-}
-
-const Button = styled.button`
-background-color: white;
-color: black;
-border-radius: 30px;
-outline: none !important;
-border-width: 1px;
-width: 3.9vw;
-height: 4.9vh;
-transition: ease background-color 250ms;
-transition: ease color 250ms;
-margin: .8vw;
-cursor: pointer;
-&: hover{
-    background-color: grey;
-    color: white;
-`
-
-const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
-const ButtonToggle = styled(Button)`
-    ${({ active }) => 
-        active &&
-        `
-        color: white;
-        background-color: grey;
-        outline: none;
-        `}
-`;
-function UnitsToggle (props) {
-    //const [active, setActive] = useState(units[0]);
-    return(
-        <div className = "Units">
-            {units.map(unit => (
-                <ButtonToggle active = {props.activeUnit === unit} onClick = {() => props.toggleUnit(unit)}>
-                    {unit}
-                </ButtonToggle>
-            ))}
-        </div>
-    )
-}
