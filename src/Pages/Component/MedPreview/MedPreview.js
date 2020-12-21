@@ -1,5 +1,5 @@
 import React from 'react';
-import "./preview.css";
+import "./MedPreview.css";
 
 class PreviewPane extends React.Component{
 
