@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import {testState1} from './MedSliceTest'
 
-const initialState = {
+const initState = {
     currentMedId: 0,
     folderMap: [],
     medList: []
@@ -15,11 +15,19 @@ export const medSlice = createSlice({
         updateCurrent: (state, action) => {
             state.currentMedId = action.payload
         },
-        updateMed: (state, action) => {
-            state.medList[state.currentMedId] = action.payload
-        }
+        updateMedName: (state, action) => {
+            state.medList[state.currentMedId].name = action.payload
+        },
+        updateMedUnits: (state, action) => {
+            state.medList[state.currentMedId].units = action.payload
+        },
     }
 })
 
-export const {updateCurrent, updateMed} = medSlice.actions
-export default medSlice.reducer
+export const selectMed = state => state.med.medList[state.med.currentMedId];
+export const {
+    updateCurrent, 
+    updateMedName, 
+    updateMedUnits
+} = medSlice.actions;
+export default medSlice.reducer;
