@@ -108,7 +108,6 @@ class PreviewPane extends React.Component{
                         {this.dosageButtons(this.props.medData.dosages[0].amounts)}
                         <div>
                             Rapid IV Push <br/>
-                            Lower dose for heart transplant or central line.
                         </div>
                     </div>
                     <div className="AdministerButtonBlock">
