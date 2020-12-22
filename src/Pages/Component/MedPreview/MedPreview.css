@@ -11,7 +11,6 @@
     margin: auto;
     margin-top: 3%;
     width: 80%;
-    height: 35%;
     border-radius: 25px;
     border: 3px solid black;
     /* text-align: center; */
@@ -91,4 +90,37 @@
 .InactiveDoseButton:hover {
     background-color: grey;
     color: white;
+}
+
+.Totals {
+    display: inline-block;
+    width: 30%;
+}
+
+.TotalBox {
+    border: 3px solid black;
+    height: 8vw;
+}
+
+.History {
+    position: absolute;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.HistoryBoxes {
+    position: absolute;
+    height: 8vw;
+    width: 300px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.HistoryBox {
+    display: inline-block;
+    border: 3px solid black;
+    height: 7vw;
+    margin-right: 5%;
 }

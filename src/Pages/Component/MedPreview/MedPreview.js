@@ -15,6 +15,8 @@ class PreviewPane extends React.Component{
         this.state = {
             weight: 0,
             activeDosage: 0,
+            history: [],
+            total: 0,
         }
     }
 
@@ -27,6 +29,21 @@ class PreviewPane extends React.Component{
     dosageButtonClick(index) {
         this.setState({
             activeDosage: index,
+        })
+    }
+
+    administerButtonClick(dosage) {
+        let d = new Date();
+        d = d.toLocaleTimeString();
+        let historyCopy = this.state.history.slice();
+        historyCopy.unshift({
+            amount: dosage.toFixed(2),
+            time: d
+        })
+        let newTotal = this.state.total + dosage;
+        this.setState({
+            history: historyCopy,
+            total: newTotal,
         })
     }
 
@@ -84,11 +101,32 @@ class PreviewPane extends React.Component{
     }
 
     notes(notesList) {
+        return (<div>
+            {notesList.map(n => (
+                <div>{n.note}</div>
+            ))}
+        </div>);
+    }
 
+    timeline(historyList) {
+        return (<div>
+            {historyList.map(h => (
+                <div className="HistoryBox">
+                    <div style={{"font-size": "30px", "text-align": "center"}}>{h.amount}</div>
+                    <div style={{"text-align": "center"}}>{h.time}</div>
+                </div>
+            ))}
+        </div>);
     }
 
 
     render() {
+        let dose = parseFloat(this.props.medData.dosages[0].amounts[this.state.activeDosage]);
+        if (this.props.medData.dosages[0].weightScale) {
+            dose *= this.state.weight;
+        }
+        let administerAmount = dose / parseFloat(this.props.medData.conc)
+
         return (<div className="PreviewPane">
             <div className="PreviewBox">
                 <div>
@@ -106,14 +144,13 @@ class PreviewPane extends React.Component{
                     <div className="NotesBlock">
                         <div style={{"text-align": "center"}}>NOTES</div>
                         {this.dosageButtons(this.props.medData.dosages[0].amounts)}
-                        <div>
-                            Rapid IV Push <br/>
-                        </div>
+                        {this.notes(this.props.medData.notes)}
                     </div>
                     <div className="AdministerButtonBlock">
-                        <div style={{"text-align": "center"}}>DOSE (ml)</div>
-                        <button className="AdministerButton" style={{"width": "100%", "border": "3px solid black"}}>
-                            <div style={{"font-size": "30px", "text-align": "center"}}>2</div>
+                        <div style={{"text-align": "center"}}>DOSE (mL)</div>
+                        <button className="AdministerButton" style={{"width": "100%", "border": "3px solid black"}}
+                        onClick={() => this.administerButtonClick(dose)}>
+                            <div style={{"font-size": "30px", "text-align": "center"}}>{administerAmount.toFixed(2)}</div>
                             <div style={{"text-align": "center"}}>MAX</div>
                         </button>
                     </div>
@@ -121,31 +158,25 @@ class PreviewPane extends React.Component{
             </div>
             <div className="PreviewBox">
                 <div>
-                    <div className="Heading">
-                        <div className="MedName">
-                            {"Adenosine (IV)"}
-                        </div>
-                        <div className="Concentration">
-                            {"3 mg/ml"}
-                        </div>
-                    </div>
-                    <button className="InfoButton">i</button>
+                    <span>
+                        {this.props.medData.name}
+                    </span>
+                    <span style={{"margin": "5%"}}>
+                        {this.props.medData.conc + " " + this.props.medData.units + "/mL"}
+                    </span>
                 </div>
-                <div>
-                    <div className="NotesBlock">
-                        <div style={{"text-align": "center"}}>NOTES</div>
-                        <div style={{"font-size": "20px"}}>0.1 mg/kg, 6mg MAX</div>
-                        <div>
-                            Rapid IV Push <br/>
-                            Lower dose for heart transplant or central line.
-                        </div>
+
+                <div className="Totals">
+                    <div>Total:</div>
+                    <div className="TotalBox">
+                        <div style={{"font-size": "30px", "text-align": "center"}}>{this.state.total.toFixed(2)}</div>
+                        <div style={{"text-align": "center"}}>{this.props.medData.units}</div>
                     </div>
-                    <div className="AdministerButtonBlock">
-                        <div style={{"text-align": "center"}}>DOSE (ml)</div>
-                        <button className="AdministerButton" style={{"width": "100%", "border": "3px solid black"}}>
-                            <div style={{"font-size": "30px", "text-align": "center"}}>2</div>
-                            <div style={{"text-align": "center"}}>MAX</div>
-                        </button>
+                </div>
+                <div className="History">
+                    <div>History:</div>
+                    <div className="HistoryBoxes">
+                    {this.timeline(this.state.history)}
                     </div>
                 </div>
             </div>

@@ -37,6 +37,12 @@ export const testState1 = {
                 {
                     note: "Test note 1",
                     weight: Array(9).fill(true)
+                },
+                {
+                    note: "Test note 2",
+                },
+                {
+                    note: "Test note 3 Test note 3..."
                 }
             ],
         },
