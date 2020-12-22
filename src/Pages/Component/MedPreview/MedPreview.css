@@ -59,3 +59,36 @@
     width: 30%;
     right: 10px;
 }
+
+.ActiveDoseButton {
+    background-color: grey;
+    color: white;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .25vw;
+    cursor: pointer;
+}
+
+.InactiveDoseButton {
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .25vw;
+    cursor: pointer;
+}
+
+.InactiveDoseButton:hover {
+    background-color: grey;
+    color: white;
+}

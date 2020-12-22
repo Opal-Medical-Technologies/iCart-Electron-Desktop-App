@@ -21,7 +21,7 @@ export const testState1 = {
                     order: "first", //first, sequential, or both
                     weightScale: true, //scale based on weight
                     weights: Array(9).fill(true),
-                    amounts:[0.3]
+                    amounts:["0.3", "0.4", "0.5", "0.6", "0.7", "0.8"]
                 }
             ],
             constraints: [

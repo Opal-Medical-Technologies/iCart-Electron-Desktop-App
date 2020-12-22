@@ -14,12 +14,19 @@ class PreviewPane extends React.Component{
         super(props);
         this.state = {
             weight: 0,
+            activeDosage: 0,
         }
     }
 
     weightButtonClick(weight) {
         this.setState({
             weight: weight,
+        })
+    }
+
+    dosageButtonClick(index) {
+        this.setState({
+            activeDosage: index,
         })
     }
 
@@ -37,11 +44,47 @@ class PreviewPane extends React.Component{
     }
 
     dosageButtons(dosageList) {
-
+        if (dosageList.length == 1) {
+            return (<div style={{"font-size": "20px"}}>
+                {dosageList[0] + ' ' + this.props.medData.units + '/mL'}
+            </div>)
+        }
+        else if (dosageList.length > 1 && dosageList.length < 4) {
+            return (<div>
+                {dosageList.map((d, index) => (
+                    <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                    onClick = {() => this.dosageButtonClick(index)}>
+                        {d}
+                    </button>
+                ))}
+            </div>);
+        }
+        else if (dosageList.length >= 4 && dosageList.length <= 6) {
+            return (
+                <div>
+                    <div>
+                        {dosageList.slice(0, 3).map((d, index) => (
+                            <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                            onClick = {() => this.dosageButtonClick(index)}>
+                                {d}
+                            </button>
+                        ))}
+                    </div>
+                    <div>
+                        {dosageList.slice(3).map((d, index) => (
+                            <button className={index+3 == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                            onClick = {() => this.dosageButtonClick(index+3)}>
+                                {d}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
     }
 
     notes(notesList) {
-        
+
     }
 
 
@@ -62,7 +105,7 @@ class PreviewPane extends React.Component{
                 <div>
                     <div className="NotesBlock">
                         <div style={{"text-align": "center"}}>NOTES</div>
-                        <div style={{"font-size": "20px"}}>0.1 mg/kg, 6mg MAX</div>
+                        {this.dosageButtons(this.props.medData.dosages[0].amounts)}
                         <div>
                             Rapid IV Push <br/>
                             Lower dose for heart transplant or central line.
