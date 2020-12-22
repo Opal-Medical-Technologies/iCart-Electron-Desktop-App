@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {Provider} from 'react-redux'
 
 import {Home} from './Pages/Home';
 import {AppPreview} from './Pages/AppPreview';
+import store from './Store/Store'
 
 function App() {
   return (
@@ -27,8 +29,8 @@ function App() {
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
