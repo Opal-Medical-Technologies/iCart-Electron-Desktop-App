@@ -1,5 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {selectMed} from '../../../Store/Slices/MedSlice';
 import "./MedPreview.css";
+
+const mapStateToProps = state => ({
+    medData: state.med.medList[state.med.currentMedId]
+})
 
 class PreviewPane extends React.Component{
 
@@ -29,19 +36,25 @@ class PreviewPane extends React.Component{
         );
     }
 
+    dosageButtons(dosageList) {
+
+    }
+
+    notes(notesList) {
+        
+    }
+
 
     render() {
         return (<div className="PreviewPane">
-            {"The weight is: "}
-            {this.state.weight}
             <div className="PreviewBox">
                 <div>
                     <div className="Heading">
                         <div className="MedName">
-                            {"Adenosine (IV)"}
+                            {this.props.medData.name}
                         </div>
                         <div className="Concentration">
-                            {"3 mg/ml"}
+                            {this.props.medData.conc + " " + this.props.medData.units + "/mL"}
                         </div>
                     </div>
                     <button className="InfoButton">i</button>
@@ -115,4 +128,6 @@ class PreviewPane extends React.Component{
     }
 }
 
-export default PreviewPane;
+export default connect(
+    mapStateToProps,
+)(PreviewPane);

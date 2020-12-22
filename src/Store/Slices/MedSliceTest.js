@@ -1,6 +1,6 @@
 export const testState1 = {
     currentMedId: 0,
-    folderMap: [
+    filesystem: [
         {
             name: "Active",
             keys: [
@@ -16,13 +16,29 @@ export const testState1 = {
             name: "Adenosine (IV)",
             units: "mg",
             conc: "3",
-            fdose: "0.1",
-            sdose: "0.2",
-            smin: "0.3",
-            smax: "0.5",
-            cmin: "0.3",
-            cmax: "0.5",
-            notes: "Rapid IV Push. Lower dose for heart transplant or central line."
-        }
+            dosages: [
+                {
+                    order: "first", //first, sequential, or both
+                    weightScale: true, //scale based on weight
+                    weights: Array(9).fill(true),
+                    amounts:[0.3]
+                }
+            ],
+            constraints: [
+                {
+                    smin: null,
+                    smax: null,
+                    cmin: null,
+                    cmax: null,
+                    weights: Array(9).fill(true),
+                }
+            ],
+            notes: [
+                {
+                    note: "Test note 1",
+                    weight: Array(9).fill(true)
+                }
+            ],
+        },
     ]
 }
