@@ -1,0 +1,62 @@
+/** @format */
+
+.Widget {
+  position: absolute;
+  top: 40%;
+  left: 3.6%;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 0.3vh;
+  height: 20vh;
+  width: 42vw;
+  box-shadow: inset;
+}
+
+.Widget_TopRow {
+  display: flex;
+}
+
+.Widget_TopRow .Widget_TopRow_Left {
+  flex: 1;
+}
+
+.Widget_TopRow .Widget_TopRow_Right {
+  flex: 1 right;
+}
+
+.Widget_Title {
+  position: absolute;
+  left: 3.1%;
+  font-size: calc(0.93vh + 1.13vw);
+  font-weight: 600;
+}
+
+.Widget_Divider {
+  position: absolute;
+  top: 38.6%;
+  left: 3.1%;
+  width: 94%;
+  background-color: #088e80;
+  border-color: #088e80;
+  height: 0.3vh;
+}
+
+.StandardCustomButton {
+  border: none;
+  color: white;
+  background-color: purple;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2vh;
+  margin: 3px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.StandardCustomButton:hover {
+  background-color: purple;
+  color: yellow;
+  border: none;
+}
