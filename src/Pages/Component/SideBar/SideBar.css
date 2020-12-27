@@ -1,8 +1,10 @@
 /** @format */
 
-.SideBar {
-  background-color: black;
-  position: relative;
+.SideBar_Base {
+  background-color: rgb(230, 230, 230);
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .SideBar_BottomBar {

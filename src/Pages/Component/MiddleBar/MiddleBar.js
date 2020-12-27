@@ -84,24 +84,17 @@ function Widget(props) {
 export default function MiddleBar() {
     const medData = useSelector(selectMed);
     const dispatch = useDispatch();
-    console.log(medData)
+    console.log(medData);
 
     return(
-        <div className = "MiddleBar">
-            <div className = "MiddleBar_Title">
-                <div className = 'MedicationTitleText'>
-                    <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
-                </div>
-                <div className = "FolderPath">
-                    ACTIVE/MEDICATIONS
-                </div>
-                <div className = "Divider"></div>
-            </div>
-            <div className = "MiddleBar_Body">
-                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
-            </div>
-        </div>
-    );
+      <div className = "MiddleBar_Base">
+        <div className = "MiddleBar_TopPanel"></div>
+        <div className = "MiddleBar_BottomPanel"></div>
+        <div className = "MiddleBar_TestPanel"></div>
+        <text>The Bottom</text>
+        <div className = "MiddleBar_BottomPanel"></div>
+      </div>
+    )
 }
 
 function Child(props) {
@@ -121,3 +114,22 @@ function Child(props) {
       </div>
     );
   }
+
+  /*
+  return(
+        <div className = "MiddleBar">
+            <div className = "MiddleBar_Title">
+            <div className = 'MedicationTitleText'>
+                <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
+                </div>
+                <div className = "FolderPath">
+                    ACTIVE/MEDICATIONS
+                </div>
+                <div className = "Divider"></div>
+            </div>
+            <div className = "MiddleBar_Body">
+                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
+            </div>
+        </div>
+    );
+  */

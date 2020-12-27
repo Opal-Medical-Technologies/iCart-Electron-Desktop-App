@@ -1,4 +1,38 @@
 /** @format */
 
-.MiddleBar {
+.MiddleBar_Base {
+  width: 100%;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.MiddleBar_TopPanel {
+  width: 100%;
+  height: 30vh;
+  background-color: red;
+}
+
+.MiddleBar_BottomPanel {
+  width: 100%;
+  height: 1vh;
+  background-color: blue;
+}
+
+.MiddleBar_TestPanel {
+  width: 100%;
+  height: 100vh;
+  background-color: green;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  background: light-gray;
 }
