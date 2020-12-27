@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import {testState1} from '../../TestData/TestData';
 import MainReducers from './Reducers/MainReducers';
 import DosageReducers from './Reducers/DosageReducers';
+import ConstraintsReducers from './Reducers/ConstraintsReducers';
+import NotesReducers from './Reducers/NotesReducers';
 
 const initState = {
     currentMedId: 0,
@@ -38,6 +40,8 @@ export const medSlice = createSlice({
         * Parameters: (string) conc, the updated concentration as a string (should be convertible into float)
         */
         updateMedConc: (state, action) => MainReducers.updateMedConcReducer(state.medList[state.currentMedId], action.payload),
+
+
 
         // ######################################################
         // Dosage Reducers for modifying dosage-releated elements
@@ -131,9 +135,134 @@ export const medSlice = createSlice({
         */
         updateSequentialDosageButton: (state, action) => DosageReducers.updateSequentialDosageButtonReducer(state.medList[state.currentMedId].dosages, action.payload.setIndex, action.payload.updateIndex, action.payload.amount),
 
-        //Constraints Reducers for modifying contraints-related elements
 
-        //Notes Reducers for modifying notes-related elements
+
+
+        // ##############################################################
+        // Constraints Reducers for modifying contraints-related elements
+        // ##############################################################
+        /*
+        * Effects: Adds a new constraints set.
+        */
+        addConstraintsSet: (state) => ConstraintsReducers.addConstraintsSetReducer(state.medList[state.currentMedId].constraints),
+        /*
+        * Effects: Deletes the constraints set given an index.
+        * Parameters: (int) deleteIndex, the index to of the constraints set to be deleted from the constraints list.
+        */
+        deleteConstraintsSet: (state, action) => ConstraintsReducers.deleteConstraintsSetReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Updates the weight ranges for a constraints set.
+        * Parameters: {
+        *   setIndex: (int) The index of the constraints set to be modified.
+        *   weights: (list of booleans) The updated weights array.
+        * }
+        */
+        updateConstraintsWeights: (state, action) => ConstraintsReducers.updateConstraintsWeightsReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.weights),
+        /*
+        * Effects: Activates the single minimum constraint and sets it to an empty string.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        addSingleMinConstraint: (state, action) => ConstraintsReducers.addSingleMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Activates the single maximum constraint and sets it to an empty string.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        addSingleMaxConstraint: (state, action) => ConstraintsReducers.addSingleMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Activates the cumulative minimum constraint and sets it to an empty string.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        addCumulativeMinConstraint: (state, action) => ConstraintsReducers.addCumulativeMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Activates the cumulative maximum constraint and sets it to an empty string.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        addCumulativeMaxConstraint: (state, action) => ConstraintsReducers.addCumulativeMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Deactivates the single minimum constraint and sets it to null.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        deleteSingleMinConstraint: (state, action) => ConstraintsReducers.deleteSingleMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Deactivates the single maximum constraint and sets it to null.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        deleteSingleMaxConstraint: (state, action) => ConstraintsReducers.deleteSingleMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Deactivates the cumulative minimum constraint and sets it to null.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        deleteCumulativeMinConstraint: (state, action) => ConstraintsReducers.deleteCumulativeMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Deactivates the cumulative maximum constraint and sets it to null.
+        * Parameters: (int) setIndex, the index of the constraints set to be updated.
+        */
+        deleteCumulativeMaxConstraint: (state, action) => ConstraintsReducers.deleteCumulativeMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload),
+        /*
+        * Effects: Updates the single minimum constraint and sets it to amount.
+        * Parameters: {
+        *   setIndex: (int) the index of the constraints set to be updated.
+        *   amount: (string) the updated amount (as a string) for the constraint (should be convertible to float).
+        * }
+        */
+        updateSingleMinConstraint: (state, action) => ConstraintsReducers.updateSingleMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.amount),
+        /*
+        * Effects: Updates the single maximum constraint and sets it to amount.
+        * Parameters: {
+        *   setIndex: (int) the index of the constraints set to be updated.
+        *   amount: (string) the updated amount (as a string) for the constraint (should be convertible to float).
+        * }
+        */
+        updateSingleMaxConstraint: (state, action) => ConstraintsReducers.updateSingleMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.amount),
+        /*
+        * Effects: Updates the cumulative minimum constraint and sets it to amount.
+        * Parameters: {
+        *   setIndex: (int) the index of the constraints set to be updated.
+        *   amount: (string) the updated amount (as a string) for the constraint (should be convertible to float).
+        * }
+        */
+        updateCumulativeMinConstraint: (state, action) => ConstraintsReducers.updateCumulativeMinConstraintReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.amount),
+        /*
+        * Effects: Updates the cumulative maximum constraint and sets it to amount.
+        * Parameters: {
+        *   setIndex: (int) the index of the constraints set to be updated.
+        *   amount: (string) the updated amount (as a string) for the constraint (should be convertible to float).
+        * }
+        */
+        updateCumulativeMaxConstraint: (state, action) => ConstraintsReducers.updateCumulativeMaxConstraintReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.amount),
+
+
+
+
+        
+        // ###################################################
+        // Notes Reducers for modifying notes-related elements
+        // ###################################################
+        /*
+        * Effects: Adds a new notes set.
+        */
+        addNotesSet: (state) => NotesReducers.addNotesSetReducer(state.medList[state.currentMedId].notes),
+        /*
+        * Effects: Deletes the notes set given an index.
+        * Parameters: (int) deleteIndex, the index to of the notes set to be deleted from the notes list.
+        */
+        deleteNotesSet: (state, action) => NotesReducers.deleteNotesSetReducer(state.medList[state.currentMedId].notes, action.payload),
+        /*
+        * Effects: Updates the weight ranges for a notes set.
+        * Parameters: {
+        *   setIndex: (int) The index of the notes set to be modified.
+        *   weights: (list of booleans) The updated weights array.
+        * }
+        */
+        updateNotesWeights: (state, action) => NotesReducers.updateNotesWeightsReducer(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.weights),
+        /*
+        * Effects: Updates the note text for a notes set.
+        * Parameters: {
+        *   setIndex: (int) The index of the notes set to be modified.
+        *   text: (string) The updated note text.
+        * }
+        */
+        updateNotesText: (state, action) => NotesReducers.updateNotesText(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.text),
     }
 })
 
