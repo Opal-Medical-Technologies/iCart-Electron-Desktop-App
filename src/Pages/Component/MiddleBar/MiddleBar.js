@@ -6,10 +6,44 @@ import { NotesLine } from './NotesLine'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { 
-    selectMed, 
-    updateMedName,
+    selectMed,
+    updateMedName, 
     updateMedUnits,
     updateMedConc,
+
+    addDosageSet,
+    deleteDosageSet,
+    updateDosageWeights,
+    updateFirstDosageWeightScale,
+    addFirstDosageButton,
+    deleteFirstDosageButton,
+    updateFirstDosageButton,
+    addSequentialDosage,
+    updateSequentialDosageWeightScale,
+    addSequentialDosageButton,
+    deleteSequentialDosageButton,
+    updateSequentialDosageButton,
+
+    addConstraintsSet,
+    deleteConstraintsSet,
+    updateConstraintsWeights,
+    addSingleMinConstraint,
+    addSingleMaxConstraint,
+    addCumulativeMinConstraint,
+    addCumulativeMaxConstraint,
+    deleteSingleMinConstraint,
+    deleteSingleMaxConstraint,
+    deleteCumulativeMinConstraint,
+    deleteCumulativeMaxConstraint,
+    updateSingleMinConstraint,
+    updateSingleMaxConstraint,
+    updateCumulativeMinConstraint,
+    updateCumulativeMaxConstraint,
+
+    addNotesSet,
+    deleteNotesSet,
+    updateNotesWeights,
+    updateNotesText,
 } from '../../../Store/MedSlice/MedSlice';
 
 const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];

@@ -98,7 +98,7 @@ export const medSlice = createSlice({
         * Effects: Adds dosage buttons for sequential dosages.
         * Parameters: (int) setIndex, The index of the dosage set to be modified.
         */
-        addSequentialDosageReducer: (state, action) => DosageReducers.addSequentialDosageReducerReducer(state.medList[state.currentMedId].dosages, action.payload),
+        addSequentialDosage: (state, action) => DosageReducers.addSequentialDosageReducerReducer(state.medList[state.currentMedId].dosages, action.payload),
         /*
         * Effects: Deletes entries for sequential dosages.
         * Parameters: (int) setIndex, The index of the dosage set to be modified.
@@ -271,6 +271,40 @@ export const {
     updateCurrent, 
     updateMedName, 
     updateMedUnits,
-    updateMedConc
+    updateMedConc,
+
+    addDosageSet,
+    deleteDosageSet,
+    updateDosageWeights,
+    updateFirstDosageWeightScale,
+    addFirstDosageButton,
+    deleteFirstDosageButton,
+    updateFirstDosageButton,
+    addSequentialDosage,
+    updateSequentialDosageWeightScale,
+    addSequentialDosageButton,
+    deleteSequentialDosageButton,
+    updateSequentialDosageButton,
+
+    addConstraintsSet,
+    deleteConstraintsSet,
+    updateConstraintsWeights,
+    addSingleMinConstraint,
+    addSingleMaxConstraint,
+    addCumulativeMinConstraint,
+    addCumulativeMaxConstraint,
+    deleteSingleMinConstraint,
+    deleteSingleMaxConstraint,
+    deleteCumulativeMinConstraint,
+    deleteCumulativeMaxConstraint,
+    updateSingleMinConstraint,
+    updateSingleMaxConstraint,
+    updateCumulativeMinConstraint,
+    updateCumulativeMaxConstraint,
+
+    addNotesSet,
+    deleteNotesSet,
+    updateNotesWeights,
+    updateNotesText,
 } = medSlice.actions;
 export default medSlice.reducer;
