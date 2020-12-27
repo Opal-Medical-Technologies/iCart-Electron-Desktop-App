@@ -1,61 +1,76 @@
-function addDosageSetReducer(state) {
-
+function addDosageSetReducer(dosages) {
+    dosages.push({
+        weights: Array(11).fill(true),
+        first: {
+            weightScale: true,
+            amounts: [""],
+        },
+        sequential: null
+    });
 }
 
-function deleteDosageSetReducer(state, deleteIndex) {
-
+function deleteDosageSetReducer(dosages, deleteIndex) {
+    dosages.splice(deleteIndex, 1);
 }
 
-function updateWeightsReducer(state, setIndex, weights) {
-
+function updateDosageWeightsReducer(dosages, setIndex, weights) {
+    dosages[setIndex].weights = weights;
 }
 
-function updateFirstWeightScaleReducer(state, setIndex, weightScale) {
-
+function updateFirstDosageWeightScaleReducer(dosages, setIndex, weightScale) {
+    dosages[setIndex].first.weightScale = weightScale;
 }
 
-function addFirstDosageButtonReducer(state, setIndex) {
-
+function addFirstDosageButtonReducer(dosages, setIndex) {
+    dosages[setIndex].first.amounts.push("");
 }
 
-function deleteFirstDosageButtonReducer(state, setIndex, deleteIndex) {
-
+function deleteFirstDosageButtonReducer(dosages, setIndex, deleteIndex) {
+    dosages[setIndex].first.amounts.splice(deleteIndex, 1);
 }
 
-function updateFirstDosageButtonReducer(state, setIndex, updateIndex, amount) {
-
+function updateFirstDosageButtonReducer(dosages, setIndex, updateIndex, amount) {
+    dosages[setIndex].first.amounts[updateIndex] = amount;
 }
 
-function addSequentialDosageReducer(state, setIndex) {
-
+function addSequentialDosageReducer(dosages, setIndex) {
+    dosages[setIndex].sequential = {
+        weightScale: true,
+        amounts: [""]
+    };
 }
 
-function deleteSequentialDosageReducer(state, setIndex) {
-
+function deleteSequentialDosageReducer(dosages, setIndex) {
+    dosages[setIndex].sequential = null;
 }
 
-function addSequentialDosageButtonReducer(state, setIndex) {
-
+function updateSequentialDosageWeightScaleReducer(dosages, setIndex, weightScale) {
+    dosages[setIndex].sequential.weightScale = weightScale;
 }
 
-function deleteSequentialDosageButtonReducer(state, setIndex, deleteIndex) {
-
+function addSequentialDosageButtonReducer(dosages, setIndex) {
+    dosages[setIndex].sequential.amounts.push("");
 }
 
-function updateSequentialDosageButtonReducer(state, setIndex, updateINdex, amount) {
+function deleteSequentialDosageButtonReducer(dosages, setIndex, deleteIndex) {
+    dosages[setIndex].sequential.amounts.splice(deleteIndex, 1);
+}
 
+function updateSequentialDosageButtonReducer(dosages, setIndex, updateIndex, amount) {
+    dosages[setIndex].sequential.amounts[updateIndex] = amount;
 }
 
 export default {
     addDosageSetReducer,
     deleteDosageSetReducer,
-    updateWeightsReducer,
-    updateFirstWeightScaleReducer,
+    updateDosageWeightsReducer,
+    updateFirstDosageWeightScaleReducer,
     addFirstDosageButtonReducer,
     deleteFirstDosageButtonReducer,
     updateFirstDosageButtonReducer,
     addSequentialDosageReducer,
     deleteSequentialDosageReducer,
+    updateSequentialDosageWeightScaleReducer,
     addSequentialDosageButtonReducer,
     deleteSequentialDosageButtonReducer,
     updateSequentialDosageButtonReducer,

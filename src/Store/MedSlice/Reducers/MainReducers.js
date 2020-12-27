@@ -2,16 +2,16 @@ function updateCurrentReducer(state, index) {
     state.currentMedId = index;
 }
 
-function updateMedNameReducer(state, name) {
-    state.medList[state.currentMedId].name = name
+function updateMedNameReducer(med, name) {
+    med.name = name
 }
 
-function updateMedUnitsReducer(state, units) {
-    state.medList[state.currentMedId].units = units
+function updateMedUnitsReducer(med, units) {
+    med.units = units
 }
 
-function updateMedConcReducer(state, conc) {
-    state.medList[state.currentMedId].conc = conc
+function updateMedConcReducer(med, conc) {
+    med.conc = conc
 }
 
 export default {
