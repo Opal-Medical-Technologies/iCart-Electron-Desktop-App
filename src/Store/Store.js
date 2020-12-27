@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import medReducer from './Slices/MedSlice'
+import medReducer from './MedSlice/MedSlice'
 
 export default configureStore({
     reducer: {

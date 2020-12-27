@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {selectMed} from '../../../Store/Slices/MedSlice';
+import {selectMed} from '../../../Store/MedSlice/MedSlice';
 import "./MedPreview.css";
 
 const mapStateToProps = state => ({
@@ -121,8 +121,8 @@ class PreviewPane extends React.Component{
 
 
     render() {
-        let dose = parseFloat(this.props.medData.dosages[0].amounts[this.state.activeDosage]);
-        if (this.props.medData.dosages[0].weightScale) {
+        let dose = parseFloat(this.props.medData.dosages[0].first.amounts[this.state.activeDosage]);
+        if (this.props.medData.dosages[0].first.weightScale) {
             dose *= this.state.weight;
         }
         let administerAmount = dose / parseFloat(this.props.medData.conc)
@@ -143,7 +143,7 @@ class PreviewPane extends React.Component{
                 <div>
                     <div className="NotesBlock">
                         <div style={{"text-align": "center"}}>NOTES</div>
-                        {this.dosageButtons(this.props.medData.dosages[0].amounts)}
+                        {this.dosageButtons(this.props.medData.dosages[0].first.amounts)}
                         {this.notes(this.props.medData.notes)}
                     </div>
                     <div className="AdministerButtonBlock">
