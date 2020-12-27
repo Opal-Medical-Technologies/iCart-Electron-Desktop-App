@@ -1,0 +1,26 @@
+/** @format */
+
+.Content {
+  position: fixed;
+  top: 5%;
+  width: 100%;
+}
+
+.Content_LeftPanel {
+  position: fixed;
+  left: 0%;
+  width: 15%;
+}
+
+.Content_MiddlePanel {
+  position: fixed;
+  left: 15%;
+  width: 50%;
+  padding: 1%;
+}
+
+.Content_RightPanel {
+  position: fixed;
+  left: 65%;
+  width: 35%;
+}
