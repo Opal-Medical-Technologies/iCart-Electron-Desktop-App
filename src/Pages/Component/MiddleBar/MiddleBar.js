@@ -88,14 +88,18 @@ export default function MiddleBar() {
 
     return(
         <div className = "MiddleBar">
-            <div className = 'MedicationTitleText'>
-                <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
+            <div className = "MiddleBar_Title">
+                <div className = 'MedicationTitleText'>
+                    <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
+                </div>
+                <div className = "FolderPath">
+                    ACTIVE/MEDICATIONS
+                </div>
+                <div className = "Divider"></div>
             </div>
-            <div className = "FolderPath">
-                ACTIVE/MEDICATIONS
+            <div className = "MiddleBar_Body">
+                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
             </div>
-            <div className = "Divider"></div>
-            <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
         </div>
     );
 }
