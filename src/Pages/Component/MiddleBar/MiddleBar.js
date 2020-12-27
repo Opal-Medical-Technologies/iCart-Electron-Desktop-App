@@ -1,5 +1,6 @@
-import React from 'react';
+import {React, useState} from 'react';
 import "./MiddleBar.css";
+import "./Widget.css";
 import { ConstraintsCheckbox } from './ConstraintsCheckbox'
 import { NotesLine } from './NotesLine'
 
@@ -15,7 +16,7 @@ const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
 
 function renderUnitButtons(activeUnits, dispatch) {
     return(
-        <div className = "Units">
+        <div>
             {units.map(unit => (
                 <button className={unit == activeUnits ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick = {() => dispatch(updateMedUnits(unit))}>
                     {unit}
@@ -24,7 +25,61 @@ function renderUnitButtons(activeUnits, dispatch) {
         </div>
     )
 }
-    
+
+function UnitsInput(props) {
+    const medData = useSelector(selectMed);
+    const dispatch = useDispatch();
+    return(
+        <div className = "UnitsWidgetInput">
+            {renderUnitButtons(medData.units, dispatch)}
+        </div>
+    );
+}
+
+function ConcentrationInput(props) {
+    const medData = useSelector(selectMed);
+    const dispatch = useDispatch();
+    return(
+        <div className = "ConcentrationWidgetInput">
+            <input type = 'text' value = {medData.conc} onChange = {e => dispatch(updateMedConc(e.target.value))} style={{ width: "30.57vw", textAlign: 'right' } }/>
+            <label> {medData.units}/kg</label>
+        </div>
+    );
+}
+const StandardCustomButton = ({onClick, status}) => {
+    return (
+      <button className = "StandardCustomButton" onClick={onClick}>
+        {`${status ? 'STANDARD' : 'CUSTOM'}`}
+      </button>
+    );
+  };
+
+function Widget(props) {
+
+  const [status, setStatus] = useState(true);
+  const updateStatus = () => {
+    setStatus(!status);
+  }
+
+  return(
+      <div className = "Widget">
+        <div className = "Widget_TopRow">
+          <div className = "Widget_TopRow_Left">
+            <h1 className = "Widget_Title">
+              {props.header}
+            </h1>
+          </div>
+          <div className = "Widget_TopRow_Right">
+            { props.toggle ?  
+            ( <StandardCustomButton onClick = {updateStatus} status = {status} /> ) : (<div/>)} 
+          </div>
+        </div>
+        <div className = "Widget_Divider"/>
+        { status ? ( <Child input = {props.input} /> ) : (props.toggle ? ( <Parent input = {props.input} /> ) : (<div/>)) }
+      </div> 
+  );
+
+}
 
 export default function MiddleBar() {
     const medData = useSelector(selectMed);
@@ -33,89 +88,36 @@ export default function MiddleBar() {
 
     return(
         <div className = "MiddleBar">
-            <div className = 'MedicationTitleText'>
-                <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
-            </div>
-            <div className = "FolderPath">
-                ACTIVE/MEDICATIONS
-            </div>
-            <div className = "Divider"></div>
-            <div className = "UnitsTitle">
-                Units:
-            </div>
-            <div className = "ConcentrationTitle">
-                Concentration:
-            </div>
-            <div className = "ConcentrationUnits">
-                {medData.units}/mL
-            </div>
-            <div className = "DosageConfigurationTitle">
-                Dosage Configuration:
-            </div>
-            <div className = "ConstraintsTitle">
-                Constraints
-            </div>
-            {renderUnitButtons(medData.units, dispatch)}
-            <div className = 'ConcentrationText'>
-                <input type = 'text' value = {medData.conc} onChange = {e => dispatch(updateMedConc(e.target.value))} style={{ width: "3.5vw", textAlign: 'center' } }/>
-            </div>
-                {/* <div className = 'FirstDosageText'>
-                    <input type = 'text' value = {this.state.firstDosage} onChange = {this.handlefirstDosageChange} style={{ width: "3.5vw", textAlign: 'center'}}/>
+            <div className = "MiddleBar_Title">
+                <div className = 'MedicationTitleText'>
+                    <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
                 </div>
-                <div className = 'SubsequentDosageText'>
-                    <input type = 'text' value = {this.state.subsequentDosage} onChange = {this.handlesubsequentDosageChange} style ={{ width: "3.5vw", textAlign: 'center'}}/>
-                </div> */}
-            {/* <div className = "FirstDosageTitle">
-                FIRST:
+                <div className = "FolderPath">
+                    ACTIVE/MEDICATIONS
+                </div>
+                <div className = "Divider"></div>
             </div>
-            <div className = "FirstDosageUnits">
-                {medData.units}/kg
-            </div>
-            <div className = "SubsequentTitle">
-                SUBSEQUENT:
-            </div>
-            <div className = "SubsequentDosageUnits">
-                {medData.units}/kg
-            </div> */}
-            {/* <div className = 'SingleDoseHeader'>
-                Single Dose
-            </div> */}
-            {/* <div className = 'SingleMin'>
-                <ConstraintsCheckbox unitType = {medData.units} constraintType = "MIN"/>
-            </div>
-            <div className = 'SingleMax'>
-                <ConstraintsCheckbox unitType = {medData.units} constraintType = "MAX"/>
-            </div> */}
-            {/* <div className = 'CumlDoseHeader'>
-                Cuml. Dose
-            </div> */}
-            {/* <div className = 'CumlMin'>
-                <ConstraintsCheckbox unitType = {medData.units} constraintType = "MIN"/>
-            </div>
-            <div className = 'CumlMax'>
-                <ConstraintsCheckbox unitType = {medData.units} constraintType = "MAX"/>
-            </div> */}
-            <div className= 'NotesHeader'>
-                Notes:
-            </div>
-            {/* <div className = 'NotesLines'>
-                <NotesLine lineNum = "1"/>
-                <NotesLine lineNum = "2"/>
-                <NotesLine lineNum = "3"/>
-            </div> */}
-            {/* <div className = 'HistoryTracking'>
-                <input type = "checkbox" onChange = {this.handlehistoryTrackingChange}/>
-                <label> ENABLE HISTORY TRACKING </label>
-            </div>
-            <div className = 'AdditionalInformation'>
-                <input type = "checkbox" onChange = {this.additionalInformationChange}/>
-                <label> ADD ADDITIONAL INFORMATION </label>
-            </div> */}
-            <div className = 'bottomPadding'>
-            </div>
-            <div className = 'Background'>
+            <div className = "MiddleBar_Body">
+                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
             </div>
         </div>
     );
 }
 
+function Child(props) {
+    return (props.input); 
+  }
+  
+  function Parent(props) {
+    const [lines, setLines] = useState([0]);  
+    return (
+      <div>
+        <div>
+        <button className = "StandardCustomButton" onClick={() => {setLines([...lines, lines.length]); }}>ADD</button>
+        </div>
+        <div>
+        {lines.map(m => <Child input = {props.input} pstate={{lines, setLines}}/>)}
+      </div>
+      </div>
+    );
+  }
