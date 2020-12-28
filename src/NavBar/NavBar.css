@@ -1,0 +1,53 @@
+/** @format */
+
+.NavBar_Base {
+  position: absolute;
+  background-color: #088e80;
+  height: 100%;
+  width: 100%;
+  box-shadow: 10px;
+}
+
+.NavBar_LeftPanel {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.NavBar_RightPanel {
+  position: absolute;
+  top: 0%;
+  left: 60%;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.NavBar_AccountMenuImage {
+  height: 90%;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.NavBar_HospitalHeader {
+  font-size: 3vh;
+  color: white;
+  padding-left: 1vw;
+  padding-right: 0.5vw;
+}
+
+.NavBar_MenuLink {
+  font-size: 2vh;
+  color: white;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
