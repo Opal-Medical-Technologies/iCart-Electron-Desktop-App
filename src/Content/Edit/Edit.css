@@ -1,0 +1,33 @@
+/** @format */
+
+.Edit_Base {
+  position: absolute;
+  background-color: purple;
+  height: 100%;
+  width: 100%;
+}
+
+.Edit_LeftPanel {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 15%;
+}
+
+.Edit_CenterPanel {
+  background-color: red;
+  position: absolute;
+  top: 0%;
+  left: 15%;
+  height: 100%;
+  width: 50%;
+}
+
+.Edit_RightPanel {
+  position: absolute;
+  top: 0%;
+  left: 65%;
+  height: 100%;
+  width: 35%;
+}
