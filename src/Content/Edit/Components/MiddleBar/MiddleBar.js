@@ -10,7 +10,6 @@ import {
     updateMedName, 
     updateMedUnits,
     updateMedConc,
-
     addDosageSet,
     deleteDosageSet,
     updateDosageWeights,
@@ -44,7 +43,7 @@ import {
     deleteNotesSet,
     updateNotesWeights,
     updateNotesText,
-} from '../../../../Store/Slices/MedSlice.js';
+} from '../../../Store/MedSlice/MedSlice';
 /*
 const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
 

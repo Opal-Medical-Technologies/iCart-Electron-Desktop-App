@@ -18,10 +18,23 @@ export const testState1 = {
             conc: "3",
             dosages: [
                 {
-                    order: "first", //first, sequential, or both
-                    weightScale: true, //scale based on weight
-                    weights: Array(9).fill(true),
-                    amounts:["0.3", "0.4", "0.5", "0.6", "0.7", "0.8"]
+                    weights: Array(11).fill(true),
+                    first: {
+                        weightScale: true,
+                        amounts: ["0.3", "0.4", "0.5", "0.6", "0.7", "0.8"],
+                    },
+                    sequential: null
+                },
+                {
+                    weights: Array(11).fill(false),
+                    first: {
+                        weightScale: false,
+                        amounts: ["0.5"],
+                    },
+                    sequential: {
+                        weightScale: true,
+                        amounts: ["0.6"]
+                    }
                 }
             ],
             constraints: [
@@ -30,19 +43,21 @@ export const testState1 = {
                     smax: null,
                     cmin: null,
                     cmax: null,
-                    weights: Array(9).fill(true),
+                    weights: Array(11).fill(true),
                 }
             ],
             notes: [
                 {
                     note: "Test note 1",
-                    weight: Array(9).fill(true)
+                    weights: Array(11).fill(true)
                 },
                 {
                     note: "Test note 2",
+                    weights: Array(11).fill(true)
                 },
                 {
-                    note: "Test note 3 Test note 3..."
+                    note: "Test note 3 Test note 3...",
+                    weights: Array(11).fill(true)
                 }
             ],
         },
