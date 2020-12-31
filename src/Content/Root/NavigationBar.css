@@ -1,6 +1,6 @@
 /** @format */
 
-.NavBar_Base {
+.NavigationBar_Base {
   position: absolute;
   background-color: #088e80;
   height: 100%;
@@ -8,7 +8,7 @@
   box-shadow: 10px;
 }
 
-.NavBar_LeftPanel {
+.NavigationBar_LeftPanel {
   position: absolute;
   top: 0%;
   left: 0%;
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.NavBar_RightPanel {
+.NavigationBar_RightPanel {
   position: absolute;
   top: 0%;
   left: 60%;
@@ -32,22 +32,36 @@
   align-items: center;
 }
 
-.NavBar_AccountMenuImage {
+.NavigationBar_AccountMenuImage {
   height: 90%;
   padding-left: 1vw;
   padding-right: 1vw;
 }
 
-.NavBar_HospitalHeader {
+.NavigationBar_HospitalHeader {
   font-size: 3vh;
   color: white;
   padding-left: 1vw;
   padding-right: 0.5vw;
 }
 
-.NavBar_MenuLink {
+.NavigationBar_MenuLink {
   font-size: 2vh;
+  height: 100%;
+  width: auto;
+  display: inline-flex;
+}
+
+.NavigationBar_LinkButton {
+  border: none;
   color: white;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  background-color: #088e80;
+  font-size: 120%;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.NavigationBar_LinkButton:hover {
+  background-color: #5bbbb1;
+  color: black;
 }

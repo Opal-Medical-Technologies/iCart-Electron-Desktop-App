@@ -10,16 +10,33 @@ export default function NavigationBar() {
     let hospitalIDString = pharmaInfo.hospitalName + ': ' + pharmaInfo.hospitalUnit;
     
     return(
-        <div className = 'NavBar_Base'>
-            <div className = 'NavBar_LeftPanel'>
-                <img className = 'NavBar_AccountMenuImage' src = '/images/accountvector.png'/>
-                <text className = 'NavBar_HospitalHeader'>{hospitalIDString}</text>
+        <div className = 'NavigationBar_Base'>
+            <div className = 'NavigationBar_LeftPanel'>
+                <img className = 'NavigationBar_AccountMenuImage' src = '/images/accountvector.png'/>
+                <text className = 'NavigationBar_HospitalHeader'>{hospitalIDString}</text>
             </div>
-            {/* <div className = 'NavBar_RightPanel'>
-                <nav><Link className = 'NavBar_MenuLink' to = '/edit'>EDIT</Link></nav>
-                <nav><Link className = 'NavBar_MenuLink' to = '/edit'>PREVIEW</Link></nav>
-                <nav><Link className = 'NavBar_MenuLink' to = '/edit'>EXPORT</Link></nav>
-            </div> */}
+            <div className = 'NavigationBar_RightPanel'>
+                <Link className = 'NavigationBar_MenuLink' to = '/'>
+                    <button className="NavigationBar_LinkButton">
+                        Home
+                    </button>
+                </Link>
+                <Link className = 'NavigationBar_MenuLink' to = '/edit'>
+                    <button className="NavigationBar_LinkButton">
+                        Edit
+                    </button>
+                </Link>
+                <Link className = 'NavigationBar_MenuLink' to = '/preview'>
+                    <button className="NavigationBar_LinkButton">
+                        Preview
+                    </button>
+                </Link>
+                <Link className = 'NavigationBar_MenuLink' to = '/export'>
+                    <button className="NavigationBar_LinkButton">
+                        Export
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }
