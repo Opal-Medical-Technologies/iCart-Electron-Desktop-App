@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {Provider} from 'react-redux'
@@ -12,27 +13,18 @@ import "./Index.css";
 
 function App() {
   return (
-    <Router>
       <div>
         <div className = "Index_TopPanel">
           <NavBar hospitalName = "Helen DeVos Children's Hospital" hospitalUnitName = "Pharmacy A21"/>
         </div>
         <div className = "Index_BottomPanel">
-          <Route render = {( {location} ) => (
-              <div>
-                <TransitionGroup>
-                  <CSSTransition in = { true } appear = { false } key = { location.key } timeout = { 900 } classNames = { "page-fade" }>
-                    <Switch location = {location}>
-                      <Route path = "/edit" component = {Edit} />
-                      <Route path = "/preview" component = {Edit} />
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </div>
-              )}/>
+          <Switch location = {location}>
+            <Route path = "/edit" component = {Edit} />
+            <Route path = "/preview" component = {Edit} />
+            <Route path = "/"
+          </Switch>
         </div>
       </div>
-    </Router>
   );
 }
 
