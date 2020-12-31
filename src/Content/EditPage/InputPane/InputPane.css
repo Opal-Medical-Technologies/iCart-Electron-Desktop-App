@@ -1,101 +1,278 @@
-/** @format */
-
-.MiddleBar_Base {
-  width: 100%;
+.InputPane {
+  position: absolute;
+  width: 100%; /* 45.2% */
+  height: 100%;
   overflow-y: scroll;
-  padding: 2vh 2vw 2vh 2vw;
-  background-color: blue;
 }
 
-.MiddleBar_Padding {
+.InputPane_WidgetBox {
+  margin: auto;
+  margin-top: 2%;
+  width: 95%;
+  border-radius: 25px;
+  border: 2px solid;
+}
+
+.InputPane_WidgetBox_Title {
+  font-size: 150%;
+  font-weight: 600;
+  margin-left: 2.5%;
+}
+
+.InputPane_WidgetBox_Divider {
+  border-top: 5px solid #088e80;
+  border-radius: 4px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.InputPane_WidgetBox_PlusButton {
   
 }
 
-.MiddleBar_DrugName {
-  font-size: 5vh;
-  font-weight: 600;
-  background-color: transparent;
+
+/*TitleBox styling*/
+.InputPane_TitleBox {
+  margin: 1%;
+}
+
+.InputPane_TitleBox_Name {
+  font-size: 200%;
+}
+
+.MedicationTitleText input {
   border: none;
 }
 
-.MiddleBar_DrugName:hover {
-  border: 1px;
+
+.InputPane_TitleBox_Divider {
+  border-top: 5px solid #088e80;
   border-radius: 5px;
-  border-color: lightgray;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
-.MiddleBar_FolderName {
-  font-size: 2.5vh;
-  color: gray;
-  margin: 0px;
-}
-
-.MiddleBar_Divider {
-  color: #088e80;
-  background-color: #088e80;
-  height: 5px;
-}
-
-.MiddleBar_TopPanel {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  /** justify-content: space-between; */
-  align-items: center;
-}
-
-.MiddleBar_TopPanel_Left {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: left;
-}
-
-.MiddleBar_TopPanel_Right {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.MiddleBar_DeleteButton {
-  border: transparent;
-  fill: transparent;
-  background-color: transparent;
-  font-size: 2.5vh;
+/*UnitsBox styling*/
+.InputPane_UnitsBox_UnitsTitle {
+  font-size: 150%;
   font-weight: 600;
-  color: black;
-  padding: 0.5vh 0vw 0.5vh 0vw;
-  margin: 0vh 1vw 0vh 3vw;
 }
 
-.MiddleBar_SaveButton {
-  border: transparent;
-  fill: #088e80;
-  background-color: #088e80;
-  border-radius: 20px;
-  font-size: 2.5vh;
-  font-weight: 600;
-  color: white;
-  padding: 0.5vh 1vw 0.5vh 1vw;
+/*ConcentrationBox styling*/
+.InputPane_ConcentrationBox_Input {
+  display: inline-block;
+  margin: 2%;
+  font-size: 150%;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  overflow: overlay;
+.InputPane_ConcentrationBox_Units {
+  display: inline-block;
+  font-size: 150%;
+}
+
+
+
+.DosageConfigurationTitle{
   position: absolute;
-  opacity: 30%;
+  top: 30.7%;
+  left: 3.6%; /* left: 17.5%, 4.8611111 multiplier */
+  font-size: calc(.93vh + 1.13vw);
+  font-weight: 600;
 }
 
-::-webkit-scrollbar-thumb {
-  background: lightgray;
-  border-radius: 5px;
+.FirstDosageTitle{
+  position: absolute;
+  left: 3.6%;
+  top: 37.1%;
+  font-weight: 400;
+  font-size: calc(.93vh + 1.13vw);
 }
 
-::-webkit-scrollbar:hover {
-  background: light-gray;
+.FirstDosageText{
+  position: absolute;
+  top: 37.2%;
+  left: 14.5%;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.FirstDosageText input{
+  height: 5.5vh;
+}
+
+.FirstDosageUnits{
+  position: absolute;
+  left: 24.0%;
+  top: 37.6%;    
+  font-size: calc(.8vh + 1vw);
+}
+
+.SubsequentTitle{
+  position: absolute;
+  top: 37.1%;
+  left: 38.5%;
+  font-weight: 400;
+  font-size: calc(.93vh + 1.13vw);
+}
+
+.SubsequentDosageText{
+  position: absolute;
+  top: 37.2%;
+  left: 62%;
+}
+
+.SubsequentDosageText input{
+  height: 5.5vh;
+}
+
+.SubsequentDosageUnits{
+  position: absolute;
+  top: 37.6%;
+  left: 71.5%;
+  font-size: calc(.8vh + 1vw)
+}
+
+.ConstraintsTitle{
+  position: absolute;
+  top: 45.3%;
+  left: 3.6%;
+  font-size: calc(.93vh + 1.13vw);
+  font-weight: 600;
+}
+
+.SingleDoseHeader {
+  position: absolute;
+  top: 50.8%;
+  left: 3.6%;
+  font-weight: 400;
+  font-size: calc(.93vh + 1.13vw);
+}
+
+.SingleMin {
+  position: absolute;
+  top: 50.8%;
+  left: 25.8%;
+}
+.SingleMax {
+  position: absolute;
+  top: 50.8%;
+  left: 57.0%;
+}
+.CumlDoseHeader {
+  position: absolute;
+  top: 57.3%;
+  left: 3.6%;
+  font-weight: 400;
+  font-size: calc(.93vh + 1.13vw);
+}
+.CumlMin {
+  position: absolute;
+  top: 57.3%;
+  left: 25.8%;
+}
+.CumlMax {
+  position: absolute;
+  top: 57.3%;
+  left: 57.0%
+}
+.NotesHeader {
+  position: absolute;
+  top: 64.0%;
+  left: 3.6%;
+  font-size: calc(.93vh + 1.13vw);
+  font-weight: 600;
+}
+.NotesLines {
+  position: absolute;
+  top: 69.5%;
+  left: 3.6%;
+  width: 44.8vw;
+  font-size: calc(1vh + 1vw);
+}
+
+input:focus{
+  outline: none;
+}
+.HistoryTracking {
+  position: absolute;
+  top: 96%;
+  left: 3.6%;
+  border-style: solid;
+  border-color: gray;
+  border-width: .3vh;
+  height: 6.5vh;
+  width: 40.3vw;
+  font-weight: 600;
+  font-size: calc(.5vh + 1.02vw);
+}
+.HistoryTracking input {
+  margin: 1.91%;
+  width: 2vh;
+  height: 2vh;
+}
+.AdditionalInformation {
+  position: absolute;
+  top: 105%;
+  left: 3.6%;
+  border-style: solid;
+  border-color: gray;
+  border-width: .3vh;
+  height: 6.5vh;
+  width: 40.3vw;
+  font-weight: 600;
+  font-size: calc(.5vh + 1.02vw);
+}
+.AdditionalInformation input {
+  margin: 1.91%;
+  width: 2vh;
+  height: 2vh;
+}
+.bottomPadding{
+  position: absolute;
+  top: 111%;
+  height: 4%;
+  border-style: solid;
+  border-color: white;
+}
+
+.Background{
+  position: fixed;
+  right: 0;
+  top: 5.185185%;
+  height: 100%;
+  width: 38.8%;
+  background-color: #F8F8F8;
+}
+
+.Inactive-Unit-Button{
+  background-color: white;
+  color: black;
+  border-radius: 30px;
+  outline: none !important;
+  border-width: 1px;
+  width: 3.9vw;
+  height: 4.9vh;
+  transition: ease background-color 250ms;
+  transition: ease color 250ms;
+  margin: .8vw;
+  cursor: pointer;
+}
+
+.Inactive-Unit-Button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.Active-Unit-Button{
+  background-color: grey;
+  color: white;
+  border-radius: 30px;
+  outline: none !important;
+  border-width: 1px;
+  width: 3.9vw;
+  height: 4.9vh;
+  transition: ease background-color 250ms;
+  transition: ease color 250ms;
+  margin: .8vw;
+  cursor: pointer;
 }
