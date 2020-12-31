@@ -8,24 +8,31 @@ import store from './Store/Store';
 import './index.css';
 import NavigationBar from './Content/Root/NavigationBar';
 import SideBar from './Content/Root/SideBar';
+import PreviewPage from './Content/PreviewPage/PreviewPage'
+import HomePage from './Content/HomePage/HomePage'
+import ExportPage from './Content/ExportPage/ExportPage'
 
 function App() {
   return (
+    <Router>
       <div>
         <div className = 'Index_TopPanel'>
           <NavigationBar/>
         </div>
+
         <div className='Index_SidePanel'>
           <SideBar/>
         </div>
+
         <div className = 'Index_BottomPanel'>
-          {/* <Switch location = {location}>
-            <Route path = '/edit' component = {Edit} />
-            <Route path = '/preview' component = {Edit} />
-            <Route path = '/'
-          </Switch> */}
+          <Switch>
+            <Route path = '/preview' component = {PreviewPage} />
+            <Route path = '/export' component = {ExportPage} />
+            <Route path = '/' component = {HomePage} />
+          </Switch>
         </div>
       </div>
+    </Router>
   );
 }
 
