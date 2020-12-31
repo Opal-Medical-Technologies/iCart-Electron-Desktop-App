@@ -1,0 +1,24 @@
+/** @format */
+
+.EditPage_Base {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.EditPage_CenterPanel {
+  border-right: 1px solid;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 50%;
+}
+
+.EditPage_RightPanel {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  width: 50%;
+}

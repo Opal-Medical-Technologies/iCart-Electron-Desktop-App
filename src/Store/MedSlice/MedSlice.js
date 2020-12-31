@@ -266,6 +266,7 @@ export const medSlice = createSlice({
     }
 })
 
+export const selectInfo = state => state.med;
 export const selectMed = state => state.med.medList[state.med.currentMedId];
 export const {
     updateCurrent, 

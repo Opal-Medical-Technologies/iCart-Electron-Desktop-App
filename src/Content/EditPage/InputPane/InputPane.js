@@ -1,8 +1,8 @@
 import {React, useState} from 'react';
 import "./MiddleBar.css";
-import "./Widget.css";
-import { ConstraintsCheckbox } from './ConstraintsCheckbox'
-import { NotesLine } from './NotesLine'
+// import "./Widget.css";
+// import { ConstraintsCheckbox } from './Pages/Component/MiddleBar/ConstraintsCheckbox'
+// import { NotesLine } from './Pages/Component/MiddleBar/NotesLine'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { 
@@ -10,7 +10,6 @@ import {
     updateMedName, 
     updateMedUnits,
     updateMedConc,
-
     addDosageSet,
     deleteDosageSet,
     updateDosageWeights,
@@ -44,8 +43,9 @@ import {
     deleteNotesSet,
     updateNotesWeights,
     updateNotesText,
-} from '../../../Store/MedSlice/MedSlice';
+} from '../../../../Store/MedSlice/MedSlice';
 
+/*
 const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
 
 function renderUnitButtons(activeUnits, dispatch) {
@@ -114,28 +114,35 @@ function Widget(props) {
   );
 
 }
+*/
 
 export default function MiddleBar() {
     const medData = useSelector(selectMed);
     const dispatch = useDispatch();
-    console.log(medData)
+    console.log(medData);
 
     return(
-        <div className = "MiddleBar">
-            <div className = "MiddleBar_Title">
-                <div className = 'MedicationTitleText'>
-                    <input type = 'text' value={medData.name} onChange={e => dispatch(updateMedName(e.target.value))}/>
-                </div>
-                <div className = "FolderPath">
-                    ACTIVE/MEDICATIONS
-                </div>
-                <div className = "Divider"></div>
+      <div className = "MiddleBar_Base">
+        <div className = "MiddleBar_Padding">
+          <div className = "MiddleBar_TopPanel">
+            <div className = "MiddleBar_TopPanel_Left">
+              <input className = "MiddleBar_DrugName"
+                    type = 'text' 
+                    value={medData.name} 
+                    onChange={e => dispatch(updateMedName(e.target.value))}
+              />
+              <text className = "MiddleBar_FolderName">ACTIVE/MEDICATIONS</text>
             </div>
-            <div className = "MiddleBar_Body">
-                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
+            <div className = "MiddleBar_TopPanel_Right">
+                <button className = "MiddleBar_DeleteButton">DELETE</button>
+                <button className = "MiddleBar_SaveButton">SAVE</button>
             </div>
+          </div>
+          <hr className = "MiddleBar_Divider"></hr>
+          {/* Place widgets directly here */}
         </div>
-    );
+      </div>
+    )
 }
 
 function Child(props) {
@@ -155,3 +162,20 @@ function Child(props) {
       </div>
     );
   }
+
+  /*
+  return(
+        <div className = "MiddleBar">
+            <div className = "MiddleBar_Title">
+            
+                <div className = "FolderPath">
+                    ACTIVE/MEDICATIONS
+                </div>
+                <div className = "Divider"></div>
+            </div>
+            <div className = "MiddleBar_Body">
+                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
+            </div>
+        </div>
+    );
+  */

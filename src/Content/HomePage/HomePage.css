@@ -1,0 +1,19 @@
+.HomePage {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.HomePage_Logo {
+    display: block;
+    height: 20%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.HomePage_Text {
+    margin: 5%;
+    font-size: 200%;
+}

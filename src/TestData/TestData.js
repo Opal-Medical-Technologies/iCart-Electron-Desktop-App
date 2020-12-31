@@ -1,4 +1,6 @@
 export const testState1 = {
+    hospitalName: "<Test Hospital Name>",
+    hospitalUnit: "<TestUnit>",
     currentMedId: 0,
     filesystem: [
         {

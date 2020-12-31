@@ -1,0 +1,33 @@
+/** @format */
+
+.Index_TopPanel {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 5%;
+  width: 100%;
+}
+
+.Index_SidePanel {
+  position: fixed;
+  top: 5%;
+  left: 0%;
+  height: 95%;
+  width: 15%;
+}
+
+.Index_BottomPanel {
+  position: fixed;
+  top: 5%;
+  right: 0%;
+  height: 95%;
+  width: 85%;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+a:hover {
+  text-decoration: none;
+}

@@ -1,28 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {Provider} from 'react-redux'
 
-import {Home} from './Pages/Home';
-import {AppPreview} from './Pages/AppPreview';
-import store from './Store/Store'
+import store from './Store/Store';
+import './index.css';
+import NavigationBar from './Content/Root/NavigationBar';
+import SideBar from './Content/Root/SideBar';
+import PreviewPage from './Content/PreviewPage/PreviewPage';
+import HomePage from './Content/HomePage/HomePage';
+import ExportPage from './Content/ExportPage/ExportPage';
+import EditPage from './Content/EditPage/EditPage';
 
 function App() {
   return (
     <Router>
-      <Route render = {( {location} ) => (
-        <div>
-          <TransitionGroup>
-            <CSSTransition in = { true } appear = { false } key = { location.key } timeout = { 900 } classNames = { "page-fade" }>
-              <Switch location = {location}>
-                <Route path = "/" exact component = {Home} />
-                <Route path = "/AppPreview" component = {AppPreview} />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
+      <div>
+        <div className = 'Index_TopPanel'>
+          <NavigationBar/>
         </div>
-        )}/>
+
+        <div className='Index_SidePanel'>
+          <SideBar/>
+        </div>
+
+        <div className = 'Index_BottomPanel'>
+          <Switch>
+            <Route path = '/preview' component = {PreviewPage} />
+            <Route path = '/export' component = {ExportPage} />
+            <Route path = '/edit' component = {EditPage} />
+            <Route path = '/' component = {HomePage} />
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }

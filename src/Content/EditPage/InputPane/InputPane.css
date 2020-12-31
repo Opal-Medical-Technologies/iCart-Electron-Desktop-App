@@ -1,0 +1,101 @@
+/** @format */
+
+.MiddleBar_Base {
+  width: 100%;
+  overflow-y: scroll;
+  padding: 2vh 2vw 2vh 2vw;
+  background-color: blue;
+}
+
+.MiddleBar_Padding {
+  
+}
+
+.MiddleBar_DrugName {
+  font-size: 5vh;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+}
+
+.MiddleBar_DrugName:hover {
+  border: 1px;
+  border-radius: 5px;
+  border-color: lightgray;
+}
+
+.MiddleBar_FolderName {
+  font-size: 2.5vh;
+  color: gray;
+  margin: 0px;
+}
+
+.MiddleBar_Divider {
+  color: #088e80;
+  background-color: #088e80;
+  height: 5px;
+}
+
+.MiddleBar_TopPanel {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  /** justify-content: space-between; */
+  align-items: center;
+}
+
+.MiddleBar_TopPanel_Left {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: left;
+}
+
+.MiddleBar_TopPanel_Right {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MiddleBar_DeleteButton {
+  border: transparent;
+  fill: transparent;
+  background-color: transparent;
+  font-size: 2.5vh;
+  font-weight: 600;
+  color: black;
+  padding: 0.5vh 0vw 0.5vh 0vw;
+  margin: 0vh 1vw 0vh 3vw;
+}
+
+.MiddleBar_SaveButton {
+  border: transparent;
+  fill: #088e80;
+  background-color: #088e80;
+  border-radius: 20px;
+  font-size: 2.5vh;
+  font-weight: 600;
+  color: white;
+  padding: 0.5vh 1vw 0.5vh 1vw;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  overflow: overlay;
+  position: absolute;
+  opacity: 30%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  background: light-gray;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,47 @@
+/** @format */
+
+.SideBar_Base {
+  border-right: 1px solid;
+  background-color: white;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.SideBar_LogoBox {
+  background-color: #088e80;
+  position: absolute;
+  top: 94%;
+  left: 0%;
+  height: 6%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.SideBar_LogoBox_Logo {
+  height: 80%;
+  padding-left: 1vw;
+}
+
+.SideBar_LogoBox_TextCol {
+  display: flex;
+  flex-flow: column;
+  justify-content: left;
+  padding-right: 1vw;
+}
+
+.SideBar_LogoBox_ProductName {
+  color: white;
+  font-size: 2vh;
+  font-weight: bold;
+  padding: 0vh;
+}
+
+.SideBar_LogoBox_VersionText {
+  color: white;
+  font-size: 1.5vh;
+  padding: 0vh;
+}
