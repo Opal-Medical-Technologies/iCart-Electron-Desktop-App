@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {selectMed} from '../../../Store/MedSlice/MedSlice';
-import "./MedPreview.css";
+import "./PreviewPane.css";
 
 const mapStateToProps = state => ({
     medData: state.med.medList[state.med.currentMedId]

@@ -1,16 +1,14 @@
 import React from 'react';
-import "./Edit.css";
 
-import SideBar from "./Components/SideBar/SideBar.js";
-import MiddleBar from "./Components/MiddleBar/MiddleBar.js";
+import './EditPage.css';
+import PreviewPane from './PreviewPane/PreviewPane';
 
-
-export function Edit() {
+export default function EditPage() {
     return (
-        <div className = "Edit_Base">
-            <div className = "Edit_LeftPanel"><SideBar versionText = "Version: TEST"/></div>
-            <div className = "Edit_CenterPanel"><MiddleBar/></div>
-            <div className = "Edit_RightPanel">
+        <div className = 'EditPage_Base'>
+            <div className = 'EditPage_CenterPanel'></div>
+            <div className = 'EditPage_RightPanel'>
+                <PreviewPane/>
             </div>
         </div>
     )

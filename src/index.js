@@ -8,9 +8,10 @@ import store from './Store/Store';
 import './index.css';
 import NavigationBar from './Content/Root/NavigationBar';
 import SideBar from './Content/Root/SideBar';
-import PreviewPage from './Content/PreviewPage/PreviewPage'
-import HomePage from './Content/HomePage/HomePage'
-import ExportPage from './Content/ExportPage/ExportPage'
+import PreviewPage from './Content/PreviewPage/PreviewPage';
+import HomePage from './Content/HomePage/HomePage';
+import ExportPage from './Content/ExportPage/ExportPage';
+import EditPage from './Content/EditPage/EditPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             <Route path = '/preview' component = {PreviewPage} />
             <Route path = '/export' component = {ExportPage} />
+            <Route path = '/edit' component = {EditPage} />
             <Route path = '/' component = {HomePage} />
           </Switch>
         </div>

@@ -1,6 +1,7 @@
 /** @format */
 
 .SideBar_Base {
+  border-right: 1px solid;
   background-color: white;
   position: absolute;
   height: 100%;
