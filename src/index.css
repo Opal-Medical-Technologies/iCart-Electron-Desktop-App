@@ -8,10 +8,18 @@
   width: 100%;
 }
 
-.Index_BottomPanel {
+.Index_SidePanel {
   position: fixed;
   top: 5%;
   left: 0%;
   height: 95%;
-  width: 100%;
+  width: 15%;
+}
+
+.Index_BottomPanel {
+  position: fixed;
+  top: 5%;
+  right: 0%;
+  height: 95%;
+  width: 85%;
 }
