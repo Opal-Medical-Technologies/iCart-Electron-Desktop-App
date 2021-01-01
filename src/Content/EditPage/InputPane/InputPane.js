@@ -8,18 +8,7 @@ import {
     updateMedUnits,
     updateMedConc,
     addDosageSet,
-    deleteDosageSet,
     updateDosageWeights,
-    updateFirstDosageWeightScale,
-    addFirstDosageButton,
-    deleteFirstDosageButton,
-    updateFirstDosageButton,
-    addSequentialDosage,
-    deleteSequentialDosage,
-    updateSequentialDosageWeightScale,
-    addSequentialDosageButton,
-    deleteSequentialDosageButton,
-    updateSequentialDosageButton,
 
     addConstraintsSet,
     deleteConstraintsSet,
@@ -42,12 +31,10 @@ import {
     updateNotesWeights,
     updateNotesText,
 } from '../../../Store/MedSlice/MedSlice';
-import { render } from '@testing-library/react';
+import RenderWeightsToggle from './RenderWeightsToggle';
+import DosageButtonInput from './DosageButtonInput';
 
 const UNITS = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
-const WEIGHTS = ["3", "4", "5", "6-7", "8-9", "10-11", "12-14", "15-18", "19-23", "24-29", "30-36"]
-const BUTTON_COLORS = ["grey", "grey", "grey", "pink", "red", "purple", "yellow", "white", "blue", "orange", "green"]
-const TEXT_COLORS = ["white", "white", "white", "white", "white", "white", "black", "black", "white", "white", "white"]
 
 
 export default function InputPane() {
@@ -146,7 +133,7 @@ function ConstraintsBox(props) {
                 </div>
                 <hr className="InputPane_WidgetBox_Divider"/>
             </div>
-            <button className="InputPane_WidgetBox_PlusButton">
+            <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addConstraintsSet())}>
                 +
             </button>
         </div>
@@ -162,175 +149,9 @@ function NotesBox(props) {
                 </div>
                 <hr className="InputPane_WidgetBox_Divider"/>
             </div>
-            <button className="InputPane_WidgetBox_PlusButton">
+            <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addNotesSet())}>
                 +
             </button>
         </div>
     )
-}
-
-
-
-class RenderWeightsToggle extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showMenu: false,
-        }
-    }
-
-    render() {
-        let activeWeights = [];
-    
-        for (let i = 0; i < this.props.weights.length; ++i) {
-            if (this.props.weights[i]) {
-                activeWeights.push(
-                    <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
-                        {WEIGHTS[i] + "kg"}
-                    </div>
-                );
-            }
-        }
-    
-        return (
-            <div className = "InputPane_WeightSelectionWrapper">
-                <div className = "InputPane_SelectedWeights">
-                    {
-                        this.state.showMenu ? (
-                            <div>
-                                {this.props.weights.map((weightBool, index) => (
-                                    <div className="InputPane_WeightSelectCheckboxWrapper" style={{"backgroundColor": BUTTON_COLORS[index], "color": TEXT_COLORS[index]}}>
-                                        <input className = "InputPane_WeightSelectCheckbox" type="checkbox" checked={weightBool} onClick={() => this.props.dispatch(this.props.updateWeightsFunction({
-                                            setIndex: this.props.setIndex,
-                                            weightIndex: index,
-                                            weight: !weightBool
-                                        }))}/>
-                                        <div className = "InputPane_WeightSelectCheckboxDisplay">
-                                            {WEIGHTS[index] + "kg"}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )
-                        : activeWeights
-                    }
-                </div>
-                <div className = "InputPane_WeightSelector">
-                    <button className = "InputPane_WeightSelectorButton" onClick={() => this.setState({showMenu: !this.state.showMenu})}>
-                        {this.state.showMenu ? "Done" : "Edit"}
-                    </button>
-                </div>
-            </div>
-        )
-    }
-}
-
-class DosageButtonInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showMenu: false,
-        }
-    }
-
-    renderDosageButtons(amounts, weightScale, first) {
-        let updateButton, deleteButton, addButton, updateWeightScale;
-        if (first) {
-            updateButton = updateFirstDosageButton;
-            deleteButton = deleteFirstDosageButton;
-            addButton = addFirstDosageButton;
-            updateWeightScale = updateFirstDosageWeightScale;
-        }
-        else {
-            updateButton = updateSequentialDosageButton;
-            deleteButton = deleteSequentialDosageButton;
-            addButton = addSequentialDosageButton;
-            updateWeightScale = updateSequentialDosageWeightScale;
-        }
-
-        return (
-            <div className="InputPane_DosageInputTextWrapper">
-            {amounts.map((dose, index) => (
-                <div className="InputPane_DosageInput">
-                    <input className="InputPane_DosageInputText" type ='text' value = {dose} onChange = {e => this.props.dispatch(updateButton({setIndex: this.props.setIndex, updateIndex: index, amount: e.target.value}))} style={{ width: "2.75vw", textAlign: 'center'} }/>
-                    <button className="InputPane_DeleteDosageButton" onClick={() => this.props.dispatch(deleteButton({setIndex: this.props.setIndex, deleteIndex: index}))}>
-                    x
-                    </button>
-                </div>
-            ))}
-            {
-                (this.props.first.amounts.length < 6) ? (
-                    <button className="InputPane_AddDosageInputButton" onClick={() => this.props.dispatch(addButton(this.props.setIndex))}>
-                    +
-                    </button>
-                )
-                : (
-                    null
-                )
-            }
-            <button className="InputPane_WeightScaleButton" onClick={() => this.props.dispatch(updateWeightScale({setIndex: this.props.setIndex, weightScale: !weightScale}))}>
-                {(weightScale) ? "mg/kg" : "mg"}
-            </button>
-        </div>
-        )
-    }
-
-    render() {
-        return (
-            <div className="InputPane_DosageButtonInputWrapper">
-                <div className="InputPane_DosageButtons">
-                    {
-                        (this.props.sequential==null) ? (
-                            <div>
-                                <div className="InputPane_DosageButtonText">
-                                    Dosages:
-                                </div>
-                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
-                            </div>
-                        )
-                        : (
-                            <div>
-                                <div className="InputPane_DosageButtonText">
-                                    First Dosages:
-                                </div>
-                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
-                                <div className="InputPane_DosageButtonText">
-                                    Sequential Dosages:
-                                </div>
-                                {this.renderDosageButtons(this.props.sequential.amounts, this.props.sequential.weightScale, false)}
-                            </div>
-                        )
-                    }
-                </div>
-                <div className="InputPane_DosageOptions">
-                    <button className="InputPane_DosageOptionsButton" onClick={() => this.setState({showMenu: !this.state.showMenu})}>
-                        . . .
-                    </button>
-                    {
-                        (this.state.showMenu) ? (
-                            <div className="InputPane_DosageOptionDropdown">
-                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
-                                {this.props.dispatch(deleteDosageSet(this.props.setIndex));
-                                this.setState({showMenu: !this.state.showMenu});}
-                                }>
-                                    Delete
-                                </button>
-                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
-                                    {
-                                        (this.props.sequential==null) ? this.props.dispatch(addSequentialDosage(this.props.setIndex)) : this.props.dispatch(deleteSequentialDosage(this.props.setIndex));
-                                        this.setState({showMenu: !this.state.showMenu});
-                                    }
-                                }>
-                                    {(this.props.sequential==null) ? "Add Sequential" : "Remove Sequential"}
-                                </button>
-                            </div>
-                        )
-                        : (
-                            null
-                        )
-                    }
-                </div>
-            </div>
-        )
-    }
 }

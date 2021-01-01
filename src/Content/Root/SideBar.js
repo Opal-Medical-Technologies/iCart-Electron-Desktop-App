@@ -19,7 +19,7 @@ function LogoBox() {
             <img className = 'SideBar_LogoBox_Logo' src = '/images/Logo.png'/>
             <div className = 'SideBar_LogoBox_TextCol'>
                 <text className = 'SideBar_LogoBox_ProductName'>CalcVue</text>
-                <text className = 'SideBar_LogoBox_VersionText'>{'Version: 1.201227'}</text>
+                <text className = 'SideBar_LogoBox_VersionText'>{'Version: Test'}</text>
             </div>
         </div>
     )
