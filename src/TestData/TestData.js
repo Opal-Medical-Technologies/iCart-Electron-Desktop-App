@@ -41,9 +41,9 @@ export const testState1 = {
             ],
             constraints: [
                 {
-                    smin: null,
-                    smax: null,
-                    cmin: null,
+                    smin: "15",
+                    smax: "12",
+                    cmin: "0.2",
                     cmax: null,
                     weights: Array(11).fill(true),
                 }
@@ -59,7 +59,7 @@ export const testState1 = {
                 },
                 {
                     note: "Test note 3 Test note 3...",
-                    weights: Array(11).fill(true)
+                    weights: [true, true, true, false, true, true, false, false, false, true, true]
                 }
             ],
         },

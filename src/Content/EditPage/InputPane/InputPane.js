@@ -132,6 +132,11 @@ function ConstraintsBox(props) {
                     Constraints:
                 </div>
                 <hr className="InputPane_WidgetBox_Divider"/>
+                {props.medData.constraints.map((constraint, index) => (
+                        <div>
+                            <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} dispatch={props.dispatch} setIndex={index}/>
+                        </div>
+                ))}
             </div>
             <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addConstraintsSet())}>
                 +
@@ -148,6 +153,11 @@ function NotesBox(props) {
                     Notes:
                 </div>
                 <hr className="InputPane_WidgetBox_Divider"/>
+                {props.medData.notes.map((note, index) => (
+                        <div>
+                            <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} dispatch={props.dispatch} setIndex={index}/>
+                        </div>
+                ))}
             </div>
             <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addNotesSet())}>
                 +
