@@ -74,11 +74,11 @@
 }
 
 .InputPane_SelectedWeights {
-  width: 90%;
+  width: 85%;
 }
 
 .InputPane_WeightSelector {
-  width: 10%;
+  width: 15%;
 }
 
 .InputPane_WeightSelectorButton {
@@ -86,10 +86,6 @@
   border-radius: 10px;
   background-color: grey;
   color: white;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-top: 7.5%;
-  padding-bottom: 7.5%;
 }
 
 .InputPane_WeightSelectorButton:hover {
@@ -160,178 +156,78 @@ InputPane_InputPane_WeightSelectCheckbox {
   font-size: 150%;
 }
 
-
-
-.DosageConfigurationTitle{
-  position: absolute;
-  top: 30.7%;
-  left: 3.6%; /* left: 17.5%, 4.8611111 multiplier */
-  font-size: calc(.93vh + 1.13vw);
-  font-weight: 600;
+/*DosageButtonInput Styling*/
+.InputPane_DosageButtonInputWrapper {
+  display: flex;
+  align-items: center;
 }
 
-.FirstDosageTitle{
-  position: absolute;
-  left: 3.6%;
-  top: 37.1%;
-  font-weight: 400;
-  font-size: calc(.93vh + 1.13vw);
+.InputPane_DosageButtons {
+  width: 85%;
 }
 
-.FirstDosageText{
-  position: absolute;
-  top: 37.2%;
-  left: 14.5%;
+.InputPane_DosageOptions {
+  width: 15%;
 }
 
-.FirstDosageText input{
-  height: 5.5vh;
+.InputPane_DosageOptionsButton {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+  padding-top: 0;
 }
 
-.FirstDosageUnits{
-  position: absolute;
-  left: 24.0%;
-  top: 37.6%;    
-  font-size: calc(.8vh + 1vw);
+.InputPane_DosageOptionsButton:hover {
+  background-color: white;
+  color: grey;
 }
 
-.SubsequentTitle{
-  position: absolute;
-  top: 37.1%;
-  left: 38.5%;
-  font-weight: 400;
-  font-size: calc(.93vh + 1.13vw);
+.InputPane_DosageButtonText {
+  font-size: 125%;
+  margin-left: 1%;
 }
 
-.SubsequentDosageText{
-  position: absolute;
-  top: 37.2%;
-  left: 62%;
+.InputPane_DosageInputTextWrapper {
+  display: flex;
 }
 
-.SubsequentDosageText input{
-  height: 5.5vh;
+.InputPane_DosageInput {
+  margin-left: 1%;
+  display: flex;
 }
 
-.SubsequentDosageUnits{
-  position: absolute;
-  top: 37.6%;
-  left: 71.5%;
-  font-size: calc(.8vh + 1vw)
+.InputPane_DosageInputText {
+  height: 3vw;
 }
 
-.ConstraintsTitle{
-  position: absolute;
-  top: 45.3%;
-  left: 3.6%;
-  font-size: calc(.93vh + 1.13vw);
-  font-weight: 600;
+.InputPane_AddDosageInputButton {
+  margin-left: 1%;
+  background-color: white;
+  font-size: 150%;
+  border: 2px solid;
+  border-radius: 20px;
 }
 
-.SingleDoseHeader {
-  position: absolute;
-  top: 50.8%;
-  left: 3.6%;
-  font-weight: 400;
-  font-size: calc(.93vh + 1.13vw);
+.InputPane_DeleteDosageButton {
+  height: 3vw;
+  background-color: white;
+  border: 1px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-.SingleMin {
-  position: absolute;
-  top: 50.8%;
-  left: 25.8%;
-}
-.SingleMax {
-  position: absolute;
-  top: 50.8%;
-  left: 57.0%;
-}
-.CumlDoseHeader {
-  position: absolute;
-  top: 57.3%;
-  left: 3.6%;
-  font-weight: 400;
-  font-size: calc(.93vh + 1.13vw);
-}
-.CumlMin {
-  position: absolute;
-  top: 57.3%;
-  left: 25.8%;
-}
-.CumlMax {
-  position: absolute;
-  top: 57.3%;
-  left: 57.0%
-}
-.NotesHeader {
-  position: absolute;
-  top: 64.0%;
-  left: 3.6%;
-  font-size: calc(.93vh + 1.13vw);
-  font-weight: 600;
-}
-.NotesLines {
-  position: absolute;
-  top: 69.5%;
-  left: 3.6%;
-  width: 44.8vw;
-  font-size: calc(1vh + 1vw);
+.InputPane_DeleteDosageButton:hover {
+  background-color: red;
 }
 
-input:focus{
-  outline: none;
-}
-.HistoryTracking {
-  position: absolute;
-  top: 96%;
-  left: 3.6%;
-  border-style: solid;
-  border-color: gray;
-  border-width: .3vh;
-  height: 6.5vh;
-  width: 40.3vw;
-  font-weight: 600;
-  font-size: calc(.5vh + 1.02vw);
-}
-.HistoryTracking input {
-  margin: 1.91%;
-  width: 2vh;
-  height: 2vh;
-}
-.AdditionalInformation {
-  position: absolute;
-  top: 105%;
-  left: 3.6%;
-  border-style: solid;
-  border-color: gray;
-  border-width: .3vh;
-  height: 6.5vh;
-  width: 40.3vw;
-  font-weight: 600;
-  font-size: calc(.5vh + 1.02vw);
-}
-.AdditionalInformation input {
-  margin: 1.91%;
-  width: 2vh;
-  height: 2vh;
-}
-.bottomPadding{
-  position: absolute;
-  top: 111%;
-  height: 4%;
-  border-style: solid;
-  border-color: white;
+.InputPane_AddDosageInputButton:hover {
+  background-color: green;
+  color: white;
 }
 
-.Background{
-  position: fixed;
-  right: 0;
-  top: 5.185185%;
-  height: 100%;
-  width: 38.8%;
-  background-color: #F8F8F8;
-}
 
+/*Unit Buttons Styling*/
 .Inactive-Unit-Button{
   background-color: white;
   color: black;
