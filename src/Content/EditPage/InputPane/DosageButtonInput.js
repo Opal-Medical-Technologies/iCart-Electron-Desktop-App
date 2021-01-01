@@ -59,7 +59,7 @@ class DosageButtonInput extends React.Component {
                 )
             }
             <button className="InputPane_WeightScaleButton" onClick={() => this.props.dispatch(updateWeightScale({setIndex: this.props.setIndex, weightScale: !weightScale}))}>
-                {(weightScale) ? "mg/kg" : "mg"}
+                {(weightScale) ? this.props.units + "/kg" : this.props.units}
             </button>
         </div>
         )

@@ -22,7 +22,7 @@ class RenderWeightsToggle extends React.Component {
             if (this.props.weights[i]) {
                 activeWeights.push(
                     <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
-                        {WEIGHTS[i] + "kg"}
+                        {WEIGHTS[i]}
                     </div>
                 );
             }
@@ -54,7 +54,7 @@ class RenderWeightsToggle extends React.Component {
                                             weight: !weightBool
                                         }))}/>
                                         <div className = "InputPane_WeightSelectCheckboxDisplay">
-                                            {WEIGHTS[index] + "kg"}
+                                            {WEIGHTS[index]}
                                         </div>
                                     </div>
                                 ))}
