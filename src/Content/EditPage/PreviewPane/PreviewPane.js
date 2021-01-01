@@ -60,6 +60,9 @@ class PreviewPane extends React.Component{
     }
 
     dosageButtons(dosageList) {
+        if (dosageList.length == 0) {
+            return null;
+        }
         if (dosageList.length == 1) {
             return (<div style={{"font-size": "20px"}}>
                 {dosageList[0] + ' ' + this.props.medData.units + '/mL'}

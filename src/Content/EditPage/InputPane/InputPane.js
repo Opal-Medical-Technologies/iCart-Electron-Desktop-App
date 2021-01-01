@@ -116,7 +116,7 @@ function DosageBox(props) {
                 {props.medData.dosages.map((dosage, index) => (
                         <div>
                             <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} updateAllWeightsFunction={updateDosageWeightsAll} dispatch={props.dispatch} setIndex={index}/>
-                            <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index}/>
+                            <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index} length={props.medData.dosages.length}/>
                         </div>
                 ))}
             </div>

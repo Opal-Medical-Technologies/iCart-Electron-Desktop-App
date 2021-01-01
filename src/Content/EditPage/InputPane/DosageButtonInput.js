@@ -99,12 +99,14 @@ class DosageButtonInput extends React.Component {
                     {
                         (this.state.showMenu) ? (
                             <div className="InputPane_DosageOptionDropdown">
-                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
-                                {this.props.dispatch(deleteDosageSet(this.props.setIndex));
-                                this.setState({showMenu: !this.state.showMenu});}
-                                }>
-                                    Delete
-                                </button>
+                                {(this.props.length > 1) ? (
+                                    <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
+                                    {this.props.dispatch(deleteDosageSet(this.props.setIndex));
+                                    this.setState({showMenu: !this.state.showMenu});}
+                                    }>
+                                        Delete
+                                    </button>
+                                ) : (null)}
                                 <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
                                     {
                                         (this.props.sequential==null) ? this.props.dispatch(addSequentialDosage(this.props.setIndex)) : this.props.dispatch(deleteSequentialDosage(this.props.setIndex));
