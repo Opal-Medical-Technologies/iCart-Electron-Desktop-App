@@ -26,6 +26,15 @@ export const medSlice = createSlice({
         */
         updateCurrent: (state, action) => MainReducers.updateCurrentReducer(state, action.payload),
         /*
+        * Effects: Adds a new medication
+        */
+        addMedication: (state) => MainReducers.addMedicationReducer(state),
+        /*
+        * Effects: Deletes the medication with corresponding index deletIndex
+        * Parameters: (int) deleteIndex, the index in medList to be deleted.
+        */
+        deleteMedication: (state, action) => MainReducers.deleteMedicationReducer(state, action.payload),
+        /*
         * Effects: Updates the name of currently active medication.
         * Parameters: (string) name, the updated name
         */
@@ -296,7 +305,9 @@ export const medSlice = createSlice({
 export const selectInfo = state => state.med;
 export const selectMed = state => state.med.medList[state.med.currentMedId];
 export const {
-    updateCurrent, 
+    updateCurrent,
+    addMedication,
+    deleteMedication,
     updateMedName, 
     updateMedUnits,
     updateMedConc,
