@@ -17,6 +17,10 @@ function updateDosageWeightsReducer(dosages, setIndex, weightIndex, weight) {
     dosages[setIndex].weights[weightIndex] = weight;
 }
 
+function updateDosageWeightsAllReducer(dosages, setIndex, value) {
+    dosages[setIndex].weights = Array(11).fill(value);
+}
+
 function updateFirstDosageWeightScaleReducer(dosages, setIndex, weightScale) {
     dosages[setIndex].first.weightScale = weightScale;
 }
@@ -64,6 +68,7 @@ export default {
     addDosageSetReducer,
     deleteDosageSetReducer,
     updateDosageWeightsReducer,
+    updateDosageWeightsAllReducer,
     updateFirstDosageWeightScaleReducer,
     addFirstDosageButtonReducer,
     deleteFirstDosageButtonReducer,

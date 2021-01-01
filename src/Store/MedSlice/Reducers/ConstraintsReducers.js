@@ -12,8 +12,12 @@ function deleteConstraintsSetReducer(constraints, deleteIndex) {
     constraints.splice(deleteIndex, 1);
 }
 
-function updateConstraintsWeightsReducer(constraints, setIndex, weights) {
-    constraints[setIndex].weights = weights;
+function updateConstraintsWeightsReducer(constraints, setIndex, weightIndex, weight) {
+    constraints[setIndex].weights[weightIndex] = weight;
+}
+
+function updateConstraintsWeightsAllReducer(constraints, setIndex, value) {
+    constraints[setIndex].weights = Array(11).fill(value);
 }
 
 function addSingleMinConstraintReducer(constraints, setIndex) {
@@ -68,6 +72,7 @@ export default {
     addConstraintsSetReducer,
     deleteConstraintsSetReducer,
     updateConstraintsWeightsReducer,
+    updateConstraintsWeightsAllReducer,
     addSingleMinConstraintReducer,
     addSingleMaxConstraintReducer,
     addCumulativeMinConstraintReducer,

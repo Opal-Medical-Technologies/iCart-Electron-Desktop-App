@@ -9,10 +9,12 @@ import {
     updateMedConc,
     addDosageSet,
     updateDosageWeights,
+    updateDosageWeightsAll,
 
     addConstraintsSet,
     deleteConstraintsSet,
     updateConstraintsWeights,
+    updateConstraintsWeightsAll,
     addSingleMinConstraint,
     addSingleMaxConstraint,
     addCumulativeMinConstraint,
@@ -29,6 +31,7 @@ import {
     addNotesSet,
     deleteNotesSet,
     updateNotesWeights,
+    updateNotesWeightsAll,
     updateNotesText,
 } from '../../../Store/MedSlice/MedSlice';
 import RenderWeightsToggle from './RenderWeightsToggle';
@@ -112,7 +115,7 @@ function DosageBox(props) {
                 <hr className="InputPane_WidgetBox_Divider"/>
                 {props.medData.dosages.map((dosage, index) => (
                         <div>
-                            <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} dispatch={props.dispatch} setIndex={index}/>
+                            <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} updateAllWeightsFunction={updateDosageWeightsAll} dispatch={props.dispatch} setIndex={index}/>
                             <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index}/>
                         </div>
                 ))}
@@ -134,7 +137,7 @@ function ConstraintsBox(props) {
                 <hr className="InputPane_WidgetBox_Divider"/>
                 {props.medData.constraints.map((constraint, index) => (
                         <div>
-                            <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} dispatch={props.dispatch} setIndex={index}/>
+                            <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} updateAllWeightsFunction={updateConstraintsWeightsAll} dispatch={props.dispatch} setIndex={index}/>
                             <div className = "InputPane_Constraints">
                                 <div className="InputPane_ConstraintsBlockWrapper">
                                     <div className="InputPane_ConstraintsRowWrapper">
@@ -180,7 +183,7 @@ function NotesBox(props) {
                 {props.medData.notes.map((note, index) => (
                     <div>
                         <div>
-                            <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} dispatch={props.dispatch} setIndex={index}/>
+                            <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} updateAllWeightsFunction={updateNotesWeightsAll} dispatch={props.dispatch} setIndex={index}/>
                         </div>
                         <div className="InputPane_NotesBlock">
                             <div className="InputPane_NotesBlockText">

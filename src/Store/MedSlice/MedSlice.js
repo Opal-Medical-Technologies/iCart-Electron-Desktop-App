@@ -66,6 +66,14 @@ export const medSlice = createSlice({
         */
         updateDosageWeights: (state, action) => DosageReducers.updateDosageWeightsReducer(state.medList[state.currentMedId].dosages, action.payload.setIndex, action.payload.weightIndex, action.payload.weight),
         /*
+        * Effects: Selects all weights (to true) for selected setIndex.
+        * Parameters: {
+        *   setIndex: (int) The index of the dosage set to be modified.
+        *   value: (bool) the updated value.
+        * }
+        */
+        updateDosageWeightsAll: (state, action) => DosageReducers.updateDosageWeightsAllReducer(state.medList[state.currentMedId].dosages, action.payload.setIndex, action.payload.value),
+        /*
         * Effects: Updates whether weight scaling is used when calculating dosages for first dosages.
         * Parameters: {
         *   setIndex: (int) The index of the dosage set to be modified.
@@ -154,11 +162,20 @@ export const medSlice = createSlice({
         /*
         * Effects: Updates the weight ranges for a constraints set.
         * Parameters: {
-        *   setIndex: (int) The index of the constraints set to be modified.
-        *   weights: (list of booleans) The updated weights array.
+        *   setIndex: (int) The index of the dosage set to be modified.
+        *   weightIndex: (int) The index of the weight to be updated.
+        *   weight: (bool) The updated weight.
         * }
         */
-        updateConstraintsWeights: (state, action) => ConstraintsReducers.updateConstraintsWeightsReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.weights),
+        updateConstraintsWeights: (state, action) => ConstraintsReducers.updateConstraintsWeightsReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.weightIndex, action.payload.weight),
+        /*
+        * Effects: Selects all weights (to true) for selected setIndex.
+        * Parameters: {
+        *   setIndex: (int) The index of the dosage set to be modified.
+        *   value: (bool) the updated value.
+        * }
+        */
+        updateConstraintsWeightsAll: (state, action) => ConstraintsReducers.updateConstraintsWeightsAllReducer(state.medList[state.currentMedId].constraints, action.payload.setIndex, action.payload.value),
         /*
         * Effects: Activates the single minimum constraint and sets it to an empty string.
         * Parameters: (int) setIndex, the index of the constraints set to be updated.
@@ -251,11 +268,20 @@ export const medSlice = createSlice({
         /*
         * Effects: Updates the weight ranges for a notes set.
         * Parameters: {
-        *   setIndex: (int) The index of the notes set to be modified.
-        *   weights: (list of booleans) The updated weights array.
+        *   setIndex: (int) The index of the dosage set to be modified.
+        *   weightIndex: (int) The index of the weight to be updated.
+        *   weight: (bool) The updated weight.
         * }
         */
-        updateNotesWeights: (state, action) => NotesReducers.updateNotesWeightsReducer(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.weights),
+        updateNotesWeights: (state, action) => NotesReducers.updateNotesWeightsReducer(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.weightIndex, action.payload.weight),
+        /*
+        * Effects: Selects all weights (to true) for selected setIndex.
+        * Parameters: {
+        *   setIndex: (int) The index of the dosage set to be modified.
+        *   value: (bool) the updated value.
+        * }
+        */
+        updateNotesWeightsAll: (state, action) => NotesReducers.updateNotesWeightsAllReducer(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.value),
         /*
         * Effects: Updates the note text for a notes set.
         * Parameters: {
@@ -278,6 +304,7 @@ export const {
     addDosageSet,
     deleteDosageSet,
     updateDosageWeights,
+    updateDosageWeightsAll,
     updateFirstDosageWeightScale,
     addFirstDosageButton,
     deleteFirstDosageButton,
@@ -292,6 +319,7 @@ export const {
     addConstraintsSet,
     deleteConstraintsSet,
     updateConstraintsWeights,
+    updateConstraintsWeightsAll,
     addSingleMinConstraint,
     addSingleMaxConstraint,
     addCumulativeMinConstraint,
@@ -308,6 +336,7 @@ export const {
     addNotesSet,
     deleteNotesSet,
     updateNotesWeights,
+    updateNotesWeightsAll,
     updateNotesText,
 } = medSlice.actions;
 export default medSlice.reducer;
