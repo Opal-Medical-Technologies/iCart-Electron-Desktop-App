@@ -5,11 +5,26 @@
   overflow-y: scroll;
 }
 
+
+/*WidgetBox styling*/
 .InputPane_WidgetBox {
   margin: auto;
   margin-top: 2%;
   width: 95%;
   border-radius: 25px;
+  border: 2px solid;
+}
+
+.InputPane_WidgetBox_Wrapper {
+  margin: auto;
+  margin-top: 2%;
+  width: 95%;
+}
+
+.InputPane_WidgetBox_Plus {
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
   border: 2px solid;
 }
 
@@ -29,8 +44,81 @@
 }
 
 .InputPane_WidgetBox_PlusButton {
-  
+  text-align: center;
+  width: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #088e80;
+  color: white;
 }
+
+.InputPane_WidgetBox_PlusButton:hover {
+  background-color: #5bbbb1;
+  color: black;
+}
+
+/*WeightSelection styling*/
+.InputPane_WeightSelectionWrapper {
+  display: flex;
+  align-items: center;
+}
+.InputPane_SelectedWeight {
+  display: inline-block;
+  margin: 0.5%;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.InputPane_SelectedWeights {
+  width: 90%;
+}
+
+.InputPane_WeightSelector {
+  width: 10%;
+}
+
+.InputPane_WeightSelectorButton {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
+}
+
+.InputPane_WeightSelectorButton:hover {
+  background-color: white;
+  color: grey;
+}
+
+.InputPane_WeightSelectCheckboxWrapper {
+  display: inline-block;
+  margin: 0.5%;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 1%;
+  padding-right: 2%;
+}
+
+InputPane_InputPane_WeightSelectCheckbox {
+  display: inline-block;
+}
+
+.InputPane_WeightSelectCheckboxDisplay {
+  display: inline-block;
+  margin-left: 5%;
+}
+
+
+
 
 
 /*TitleBox styling*/

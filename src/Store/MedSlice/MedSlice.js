@@ -60,10 +60,11 @@ export const medSlice = createSlice({
         * Effects: Updates the weight ranges for a dosage set.
         * Parameters: {
         *   setIndex: (int) The index of the dosage set to be modified.
-        *   weights: (list of booleans) The updated weights array.
+        *   weightIndex: (int) The index of the weight to be updated.
+        *   weight: (bool) The updated weight.
         * }
         */
-        updateDosageWeights: (state, action) => DosageReducers.updateDosageWeightsReducer(state.medList[state.currentMedId].dosages, action.payload.setIndex, action.payload.weights),
+        updateDosageWeights: (state, action) => DosageReducers.updateDosageWeightsReducer(state.medList[state.currentMedId].dosages, action.payload.setIndex, action.payload.weightIndex, action.payload.weight),
         /*
         * Effects: Updates whether weight scaling is used when calculating dosages for first dosages.
         * Parameters: {
