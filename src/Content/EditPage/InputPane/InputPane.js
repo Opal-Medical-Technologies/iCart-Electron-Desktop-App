@@ -15,6 +15,7 @@ import {
     deleteFirstDosageButton,
     updateFirstDosageButton,
     addSequentialDosage,
+    deleteSequentialDosage,
     updateSequentialDosageWeightScale,
     addSequentialDosageButton,
     deleteSequentialDosageButton,
@@ -241,8 +242,8 @@ class DosageButtonInput extends React.Component {
         }
         else {
             updateButton = updateSequentialDosageButton;
-            deleteButton = deleteFirstDosageButton;
-            addButton = addFirstDosageButton;
+            deleteButton = deleteSequentialDosageButton;
+            addButton = addSequentialDosageButton;
         }
 
         return (
@@ -302,7 +303,22 @@ class DosageButtonInput extends React.Component {
                     </button>
                     {
                         (this.state.showMenu) ? (
-                            <div></div>
+                            <div className="InputPane_DosageOptionDropdown">
+                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
+                                {this.props.dispatch(deleteDosageSet(this.props.setIndex));
+                                this.setState({showMenu: !this.state.showMenu});}
+                                }>
+                                    Delete
+                                </button>
+                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
+                                    {
+                                        (this.props.sequential==null) ? this.props.dispatch(addSequentialDosage(this.props.setIndex)) : this.props.dispatch(deleteSequentialDosage(this.props.setIndex));
+                                        this.setState({showMenu: !this.state.showMenu});
+                                    }
+                                }>
+                                    {(this.props.sequential==null) ? "Add Sequential" : "Remove Sequential"}
+                                </button>
+                            </div>
                         )
                         : (
                             null

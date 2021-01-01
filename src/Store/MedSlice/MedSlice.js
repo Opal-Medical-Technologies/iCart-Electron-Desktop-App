@@ -99,7 +99,7 @@ export const medSlice = createSlice({
         * Effects: Adds dosage buttons for sequential dosages.
         * Parameters: (int) setIndex, The index of the dosage set to be modified.
         */
-        addSequentialDosage: (state, action) => DosageReducers.addSequentialDosageReducerReducer(state.medList[state.currentMedId].dosages, action.payload),
+        addSequentialDosage: (state, action) => DosageReducers.addSequentialDosageReducer(state.medList[state.currentMedId].dosages, action.payload),
         /*
         * Effects: Deletes entries for sequential dosages.
         * Parameters: (int) setIndex, The index of the dosage set to be modified.
@@ -283,6 +283,7 @@ export const {
     deleteFirstDosageButton,
     updateFirstDosageButton,
     addSequentialDosage,
+    deleteSequentialDosage,
     updateSequentialDosageWeightScale,
     addSequentialDosageButton,
     deleteSequentialDosageButton,

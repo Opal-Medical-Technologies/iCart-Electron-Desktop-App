@@ -164,10 +164,7 @@ InputPane_InputPane_WeightSelectCheckbox {
 
 .InputPane_DosageButtons {
   width: 85%;
-}
-
-.InputPane_DosageOptions {
-  width: 15%;
+  margin-bottom: 1%;
 }
 
 .InputPane_DosageOptionsButton {
@@ -226,6 +223,25 @@ InputPane_InputPane_WeightSelectCheckbox {
   color: white;
 }
 
+/*DosageOptions Styling*/
+.InputPane_DosageOptions {
+  width: 15%;
+}
+
+.InputPane_DosageOptionDropdown {
+  position: absolute;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.InputPane_DosageOptionDropdownButton {
+  border: 1px solid;
+}
+
+.InputPane_DosageOptionDropdownButton:hover {
+  background-color: grey;
+  color: white;
+}
 
 /*Unit Buttons Styling*/
 .Inactive-Unit-Button{
