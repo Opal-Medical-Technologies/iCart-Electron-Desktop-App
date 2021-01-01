@@ -1,101 +1,293 @@
-/** @format */
-
-.MiddleBar_Base {
-  width: 100%;
+.InputPane {
+  position: absolute;
+  width: 100%; /* 45.2% */
+  height: 100%;
   overflow-y: scroll;
-  padding: 2vh 2vw 2vh 2vw;
-  background-color: blue;
 }
 
-.MiddleBar_Padding {
-  
+
+/*WidgetBox styling*/
+.InputPane_WidgetBox {
+  margin: auto;
+  margin-top: 2%;
+  width: 95%;
+  border-radius: 25px;
+  border: 2px solid;
 }
 
-.MiddleBar_DrugName {
-  font-size: 5vh;
+.InputPane_WidgetBox_Wrapper {
+  margin: auto;
+  margin-top: 2%;
+  width: 95%;
+}
+
+.InputPane_WidgetBox_Plus {
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 2px solid;
+}
+
+.InputPane_WidgetBox_Title {
+  font-size: 150%;
   font-weight: 600;
-  background-color: transparent;
+  margin-left: 2.5%;
+}
+
+.InputPane_WidgetBox_Divider {
+  border-top: 5px solid #088e80;
+  border-radius: 4px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.InputPane_WidgetBox_PlusButton {
+  text-align: center;
+  width: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #088e80;
+  color: white;
+}
+
+.InputPane_WidgetBox_PlusButton:hover {
+  background-color: #5bbbb1;
+  color: black;
+}
+
+/*WeightSelection styling*/
+.InputPane_WeightSelectionWrapper {
+  display: flex;
+  align-items: center;
+}
+.InputPane_SelectedWeight {
+  display: inline-block;
+  margin: 0.5%;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.InputPane_SelectedWeights {
+  width: 85%;
+}
+
+.InputPane_WeightSelector {
+  width: 15%;
+}
+
+.InputPane_WeightSelectorButton {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+}
+
+.InputPane_WeightSelectorButton:hover {
+  background-color: white;
+  color: grey;
+}
+
+.InputPane_WeightSelectCheckboxWrapper {
+  display: inline-block;
+  margin: 0.5%;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 1%;
+  padding-right: 2%;
+}
+
+InputPane_InputPane_WeightSelectCheckbox {
+  display: inline-block;
+}
+
+.InputPane_WeightSelectCheckboxDisplay {
+  display: inline-block;
+  margin-left: 5%;
+}
+
+
+
+
+
+/*TitleBox styling*/
+.InputPane_TitleBox {
+  margin: 1%;
+}
+
+.InputPane_TitleBox_Name {
+  font-size: 200%;
+}
+
+.MedicationTitleText input {
   border: none;
 }
 
-.MiddleBar_DrugName:hover {
-  border: 1px;
+
+.InputPane_TitleBox_Divider {
+  border-top: 5px solid #088e80;
   border-radius: 5px;
-  border-color: lightgray;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
-.MiddleBar_FolderName {
-  font-size: 2.5vh;
-  color: gray;
-  margin: 0px;
+/*UnitsBox styling*/
+.InputPane_UnitsBox_UnitsTitle {
+  font-size: 150%;
+  font-weight: 600;
 }
 
-.MiddleBar_Divider {
-  color: #088e80;
-  background-color: #088e80;
-  height: 5px;
+/*ConcentrationBox styling*/
+.InputPane_ConcentrationBox_Input {
+  display: inline-block;
+  margin: 2%;
+  font-size: 150%;
 }
 
-.MiddleBar_TopPanel {
-  width: 100%;
-  max-width: 100%;
+.InputPane_ConcentrationBox_Units {
+  display: inline-block;
+  font-size: 150%;
+}
+
+/*DosageButtonInput Styling*/
+.InputPane_DosageButtonInputWrapper {
   display: flex;
-  flex-flow: row nowrap;
-  /** justify-content: space-between; */
   align-items: center;
 }
 
-.MiddleBar_TopPanel_Left {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: left;
+.InputPane_DosageButtons {
+  width: 85%;
+  margin-bottom: 1%;
 }
 
-.MiddleBar_TopPanel_Right {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.MiddleBar_DeleteButton {
-  border: transparent;
-  fill: transparent;
-  background-color: transparent;
-  font-size: 2.5vh;
-  font-weight: 600;
-  color: black;
-  padding: 0.5vh 0vw 0.5vh 0vw;
-  margin: 0vh 1vw 0vh 3vw;
-}
-
-.MiddleBar_SaveButton {
-  border: transparent;
-  fill: #088e80;
-  background-color: #088e80;
-  border-radius: 20px;
-  font-size: 2.5vh;
-  font-weight: 600;
+.InputPane_DosageOptionsButton {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
   color: white;
-  padding: 0.5vh 1vw 0.5vh 1vw;
+  padding-top: 0;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  overflow: overlay;
+.InputPane_DosageOptionsButton:hover {
+  background-color: white;
+  color: grey;
+}
+
+.InputPane_DosageButtonText {
+  font-size: 125%;
+  margin-left: 1%;
+}
+
+.InputPane_DosageInputTextWrapper {
+  display: flex;
+}
+
+.InputPane_DosageInput {
+  margin-left: 1%;
+  display: flex;
+}
+
+.InputPane_DosageInputText {
+  height: 3vw;
+}
+
+.InputPane_AddDosageInputButton {
+  margin-left: 1%;
+  background-color: white;
+  font-size: 150%;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.InputPane_DeleteDosageButton {
+  height: 3vw;
+  padding: 0;
+  width: 1vw;
+  background-color: white;
+  border: 1px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.InputPane_DeleteDosageButton:hover {
+  background-color: red;
+}
+
+.InputPane_AddDosageInputButton:hover {
+  background-color: green;
+  color: white;
+}
+
+.InputPane_WeightScaleButton {
+  margin-left: 1%;
+  background-color: white;
+  font-size: 150%;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.InputPane_WeightScaleButton:hover {
+  background-color: grey;
+  color: white;
+}
+
+/*DosageOptions Styling*/
+.InputPane_DosageOptions {
+  width: 15%;
+}
+
+.InputPane_DosageOptionDropdown {
   position: absolute;
-  opacity: 30%;
+  display: flex;
+  flex-flow: column wrap;
 }
 
-::-webkit-scrollbar-thumb {
-  background: lightgray;
-  border-radius: 5px;
+.InputPane_DosageOptionDropdownButton {
+  border: 1px solid;
 }
 
-::-webkit-scrollbar:hover {
-  background: light-gray;
+.InputPane_DosageOptionDropdownButton:hover {
+  background-color: grey;
+  color: white;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/*Unit Buttons Styling*/
+.Inactive-Unit-Button{
+  background-color: white;
+  color: black;
+  border-radius: 30px;
+  outline: none !important;
+  border-width: 1px;
+  width: 3.9vw;
+  height: 4.9vh;
+  transition: ease background-color 250ms;
+  transition: ease color 250ms;
+  margin: .8vw;
+  cursor: pointer;
+}
+
+.Inactive-Unit-Button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.Active-Unit-Button{
+  background-color: grey;
+  color: white;
+  border-radius: 30px;
+  outline: none !important;
+  border-width: 1px;
+  width: 3.9vw;
+  height: 4.9vh;
+  transition: ease background-color 250ms;
+  transition: ease color 250ms;
+  margin: .8vw;
+  cursor: pointer;
 }

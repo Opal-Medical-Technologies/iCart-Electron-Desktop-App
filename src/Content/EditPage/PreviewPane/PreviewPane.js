@@ -100,7 +100,7 @@ class PreviewPane extends React.Component{
     }
 
     notes(notesList) {
-        return (<div>
+        return (<div style={{"textAlign":"left"}}>
             {notesList.map(n => (
                 <div>{n.note}</div>
             ))}
@@ -128,18 +128,18 @@ class PreviewPane extends React.Component{
 
         return (<div className="PreviewPane">
             <div className="PreviewBox">
-                <div>
+                <div className = "HeadingBox">
                     <div className="Heading">
-                        <div className="MedName">
+                        <div style={{"font-size": "20px"}}>
                             {this.props.medData.name}
                         </div>
-                        <div className="Concentration">
+                        <div>
                             {this.props.medData.conc + " " + this.props.medData.units + "/mL"}
                         </div>
                     </div>
                     <button className="InfoButton">i</button>
                 </div>
-                <div>
+                <div className = "CenterBox">
                     <div className="NotesBlock">
                         <div style={{"text-align": "center"}}>NOTES</div>
                         {this.dosageButtons(this.props.medData.dosages[0].first.amounts)}

@@ -1,10 +1,7 @@
-import {React, useState} from 'react';
-import "./MiddleBar.css";
-// import "./Widget.css";
-// import { ConstraintsCheckbox } from './Pages/Component/MiddleBar/ConstraintsCheckbox'
-// import { NotesLine } from './Pages/Component/MiddleBar/NotesLine'
-
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+
+import "./InputPane.css";
 import { 
     selectMed,
     updateMedName, 
@@ -18,6 +15,7 @@ import {
     deleteFirstDosageButton,
     updateFirstDosageButton,
     addSequentialDosage,
+    deleteSequentialDosage,
     updateSequentialDosageWeightScale,
     addSequentialDosageButton,
     deleteSequentialDosageButton,
@@ -43,139 +41,296 @@ import {
     deleteNotesSet,
     updateNotesWeights,
     updateNotesText,
-} from '../../../../Store/MedSlice/MedSlice';
+} from '../../../Store/MedSlice/MedSlice';
+import { render } from '@testing-library/react';
 
-/*
-const units = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
+const UNITS = ['mg', 'g', 'mcg', 'mEq', 'Eq'];
+const WEIGHTS = ["3", "4", "5", "6-7", "8-9", "10-11", "12-14", "15-18", "19-23", "24-29", "30-36"]
+const BUTTON_COLORS = ["grey", "grey", "grey", "pink", "red", "purple", "yellow", "white", "blue", "orange", "green"]
+const TEXT_COLORS = ["white", "white", "white", "white", "white", "white", "black", "black", "white", "white", "white"]
 
-function renderUnitButtons(activeUnits, dispatch) {
+
+export default function InputPane() {
+    const medData = useSelector(selectMed);
+    const dispatch = useDispatch();
+    console.log(medData)
+
     return(
-        <div>
-            {units.map(unit => (
-                <button className={unit == activeUnits ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick = {() => dispatch(updateMedUnits(unit))}>
-                    {unit}
-                </button>
-            ))}
+        <div className = "InputPane">
+            {TitleBox({medData: medData, dispatch:dispatch})}
+            {UnitsBox({medData: medData, dispatch:dispatch})}
+            {ConcentrationBox({medData: medData, dispatch:dispatch})}
+            {DosageBox({medData: medData, dispatch:dispatch})}
+            {ConstraintsBox({medData: medData, dispatch:dispatch})}
+            {NotesBox({medData: medData, dispatch:dispatch})}
+        </div>
+    );
+}
+
+function TitleBox(props) {
+    return (
+        <div className="InputPane_TitleBox">
+            <input className="InputPane_TitleBox_Name" type='text' value={props.medData.name} onChange={e => props.dispatch(updateMedName(e.target.value))}/>
+            <div className="InputPane_TitleBox_FolderPath">
+                ACTIVE/MEDICATIONS
+            </div>
+            <hr className="InputPane_TitleBox_Divider"/>
         </div>
     )
 }
 
-function UnitsInput(props) {
-    const medData = useSelector(selectMed);
-    const dispatch = useDispatch();
-    return(
-        <div className = "UnitsWidgetInput">
-            {renderUnitButtons(medData.units, dispatch)}
-        </div>
-    );
-}
-
-function ConcentrationInput(props) {
-    const medData = useSelector(selectMed);
-    const dispatch = useDispatch();
-    return(
-        <div className = "ConcentrationWidgetInput">
-            <input type = 'text' value = {medData.conc} onChange = {e => dispatch(updateMedConc(e.target.value))} style={{ width: "30.57vw", textAlign: 'right' } }/>
-            <label> {medData.units}/kg</label>
-        </div>
-    );
-}
-const StandardCustomButton = ({onClick, status}) => {
+function UnitsBox(props) {
     return (
-      <button className = "StandardCustomButton" onClick={onClick}>
-        {`${status ? 'STANDARD' : 'CUSTOM'}`}
-      </button>
-    );
-  };
-
-function Widget(props) {
-
-  const [status, setStatus] = useState(true);
-  const updateStatus = () => {
-    setStatus(!status);
-  }
-
-  return(
-      <div className = "Widget">
-        <div className = "Widget_TopRow">
-          <div className = "Widget_TopRow_Left">
-            <h1 className = "Widget_Title">
-              {props.header}
-            </h1>
-          </div>
-          <div className = "Widget_TopRow_Right">
-            { props.toggle ?  
-            ( <StandardCustomButton onClick = {updateStatus} status = {status} /> ) : (<div/>)} 
-          </div>
-        </div>
-        <div className = "Widget_Divider"/>
-        { status ? ( <Child input = {props.input} /> ) : (props.toggle ? ( <Parent input = {props.input} /> ) : (<div/>)) }
-      </div> 
-  );
-
-}
-*/
-
-export default function MiddleBar() {
-    const medData = useSelector(selectMed);
-    const dispatch = useDispatch();
-    console.log(medData);
-
-    return(
-      <div className = "MiddleBar_Base">
-        <div className = "MiddleBar_Padding">
-          <div className = "MiddleBar_TopPanel">
-            <div className = "MiddleBar_TopPanel_Left">
-              <input className = "MiddleBar_DrugName"
-                    type = 'text' 
-                    value={medData.name} 
-                    onChange={e => dispatch(updateMedName(e.target.value))}
-              />
-              <text className = "MiddleBar_FolderName">ACTIVE/MEDICATIONS</text>
+        <div className="InputPane_WidgetBox">
+            <div className="InputPane_WidgetBox_Title">
+                Units:
             </div>
-            <div className = "MiddleBar_TopPanel_Right">
-                <button className = "MiddleBar_DeleteButton">DELETE</button>
-                <button className = "MiddleBar_SaveButton">SAVE</button>
+            <hr className="InputPane_WidgetBox_Divider"/>
+            <div className = "InputPane_UnitsBox_Units">
+                {UNITS.map(unit => (
+                    <button className={unit == props.medData.units ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick = {() => props.dispatch(updateMedUnits(unit))}>
+                        {unit}
+                    </button>
+                ))}
             </div>
-          </div>
-          <hr className = "MiddleBar_Divider"></hr>
-          {/* Place widgets directly here */}
         </div>
-      </div>
     )
 }
 
-function Child(props) {
-    return (props.input); 
-  }
-  
-  function Parent(props) {
-    const [lines, setLines] = useState([0]);  
+function ConcentrationBox(props) {
     return (
-      <div>
-        <div>
-        <button className = "StandardCustomButton" onClick={() => {setLines([...lines, lines.length]); }}>ADD</button>
-        </div>
-        <div>
-        {lines.map(m => <Child input = {props.input} pstate={{lines, setLines}}/>)}
-      </div>
-      </div>
-    );
-  }
+        <div className="InputPane_WidgetBox">
+            <div className="InputPane_WidgetBox_Title">
+                Concentration:
+            </div>
+            <hr className="InputPane_WidgetBox_Divider"/>
+            <div className = 'InputPane_ConcentrationBox_Input'>
+                <input type ='text' value = {props.medData.conc} onChange = {e => props.dispatch(updateMedConc(e.target.value))} style={{ width: "3.5vw", textAlign: 'center' } }/>
+            </div>
+            <div className = "InputPane_ConcentrationBox_Units">
+                {props.medData.units}/mL
+            </div>
 
-  /*
-  return(
-        <div className = "MiddleBar">
-            <div className = "MiddleBar_Title">
-            
-                <div className = "FolderPath">
-                    ACTIVE/MEDICATIONS
+        </div>
+    )
+}
+
+function DosageBox(props) {
+    return (
+        <div className="InputPane_WidgetBox_Wrapper">
+            <div className="InputPane_WidgetBox_Plus">
+                <div className="InputPane_WidgetBox_Title">
+                    Dosage:
                 </div>
-                <div className = "Divider"></div>
+                <hr className="InputPane_WidgetBox_Divider"/>
+                {props.medData.dosages.map((dosage, index) => (
+                        <div>
+                            <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} dispatch={props.dispatch} setIndex={index}/>
+                            <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index}/>
+                        </div>
+                ))}
             </div>
-            <div className = "MiddleBar_Body">
-                <Widget className = "ConcentrationWidget" header = "Units" input = {<UnitsInput/>} toggle/>
-            </div>
+            <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addDosageSet())}>
+                +
+            </button>
         </div>
-    );
-  */
+    )
+}
+
+function ConstraintsBox(props) {
+    return (
+        <div className="InputPane_WidgetBox_Wrapper">
+            <div className="InputPane_WidgetBox_Plus">
+                <div className="InputPane_WidgetBox_Title">
+                    Constraints:
+                </div>
+                <hr className="InputPane_WidgetBox_Divider"/>
+            </div>
+            <button className="InputPane_WidgetBox_PlusButton">
+                +
+            </button>
+        </div>
+    )
+}
+
+function NotesBox(props) {
+    return (
+        <div className="InputPane_WidgetBox_Wrapper">
+            <div className="InputPane_WidgetBox_Plus">
+                <div className="InputPane_WidgetBox_Title">
+                    Notes:
+                </div>
+                <hr className="InputPane_WidgetBox_Divider"/>
+            </div>
+            <button className="InputPane_WidgetBox_PlusButton">
+                +
+            </button>
+        </div>
+    )
+}
+
+
+
+class RenderWeightsToggle extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showMenu: false,
+        }
+    }
+
+    render() {
+        let activeWeights = [];
+    
+        for (let i = 0; i < this.props.weights.length; ++i) {
+            if (this.props.weights[i]) {
+                activeWeights.push(
+                    <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
+                        {WEIGHTS[i] + "kg"}
+                    </div>
+                );
+            }
+        }
+    
+        return (
+            <div className = "InputPane_WeightSelectionWrapper">
+                <div className = "InputPane_SelectedWeights">
+                    {
+                        this.state.showMenu ? (
+                            <div>
+                                {this.props.weights.map((weightBool, index) => (
+                                    <div className="InputPane_WeightSelectCheckboxWrapper" style={{"backgroundColor": BUTTON_COLORS[index], "color": TEXT_COLORS[index]}}>
+                                        <input className = "InputPane_WeightSelectCheckbox" type="checkbox" checked={weightBool} onClick={() => this.props.dispatch(this.props.updateWeightsFunction({
+                                            setIndex: this.props.setIndex,
+                                            weightIndex: index,
+                                            weight: !weightBool
+                                        }))}/>
+                                        <div className = "InputPane_WeightSelectCheckboxDisplay">
+                                            {WEIGHTS[index] + "kg"}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )
+                        : activeWeights
+                    }
+                </div>
+                <div className = "InputPane_WeightSelector">
+                    <button className = "InputPane_WeightSelectorButton" onClick={() => this.setState({showMenu: !this.state.showMenu})}>
+                        {this.state.showMenu ? "Done" : "Edit"}
+                    </button>
+                </div>
+            </div>
+        )
+    }
+}
+
+class DosageButtonInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showMenu: false,
+        }
+    }
+
+    renderDosageButtons(amounts, weightScale, first) {
+        let updateButton, deleteButton, addButton, updateWeightScale;
+        if (first) {
+            updateButton = updateFirstDosageButton;
+            deleteButton = deleteFirstDosageButton;
+            addButton = addFirstDosageButton;
+            updateWeightScale = updateFirstDosageWeightScale;
+        }
+        else {
+            updateButton = updateSequentialDosageButton;
+            deleteButton = deleteSequentialDosageButton;
+            addButton = addSequentialDosageButton;
+            updateWeightScale = updateSequentialDosageWeightScale;
+        }
+
+        return (
+            <div className="InputPane_DosageInputTextWrapper">
+            {amounts.map((dose, index) => (
+                <div className="InputPane_DosageInput">
+                    <input className="InputPane_DosageInputText" type ='text' value = {dose} onChange = {e => this.props.dispatch(updateButton({setIndex: this.props.setIndex, updateIndex: index, amount: e.target.value}))} style={{ width: "2.75vw", textAlign: 'center'} }/>
+                    <button className="InputPane_DeleteDosageButton" onClick={() => this.props.dispatch(deleteButton({setIndex: this.props.setIndex, deleteIndex: index}))}>
+                    x
+                    </button>
+                </div>
+            ))}
+            {
+                (this.props.first.amounts.length < 6) ? (
+                    <button className="InputPane_AddDosageInputButton" onClick={() => this.props.dispatch(addButton(this.props.setIndex))}>
+                    +
+                    </button>
+                )
+                : (
+                    null
+                )
+            }
+            <button className="InputPane_WeightScaleButton" onClick={() => this.props.dispatch(updateWeightScale({setIndex: this.props.setIndex, weightScale: !weightScale}))}>
+                {(weightScale) ? "mg/kg" : "mg"}
+            </button>
+        </div>
+        )
+    }
+
+    render() {
+        return (
+            <div className="InputPane_DosageButtonInputWrapper">
+                <div className="InputPane_DosageButtons">
+                    {
+                        (this.props.sequential==null) ? (
+                            <div>
+                                <div className="InputPane_DosageButtonText">
+                                    Dosages:
+                                </div>
+                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
+                            </div>
+                        )
+                        : (
+                            <div>
+                                <div className="InputPane_DosageButtonText">
+                                    First Dosages:
+                                </div>
+                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
+                                <div className="InputPane_DosageButtonText">
+                                    Sequential Dosages:
+                                </div>
+                                {this.renderDosageButtons(this.props.sequential.amounts, this.props.sequential.weightScale, false)}
+                            </div>
+                        )
+                    }
+                </div>
+                <div className="InputPane_DosageOptions">
+                    <button className="InputPane_DosageOptionsButton" onClick={() => this.setState({showMenu: !this.state.showMenu})}>
+                        . . .
+                    </button>
+                    {
+                        (this.state.showMenu) ? (
+                            <div className="InputPane_DosageOptionDropdown">
+                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
+                                {this.props.dispatch(deleteDosageSet(this.props.setIndex));
+                                this.setState({showMenu: !this.state.showMenu});}
+                                }>
+                                    Delete
+                                </button>
+                                <button className="InputPane_DosageOptionDropdownButton" onClick={() => 
+                                    {
+                                        (this.props.sequential==null) ? this.props.dispatch(addSequentialDosage(this.props.setIndex)) : this.props.dispatch(deleteSequentialDosage(this.props.setIndex));
+                                        this.setState({showMenu: !this.state.showMenu});
+                                    }
+                                }>
+                                    {(this.props.sequential==null) ? "Add Sequential" : "Remove Sequential"}
+                                </button>
+                            </div>
+                        )
+                        : (
+                            null
+                        )
+                    }
+                </div>
+            </div>
+        )
+    }
+}

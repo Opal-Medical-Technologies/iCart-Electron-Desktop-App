@@ -13,8 +13,8 @@ function deleteDosageSetReducer(dosages, deleteIndex) {
     dosages.splice(deleteIndex, 1);
 }
 
-function updateDosageWeightsReducer(dosages, setIndex, weights) {
-    dosages[setIndex].weights = weights;
+function updateDosageWeightsReducer(dosages, setIndex, weightIndex, weight) {
+    dosages[setIndex].weights[weightIndex] = weight;
 }
 
 function updateFirstDosageWeightScaleReducer(dosages, setIndex, weightScale) {

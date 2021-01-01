@@ -23,7 +23,7 @@ export const testState1 = {
                     weights: Array(11).fill(true),
                     first: {
                         weightScale: true,
-                        amounts: ["0.3", "0.4", "0.5", "0.6", "0.7", "0.8"],
+                        amounts: ["0.3", "0.4", "0.5", "0.6", "0.7"],
                     },
                     sequential: null
                 },
