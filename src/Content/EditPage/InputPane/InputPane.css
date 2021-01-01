@@ -208,6 +208,8 @@ InputPane_InputPane_WeightSelectCheckbox {
 
 .InputPane_DeleteDosageButton {
   height: 3vw;
+  padding: 0;
+  width: 1vw;
   background-color: white;
   border: 1px solid;
   border-top-right-radius: 5px;
@@ -220,6 +222,19 @@ InputPane_InputPane_WeightSelectCheckbox {
 
 .InputPane_AddDosageInputButton:hover {
   background-color: green;
+  color: white;
+}
+
+.InputPane_WeightScaleButton {
+  margin-left: 1%;
+  background-color: white;
+  font-size: 150%;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.InputPane_WeightScaleButton:hover {
+  background-color: grey;
   color: white;
 }
 

@@ -233,24 +233,26 @@ class DosageButtonInput extends React.Component {
         }
     }
 
-    renderDosageButtons(amounts, first) {
-        let updateButton, deleteButton, addButton;
+    renderDosageButtons(amounts, weightScale, first) {
+        let updateButton, deleteButton, addButton, updateWeightScale;
         if (first) {
             updateButton = updateFirstDosageButton;
             deleteButton = deleteFirstDosageButton;
             addButton = addFirstDosageButton;
+            updateWeightScale = updateFirstDosageWeightScale;
         }
         else {
             updateButton = updateSequentialDosageButton;
             deleteButton = deleteSequentialDosageButton;
             addButton = addSequentialDosageButton;
+            updateWeightScale = updateSequentialDosageWeightScale;
         }
 
         return (
             <div className="InputPane_DosageInputTextWrapper">
             {amounts.map((dose, index) => (
                 <div className="InputPane_DosageInput">
-                    <input className="InputPane_DosageInputText" type ='text' value = {dose} onChange = {e => this.props.dispatch(updateButton({setIndex: this.props.setIndex, updateIndex: index, amount: e.target.value}))} style={{ width: "3.5vw", textAlign: 'center'} }/>
+                    <input className="InputPane_DosageInputText" type ='text' value = {dose} onChange = {e => this.props.dispatch(updateButton({setIndex: this.props.setIndex, updateIndex: index, amount: e.target.value}))} style={{ width: "2.75vw", textAlign: 'center'} }/>
                     <button className="InputPane_DeleteDosageButton" onClick={() => this.props.dispatch(deleteButton({setIndex: this.props.setIndex, deleteIndex: index}))}>
                     x
                     </button>
@@ -266,6 +268,9 @@ class DosageButtonInput extends React.Component {
                     null
                 )
             }
+            <button className="InputPane_WeightScaleButton" onClick={() => this.props.dispatch(updateWeightScale({setIndex: this.props.setIndex, weightScale: !weightScale}))}>
+                {(weightScale) ? "mg/kg" : "mg"}
+            </button>
         </div>
         )
     }
@@ -280,7 +285,7 @@ class DosageButtonInput extends React.Component {
                                 <div className="InputPane_DosageButtonText">
                                     Dosages:
                                 </div>
-                                {this.renderDosageButtons(this.props.first.amounts, true)}
+                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
                             </div>
                         )
                         : (
@@ -288,11 +293,11 @@ class DosageButtonInput extends React.Component {
                                 <div className="InputPane_DosageButtonText">
                                     First Dosages:
                                 </div>
-                                {this.renderDosageButtons(this.props.first.amounts, true)}
+                                {this.renderDosageButtons(this.props.first.amounts, this.props.first.weightScale, true)}
                                 <div className="InputPane_DosageButtonText">
                                     Sequential Dosages:
                                 </div>
-                                {this.renderDosageButtons(this.props.sequential.amounts, false)}
+                                {this.renderDosageButtons(this.props.sequential.amounts, this.props.sequential.weightScale, false)}
                             </div>
                         )
                     }
