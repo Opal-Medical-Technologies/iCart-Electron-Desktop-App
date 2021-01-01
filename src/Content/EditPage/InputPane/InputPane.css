@@ -98,23 +98,40 @@
 }
 
 /*Constraints Styling*/
+.InputPane_Constraints {
+  display: flex;
+  align-items: center;
+}
+
+.InputPane_ConstraintsBlockWrapper {
+  width: 85%;
+}
+
 .InputPane_ConstraintsRowWrapper {
   display: flex;
   align-items: center;
+
 }
 
 .InputPane_ContraintsText {
-  font-size: 125%;
+  font-size: 150%;
+  font-weight: 600;
   margin-left: 1%;
-  width: 25%;
+  width: 26%;
 }
+
 
 .InputPane_ConstraintsUnit {
   display: flex;
-  margin: 1%;
-  width: 30%;
-  height: 3vw;
   align-items: center;
+  margin-left: 2%;
+  margin-right: 5%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.InputPane_ConstraintsUnit_Text {
+  font-size: 125%
 }
 
 .InputPane_ConstraintsCheckBox {
@@ -122,8 +139,27 @@
 }
 
 .InputPane_ConstraintsInput {
-  margin: 2%;
+  margin: 1%;
 }
+
+
+
+.InputPane_DeleteConstraints {
+  width: 15%;
+}
+.InputPane_DeleteConstraintsButton {
+  border-width: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+}
+
+.InputPane_DeleteConstraintsButton:hover {
+  background-color: red;
+  color: black;
+} 
+
+
 
 
 
