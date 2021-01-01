@@ -97,6 +97,34 @@
   font-size: 150%;
 }
 
+/*Constraints Styling*/
+.InputPane_ConstraintsRowWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.InputPane_ContraintsText {
+  font-size: 125%;
+  margin-left: 1%;
+  width: 25%;
+}
+
+.InputPane_ConstraintsUnit {
+  display: flex;
+  margin: 1%;
+  width: 30%;
+  height: 3vw;
+  align-items: center;
+}
+
+.InputPane_ConstraintsCheckBox {
+  margin-left: 5%;
+}
+
+.InputPane_ConstraintsInput {
+  margin: 2%;
+}
+
 
 
 /*Unit Buttons Styling*/

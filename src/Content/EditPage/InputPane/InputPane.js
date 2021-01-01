@@ -50,6 +50,7 @@ export default function InputPane() {
             {DosageBox({medData: medData, dispatch:dispatch})}
             {ConstraintsBox({medData: medData, dispatch:dispatch})}
             {NotesBox({medData: medData, dispatch:dispatch})}
+            <div style={{"height": "10vw"}}/>
         </div>
     );
 }
@@ -97,7 +98,6 @@ function ConcentrationBox(props) {
             <div className = "InputPane_ConcentrationBox_Units">
                 {props.medData.units}/mL
             </div>
-
         </div>
     )
 }
@@ -135,6 +135,20 @@ function ConstraintsBox(props) {
                 {props.medData.constraints.map((constraint, index) => (
                         <div>
                             <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} dispatch={props.dispatch} setIndex={index}/>
+                            <div className="InputPane_ConstraintsRowWrapper">
+                                <div className="InputPane_ContraintsText" style={{"fontWeight": "600", "fontSize": "150%"}}>
+                                    Single Dose
+                                </div>
+                                {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smin")}
+                                {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smax")}
+                            </div>
+                            <div className="InputPane_ConstraintsRowWrapper">
+                                <div className="InputPane_ContraintsText" style={{"fontWeight": "600", "fontSize": "150%"}}>
+                                    Cuml. Dose
+                                </div>
+                                {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmin")}
+                                {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmax")}
+                            </div>
                         </div>
                 ))}
             </div>
@@ -162,6 +176,53 @@ function NotesBox(props) {
             <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addNotesSet())}>
                 +
             </button>
+        </div>
+    )
+}
+
+function ConstraintsLine(constraint, index, units, dispatch, type) {
+    let addConstraint, deleteConstraint, updateConstraint, typestring;
+    if (type == "smin") {
+        addConstraint = addSingleMinConstraint;
+        deleteConstraint = deleteSingleMinConstraint;
+        updateConstraint = updateSingleMinConstraint;
+        typestring = "Min";
+    }
+    else if (type == "smax") {
+        addConstraint = addSingleMaxConstraint;
+        deleteConstraint = deleteSingleMaxConstraint;
+        updateConstraint = updateSingleMaxConstraint;
+        typestring = "Max";
+    }
+    else if (type == "cmin") {
+        addConstraint = addCumulativeMinConstraint;
+        deleteConstraint = deleteCumulativeMinConstraint;
+        updateConstraint = updateCumulativeMinConstraint;
+        typestring = "Min";
+    }
+    else if (type == "cmax") {
+        addConstraint = addCumulativeMaxConstraint;
+        deleteConstraint = deleteCumulativeMaxConstraint;
+        updateConstraint = updateCumulativeMaxConstraint;
+        typestring = "Max";
+    }
+
+    return (
+        <div className="InputPane_ConstraintsUnit">
+            <div className="InputPane_ContraintsText">
+                {typestring}
+            </div>
+            <div className = "InputPane_ConstraintsCheckBox"> 
+            <input  type="checkbox" checked={constraint[type] != null} onClick={() => {dispatch(
+                (constraint[type] == null) ? addConstraint(index) : deleteConstraint(index)
+            )}} />
+            </div>
+            <div className = "InputPane_ConstraintsInput">
+                <input type ='text' disabled = {constraint[type]==null} value = {(constraint[type]==null) ? "" : constraint[type]} onChange = {e => dispatch(updateConstraint({setIndex: index, amount: e.target.value}))} style={{ width: "3.5vw", textAlign: 'center' } }/>
+            </div>
+            <div className="InputPane_ContraintsText">
+                {units}
+            </div>
         </div>
     )
 }
