@@ -178,9 +178,21 @@ function NotesBox(props) {
                 </div>
                 <hr className="InputPane_WidgetBox_Divider"/>
                 {props.medData.notes.map((note, index) => (
+                    <div>
                         <div>
                             <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} dispatch={props.dispatch} setIndex={index}/>
                         </div>
+                        <div className="InputPane_NotesBlock">
+                            <div className="InputPane_NotesBlockText">
+                                <input type ='text' value = {note.note} onChange = {e => props.dispatch(updateNotesText({setIndex: index, text: e.target.value}))} style={{ width: "90%", textAlign: 'center' } }/>
+                            </div>
+                            <div className="InputPane_DeleteNotes">
+                                <button className="InputPane_DeleteNotesButton" onClick={() => props.dispatch(deleteNotesSet(index))}>
+                                    x
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </div>
             <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addNotesSet())}>

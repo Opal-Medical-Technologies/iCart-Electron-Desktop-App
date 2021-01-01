@@ -159,8 +159,30 @@
   color: black;
 } 
 
+/*Notes Styling*/
 
+.InputPane_NotesBlock {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+}
 
+.InputPane_NotesBlockText {
+  margin-left: 1%;
+  width: 85%;
+}
+
+.InputPane_DeleteNotesButton {
+  border-width: 1px solid;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+}
+
+.InputPane_DeleteNotesButton:hover {
+  background-color: red;
+  color: black;
+}
 
 
 /*Unit Buttons Styling*/

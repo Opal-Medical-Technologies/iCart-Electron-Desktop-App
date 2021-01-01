@@ -263,7 +263,7 @@ export const medSlice = createSlice({
         *   text: (string) The updated note text.
         * }
         */
-        updateNotesText: (state, action) => NotesReducers.updateNotesText(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.text),
+        updateNotesText: (state, action) => NotesReducers.updateNotesTextReducer(state.medList[state.currentMedId].notes, action.payload.setIndex, action.payload.text),
     }
 })
 
