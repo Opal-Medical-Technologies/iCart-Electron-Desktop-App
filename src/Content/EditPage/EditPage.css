@@ -22,3 +22,11 @@
   height: 100%;
   width: 50%;
 }
+
+.EditPage_Empty {
+  text-align: center;
+  font-size: 500%;
+  font-weight: 600;
+  margin: auto;
+  margin-top: 20%;
+}
