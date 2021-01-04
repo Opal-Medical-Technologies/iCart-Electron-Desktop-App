@@ -2,6 +2,8 @@
 .InputPane_WeightSelectionWrapper {
     display: flex;
     align-items: center;
+    margin-left: 2%;
+    margin-top: 1vh;
   }
   .InputPane_SelectedWeight {
     display: inline-block;

@@ -12,7 +12,7 @@
   margin-top: 2%;
   width: 95%;
   border-radius: 25px;
-  border: 2px solid;
+  border: 2px solid lightgrey;
 }
 
 .InputPane_WidgetBox_Wrapper {
@@ -25,7 +25,9 @@
   width: 100%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  border: 2px solid;
+  border: 2px solid lightgrey;
+  padding-top: 0.5%
+  
 }
 
 .InputPane_WidgetBox_Title {
@@ -35,17 +37,19 @@
 }
 
 .InputPane_WidgetBox_Divider {
-  border-top: 5px solid #088e80;
+  border-top: .5vh solid #088e80;
   border-radius: 4px;
   margin-top: 0%;
   margin-bottom: 0%;
-  margin-left: 1%;
+  margin-left: 2.5%;
   margin-right: 1%;
 }
 
 .InputPane_WidgetBox_PlusButton {
   text-align: center;
   width: 100%;
+  border: 2px solid lightgrey;
+  border-top: 0px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   background-color: #088e80;
@@ -61,10 +65,13 @@
 /*TitleBox styling*/
 .InputPane_TitleBox {
   margin: 1%;
+  margin-left: 1vw;
+  margin-bottom: 1vh;
 }
 
 .InputPane_TitleBox_Name {
   font-size: 200%;
+  border: none;
 }
 
 .MedicationTitleText input {
@@ -73,7 +80,7 @@
 
 
 .InputPane_TitleBox_Divider {
-  border-top: 5px solid #088e80;
+  border-top: .5vh solid #088e80;
   border-radius: 5px;
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -88,7 +95,7 @@
 /*ConcentrationBox styling*/
 .InputPane_ConcentrationBox_Input {
   display: inline-block;
-  margin: 2%;
+  margin: 2.5%;
   font-size: 150%;
 }
 
@@ -101,6 +108,7 @@
 .InputPane_Constraints {
   display: flex;
   align-items: center;
+  margin-left: 1%
 }
 
 .InputPane_ConstraintsBlockWrapper {

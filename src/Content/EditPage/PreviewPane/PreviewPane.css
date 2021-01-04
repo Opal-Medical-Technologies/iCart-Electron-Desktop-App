@@ -15,6 +15,7 @@
     margin: auto;
     margin-top: 3%;
     width: 90%;
+    height: 40%;
     border-radius: 25px;
     border: 3px solid black;
     padding: 2.5%;
@@ -120,10 +121,18 @@
 .WeightButtons {
     width: 100%;
     text-align: center;
+    
 }
 
 .WeightButtons button {
-    padding: 1.5%;
-    font-size: 125%;
+    padding: .5%;
+    padding-left: .75vw;
+    padding-right: .75vw;
+    font-size: 75%;
     border-width: 1px;
+    height: 5.2vh;
+}
+
+.WeightButtons:first-of-type {
+    color: red;
 }

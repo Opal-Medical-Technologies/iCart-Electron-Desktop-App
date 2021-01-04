@@ -2,6 +2,7 @@
 .InputPane_DosageButtonInputWrapper {
     display: flex;
     align-items: center;
+    margin-left: 2%
   }
   
   .InputPane_DosageButtons {
