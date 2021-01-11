@@ -17,19 +17,20 @@ class RenderWeightsToggle extends React.Component {
     render() {
         let activeWeights = [];
         let allTrue = true;
-    
+
         for (let i = 0; i < this.props.weights.length; ++i) {
-            if (this.props.weights[i]) {
-                activeWeights.push(
-                    <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
-                        {WEIGHTS[i]}
-                    </div>
-                );
+                if (this.props.weights[i]) {
+                    activeWeights.push(
+                        <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
+                            {WEIGHTS[i]}
+                        </div>
+                    );
+                }
+                else {
+                    allTrue = false;
+                }
             }
-            else {
-                allTrue = false;
-            }
-        }
+        
     
         return (
             <div className = "InputPane_WeightSelectionWrapper">
