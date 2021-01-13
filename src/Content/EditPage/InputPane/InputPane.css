@@ -1,3 +1,5 @@
+/** @format */
+
 .InputPane {
   position: absolute;
   width: 100%; /* 45.2% */
@@ -5,6 +7,16 @@
   overflow-y: scroll;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
 
 /*WidgetBox styling*/
 .InputPane_WidgetBox {
@@ -26,8 +38,7 @@
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   border: 2px solid lightgrey;
-  padding-top: 0.5%
-  
+  padding-top: 0.5%;
 }
 
 .InputPane_WidgetBox_Title {
@@ -37,7 +48,7 @@
 }
 
 .InputPane_WidgetBox_Divider {
-  border-top: .5vh solid #088e80;
+  border-top: 0.5vh solid #088e80;
   border-radius: 4px;
   margin-top: 0%;
   margin-bottom: 0%;
@@ -61,7 +72,6 @@
   color: black;
 }
 
-
 /*TitleBox styling*/
 .InputPane_TitleBox {
   margin: 1%;
@@ -78,9 +88,8 @@
   border: none;
 }
 
-
 .InputPane_TitleBox_Divider {
-  border-top: .5vh solid #088e80;
+  border-top: 0.5vh solid #088e80;
   border-radius: 5px;
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -108,7 +117,7 @@
 .InputPane_Constraints {
   display: flex;
   align-items: center;
-  margin-left: 1%
+  margin-left: 1%;
 }
 
 .InputPane_ConstraintsBlockWrapper {
@@ -118,7 +127,6 @@
 .InputPane_ConstraintsRowWrapper {
   display: flex;
   align-items: center;
-
 }
 
 .InputPane_ContraintsText {
@@ -127,7 +135,6 @@
   margin-left: 1%;
   width: 26%;
 }
-
 
 .InputPane_ConstraintsUnit {
   display: flex;
@@ -139,7 +146,7 @@
 }
 
 .InputPane_ConstraintsUnit_Text {
-  font-size: 125%
+  font-size: 125%;
 }
 
 .InputPane_ConstraintsCheckBox {
@@ -149,8 +156,6 @@
 .InputPane_ConstraintsInput {
   margin: 1%;
 }
-
-
 
 .InputPane_DeleteConstraints {
   width: 15%;
@@ -165,7 +170,7 @@
 .InputPane_DeleteConstraintsButton:hover {
   background-color: red;
   color: black;
-} 
+}
 
 /*Notes Styling*/
 
@@ -192,9 +197,8 @@
   color: black;
 }
 
-
 /*Unit Buttons Styling*/
-.Inactive-Unit-Button{
+.Inactive-Unit-Button {
   background-color: white;
   color: black;
   border-radius: 30px;
@@ -204,7 +208,7 @@
   height: 4.9vh;
   transition: ease background-color 250ms;
   transition: ease color 250ms;
-  margin: .8vw;
+  margin: 0.8vw;
   cursor: pointer;
 }
 
@@ -213,7 +217,7 @@
   color: white;
 }
 
-.Active-Unit-Button{
+.Active-Unit-Button {
   background-color: grey;
   color: white;
   border-radius: 30px;
@@ -223,6 +227,6 @@
   height: 4.9vh;
   transition: ease background-color 250ms;
   transition: ease color 250ms;
-  margin: .8vw;
+  margin: 0.8vw;
   cursor: pointer;
 }

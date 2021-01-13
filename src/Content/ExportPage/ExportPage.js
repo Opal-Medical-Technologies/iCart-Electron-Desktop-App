@@ -1,16 +1,21 @@
+import {React, useEffect } from 'react';
 import styled from 'styled-components';
-
-import {FiEdit} from 'react-icons/fi';
-import './ExportPage.css'
+import * as eva from 'eva-icons';
 
 const StyledExportPage = styled.div`
     float: right;
 `
 
-
 const StyledExpandingButton = styled.button`
-    
-    &span {
+    background-color: transparent;
+    color: #088e80;
+    border: 2px solid #088e80;
+    shadow: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+
+
+    & span {
         max-width: 0;
         -webkit-transition: max-width 1s;
         transition: max-width 1s;
@@ -20,27 +25,26 @@ const StyledExpandingButton = styled.button`
         overflow: hidden;
     }
 
-    &:hover span {
+    &:hover span{
         max-width: 7rem;
-        color: blue;
+        color: #088e80;
     }
 
     &:focus span {
-        color: green;
+        color: lightgray;
     }
-
-
 
 `;
 
-
-
 export default function ExportPage() {
+    
+    useEffect(() => { eva.replace(); }, []);
+
     return (
         <StyledExportPage>
             <StyledExpandingButton>
-                <span>Different text</span>
-                <FiEdit/>
+                <span>ADD STAMPS</span>
+                <i data-eva='checkmark-square-outline' data-eva-fill= '#088e80' />
             </StyledExpandingButton>
         </StyledExportPage>
     )
