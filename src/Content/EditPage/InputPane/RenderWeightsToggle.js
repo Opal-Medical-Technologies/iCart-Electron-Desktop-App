@@ -31,7 +31,6 @@ class RenderWeightsToggle extends React.Component {
                 }
             }
         
-    
         return (
             <div className = "InputPane_WeightSelectionWrapper">
                 <div className = "InputPane_SelectedWeights">
@@ -46,7 +45,7 @@ class RenderWeightsToggle extends React.Component {
                                     <div className = "InputPane_WeightSelectCheckboxDisplay">
                                         {"All"}
                                     </div>
-                                </div>
+                                </div> 
                                 {this.props.weights.map((weightBool, index) => (
                                     <div className="InputPane_WeightSelectCheckboxWrapper" style={{"backgroundColor": BUTTON_COLORS[index], "color": TEXT_COLORS[index]}}>
                                         <input className = "InputPane_WeightSelectCheckbox" type="checkbox" checked={weightBool} onClick={() => this.props.dispatch(this.props.updateWeightsFunction({
@@ -61,7 +60,13 @@ class RenderWeightsToggle extends React.Component {
                                 ))}
                             </div>
                         )
-                        : activeWeights
+                        : (allTrue ? (
+                            <div>
+                                <div className = "InputPaneSelectedWeight" style ={{"backgroundColor": "black", "color": "white"}}>
+                                    {"All"}
+                                </div>
+                            </div>
+                        ) : activeWeights)
                     }
                 </div>
                 <div className = "InputPane_WeightSelector">
