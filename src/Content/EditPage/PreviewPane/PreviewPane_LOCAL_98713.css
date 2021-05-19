@@ -1,0 +1,146 @@
+.PreviewPane {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F8F8;
+}
+
+.PreviewText {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.PreviewBox {
+    margin: auto;
+    width: 80%;
+    height: undefined;
+    aspect-ratio: 2;
+    border-radius: 25px;
+    border: 2px solid lightgrey;
+    padding: 2.5%;
+    background-color: white;
+}
+
+.HeadingBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.HeadingBox button {
+    width: 40px;
+    height: 40px;
+    border-radius:30px;
+}
+
+.Heading {
+    flex-grow: 1;
+}
+
+.CenterBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.NotesBlock {
+    width: 70%;
+    text-align: center;
+}
+
+.AdministerButtonBlock {
+    width: 30%;
+}
+
+.ActiveDoseButton {
+    background-color: grey;
+    color: white;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .25vw;
+    cursor: pointer;
+}
+
+.InactiveDoseButton {
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    outline: none !important;
+    border-width: 1px;
+    width: 3.9vw;
+    height: 4.9vh;
+    transition: ease background-color 250ms;
+    transition: ease color 250ms;
+    margin: .25vw;
+    cursor: pointer;
+}
+
+.InactiveDoseButton:hover {
+    background-color: grey;
+    color: white;
+}
+
+.Totals {
+    display: inline-block;
+    width: 30%;
+}
+
+.TotalBox {
+    border: 3px solid black;
+    height: 8vw;
+}
+
+.History {
+    position: absolute;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.HistoryBoxes {
+    position: absolute;
+    height: 8vw;
+    width: 300px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.HistoryBox {
+    display: inline-block;
+    border: 3px solid black;
+    height: 7vw;
+    margin-right: 5%;
+}
+
+.WeightButtons {
+    width: 100%;
+    text-align: center;
+    
+}
+
+.WeightButtons button {
+    padding: .5%;
+    padding-left: .75vw;
+    padding-right: .75vw;
+    font-size: 75%;
+    border-width: 1px;
+    height: 5.2vh;
+}
+
+.WeightButtons:first-of-type {
+    color: red;
+}
+
+.FRONT_BACK {
+    padding-top: 3%;
+    text-align: center;
+    font-size: 2em;
+}
