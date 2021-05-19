@@ -1,5 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import "./PreviewPane.css";
 
@@ -7,7 +8,7 @@ const mapStateToProps = state => ({
     medData: state.med.medList[state.med.currentMedId]
 })
 
-class PreviewPane extends React.Component{
+class PreviewPane extends React.Component {
 
     constructor(props) {
         super(props);
@@ -64,7 +65,7 @@ class PreviewPane extends React.Component{
             return null;
         }
         if (dosageList.length == 1) {
-            return (<div style={{"font-size": "20px"}}>
+            return (<div style={{ "font-size": "20px" }}>
                 {dosageList[0] + ' ' + this.props.medData.units + '/mL'}
             </div>)
         }
@@ -72,7 +73,7 @@ class PreviewPane extends React.Component{
             return (<div>
                 {dosageList.map((d, index) => (
                     <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
-                    onClick = {() => this.dosageButtonClick(index)}>
+                        onClick={() => this.dosageButtonClick(index)}>
                         {d}
                     </button>
                 ))}
@@ -84,15 +85,15 @@ class PreviewPane extends React.Component{
                     <div>
                         {dosageList.slice(0, 3).map((d, index) => (
                             <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
-                            onClick = {() => this.dosageButtonClick(index)}>
+                                onClick={() => this.dosageButtonClick(index)}>
                                 {d}
                             </button>
                         ))}
                     </div>
                     <div>
                         {dosageList.slice(3).map((d, index) => (
-                            <button className={index+3 == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
-                            onClick = {() => this.dosageButtonClick(index+3)}>
+                            <button className={index + 3 == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                                onClick={() => this.dosageButtonClick(index + 3)}>
                                 {d}
                             </button>
                         ))}
@@ -103,7 +104,7 @@ class PreviewPane extends React.Component{
     }
 
     notes(notesList) {
-        return (<div style={{"textAlign":"left"}}>
+        return (<div style={{ "textAlign": "left" }}>
             {notesList.map(n => (
                 <div>{n.note}</div>
             ))}
@@ -114,8 +115,8 @@ class PreviewPane extends React.Component{
         return (<div>
             {historyList.map(h => (
                 <div className="HistoryBox">
-                    <div style={{"font-size": "30px", "text-align": "center"}}>{h.amount}</div>
-                    <div style={{"text-align": "center"}}>{h.time}</div>
+                    <div style={{ "font-size": "30px", "text-align": "center" }}>{h.amount}</div>
+                    <div style={{ "text-align": "center" }}>{h.time}</div>
                 </div>
             ))}
         </div>);
@@ -130,10 +131,12 @@ class PreviewPane extends React.Component{
         let administerAmount = dose / parseFloat(this.props.medData.conc)
 
         return (<div className="PreviewPane">
+            <div className="FRONT_BACK">FRONT</div>
             <div className="PreviewBox">
-                <div className = "HeadingBox">
+
+                <div className="HeadingBox">
                     <div className="Heading">
-                        <div style={{"font-size": "20px"}}>
+                        <div style={{ "font-size": "20px" }}>
                             {this.props.medData.name}
                         </div>
                         <div>
@@ -142,28 +145,30 @@ class PreviewPane extends React.Component{
                     </div>
                     <button className="InfoButton">i</button>
                 </div>
-                <div className = "CenterBox">
+
+                <div className="CenterBox">
                     <div className="NotesBlock">
-                        <div style={{"text-align": "center"}}>NOTES</div>
+                        <div style={{ "text-align": "center" }}>NOTES</div>
                         {this.dosageButtons(this.props.medData.dosages[0].first.amounts)}
                         {this.notes(this.props.medData.notes)}
                     </div>
                     <div className="AdministerButtonBlock">
-                        <div style={{"text-align": "center"}}>DOSE (mL)</div>
-                        <button className="AdministerButton" style={{"width": "100%", "border": "3px solid black"}}
-                        onClick={() => this.administerButtonClick(dose)}>
-                            <div style={{"font-size": "30px", "text-align": "center"}}>{administerAmount.toFixed(2)}</div>
-                            <div style={{"text-align": "center"}}>MAX</div>
+                        <div style={{ "text-align": "center" }}>DOSE (mL)</div>
+                        <button className="AdministerButton" style={{ "width": "100%", "border": "3px solid black" }}
+                            onClick={() => this.administerButtonClick(dose)}>
+                            <div style={{ "font-size": "30px", "text-align": "center" }}>{administerAmount.toFixed(2)}</div>
+                            <div style={{ "text-align": "center" }}>MAX</div>
                         </button>
                     </div>
                 </div>
             </div>
+            <div className="FRONT_BACK">BACK</div>
             <div className="PreviewBox">
                 <div>
                     <span>
                         {this.props.medData.name}
                     </span>
-                    <span style={{"margin": "5%"}}>
+                    <span style={{ "margin": "5%" }}>
                         {this.props.medData.conc + " " + this.props.medData.units + "/mL"}
                     </span>
                 </div>
@@ -171,14 +176,14 @@ class PreviewPane extends React.Component{
                 <div className="Totals">
                     <div>Total:</div>
                     <div className="TotalBox">
-                        <div style={{"font-size": "30px", "text-align": "center"}}>{this.state.total.toFixed(2)}</div>
-                        <div style={{"text-align": "center"}}>{this.props.medData.units}</div>
+                        <div style={{ "font-size": "30px", "text-align": "center" }}>{this.state.total.toFixed(2)}</div>
+                        <div style={{ "text-align": "center" }}>{this.props.medData.units}</div>
                     </div>
                 </div>
                 <div className="History">
                     <div>History:</div>
                     <div className="HistoryBoxes">
-                    {this.timeline(this.state.history)}
+                        {this.timeline(this.state.history)}
                     </div>
                 </div>
             </div>

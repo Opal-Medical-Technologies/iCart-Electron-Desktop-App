@@ -4,6 +4,7 @@
     bottom: 0;
     width: 100%;
     height: 100%;
+    background-color: #F8F8F8;
 }
 
 .PreviewText {
@@ -13,12 +14,13 @@
 
 .PreviewBox {
     margin: auto;
-    margin-top: 3%;
-    width: 90%;
-    height: 40%;
+    width: 80%;
+    height: undefined;
+    aspect-ratio: 2;
     border-radius: 25px;
-    border: 3px solid black;
+    border: 2px solid lightgrey;
     padding: 2.5%;
+    background-color: white;
 }
 
 .HeadingBox {
@@ -135,4 +137,10 @@
 
 .WeightButtons:first-of-type {
     color: red;
+}
+
+.FRONT_BACK {
+    padding-top: 3%;
+    text-align: center;
+    font-size: 2em;
 }
