@@ -47,15 +47,46 @@ class PreviewPane extends React.Component{
     }
 
     renderWeightButton(text, textColor, backgroundColor, weight) {
+        let button;
+        if (weight == 3) {
+            button = <button
+            style={{
+                "background": backgroundColor,
+                "color": textColor,
+                "borderTopLeftRadius": '5vh',
+                "borderBottomLeftRadius": '5vh'
+            }}
+            onClick={() => this.weightButtonClick(weight)}>
+            {text}
+        </button>
+        }
+        else if (weight == 33) {
+            button = <button
+            style={{
+                "background": backgroundColor,
+                "color": textColor,
+                "borderTopRightRadius": '5vh',
+                "borderBottomRightRadius": '5vh'
+            }}
+            onClick={() => this.weightButtonClick(weight)}>
+            {text}
+        </button>
+        }
+        else {
+            button = <button
+            style={{
+                "background": backgroundColor,
+                "color": textColor,
+                
+            }}
+            onClick={() => this.weightButtonClick(weight)}>
+            {text}
+        </button>
+        }
         return (
-            <button
-                style={{
-                    "background": backgroundColor,
-                    "color": textColor
-                }}
-                onClick={() => this.weightButtonClick(weight)}>
-                {text}
-            </button>
+            <h>
+            {button}
+            </h>
         );
     }
 
@@ -187,6 +218,7 @@ class PreviewPane extends React.Component{
                 Weights (kg)
             </div>
             <div className="WeightButtons">
+                
                 {this.renderWeightButton("3", "white", "grey", 3)}
                 {this.renderWeightButton("4", "white", "grey", 4)}
                 {this.renderWeightButton("5", "white", "grey", 5)}
