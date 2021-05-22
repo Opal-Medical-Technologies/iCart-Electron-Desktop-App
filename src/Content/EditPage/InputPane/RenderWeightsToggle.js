@@ -17,11 +17,11 @@ class RenderWeightsToggle extends React.Component {
     render() {
         let activeWeights = [];
         let allTrue = true;
-    
+
         for (let i = 0; i < this.props.weights.length; ++i) {
             if (this.props.weights[i]) {
                 activeWeights.push(
-                    <div className = "InputPane_SelectedWeight" style={{"backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i]}}>
+                    <div className="InputPane_SelectedWeight" style={{ "backgroundColor": BUTTON_COLORS[i], "color": TEXT_COLORS[i] }}>
                         {WEIGHTS[i]}
                     </div>
                 );
@@ -30,41 +30,50 @@ class RenderWeightsToggle extends React.Component {
                 allTrue = false;
             }
         }
-    
+
+        if (allTrue) {
+            activeWeights = []
+            activeWeights.push(
+                <div className="InputPane_SelectedWeight" style={{ "backgroundColor": "black", "color": "white" }}>
+                    All Weights
+                </div>
+            )
+        }
+
         return (
-            <div className = "InputPane_WeightSelectionWrapper">
-                <div className = "InputPane_SelectedWeights">
+            <div className="InputPane_WeightSelectionWrapper">
+                <div className="InputPane_SelectedWeights">
                     {
                         this.state.showMenu ? (
                             <div>
-                                <div className="InputPane_WeightSelectCheckboxWrapper" style={{"backgroundColor": "black", "color": "white"}}>
-                                    <input className = "InputPane_WeightSelectCheckbox" type="checkbox" checked={allTrue} onClick={() => this.props.dispatch(this.props.updateAllWeightsFunction({
+                                <div className="InputPane_WeightSelectCheckboxWrapper" style={{ "backgroundColor": "black", "color": "white" }}>
+                                    <input className="InputPane_WeightSelectCheckbox" type="checkbox" checked={allTrue} onClick={() => this.props.dispatch(this.props.updateAllWeightsFunction({
                                         setIndex: this.props.setIndex,
                                         value: !allTrue,
-                                    }))}/>
-                                    <div className = "InputPane_WeightSelectCheckboxDisplay">
+                                    }))} />
+                                    <div className="InputPane_WeightSelectCheckboxDisplay">
                                         {"All"}
                                     </div>
                                 </div>
                                 {this.props.weights.map((weightBool, index) => (
-                                    <div className="InputPane_WeightSelectCheckboxWrapper" style={{"backgroundColor": BUTTON_COLORS[index], "color": TEXT_COLORS[index]}}>
-                                        <input className = "InputPane_WeightSelectCheckbox" type="checkbox" checked={weightBool} onClick={() => this.props.dispatch(this.props.updateWeightsFunction({
+                                    <div className="InputPane_WeightSelectCheckboxWrapper" style={{ "backgroundColor": BUTTON_COLORS[index], "color": TEXT_COLORS[index] }}>
+                                        <input className="InputPane_WeightSelectCheckbox" type="checkbox" checked={weightBool} onClick={() => this.props.dispatch(this.props.updateWeightsFunction({
                                             setIndex: this.props.setIndex,
                                             weightIndex: index,
                                             weight: !weightBool
-                                        }))}/>
-                                        <div className = "InputPane_WeightSelectCheckboxDisplay">
+                                        }))} />
+                                        <div className="InputPane_WeightSelectCheckboxDisplay">
                                             {WEIGHTS[index]}
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         )
-                        : activeWeights
+                            : activeWeights
                     }
                 </div>
-                <div className = "InputPane_WeightSelector">
-                    <button className = "InputPane_WeightSelectorButton" onClick={() => this.setState({showMenu: !this.state.showMenu})}>
+                <div className="InputPane_WeightSelector">
+                    <button className="InputPane_WeightSelectorButton" onClick={() => this.setState({ showMenu: !this.state.showMenu })}>
                         {this.state.showMenu ? "Done" : "Edit"}
                     </button>
                 </div>

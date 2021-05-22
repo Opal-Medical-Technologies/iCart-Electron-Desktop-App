@@ -51,42 +51,42 @@ class PreviewPane extends React.Component {
         let button;
         if (weight == 3) {
             button = <button
-            style={{
-                "background": backgroundColor,
-                "color": textColor,
-                "borderTopLeftRadius": '5vh',
-                "borderBottomLeftRadius": '5vh'
-            }}
-            onClick={() => this.weightButtonClick(weight)}>
-            {text}
-        </button>
+                style={{
+                    "background": backgroundColor,
+                    "color": textColor,
+                    "borderTopLeftRadius": '5vh',
+                    "borderBottomLeftRadius": '5vh'
+                }}
+                onClick={() => this.weightButtonClick(weight)}>
+                {text}
+            </button>
         }
         else if (weight == 33) {
             button = <button
-            style={{
-                "background": backgroundColor,
-                "color": textColor,
-                "borderTopRightRadius": '5vh',
-                "borderBottomRightRadius": '5vh'
-            }}
-            onClick={() => this.weightButtonClick(weight)}>
-            {text}
-        </button>
+                style={{
+                    "background": backgroundColor,
+                    "color": textColor,
+                    "borderTopRightRadius": '5vh',
+                    "borderBottomRightRadius": '5vh'
+                }}
+                onClick={() => this.weightButtonClick(weight)}>
+                {text}
+            </button>
         }
         else {
             button = <button
-            style={{
-                "background": backgroundColor,
-                "color": textColor,
-                
-            }}
-            onClick={() => this.weightButtonClick(weight)}>
-            {text}
-        </button>
+                style={{
+                    "background": backgroundColor,
+                    "color": textColor
+
+                }}
+                onClick={() => this.weightButtonClick(weight)}>
+                {text}
+            </button>
         }
         return (
             <h>
-            {button}
+                {button}
             </h>
         );
     }
@@ -219,11 +219,11 @@ class PreviewPane extends React.Component {
                 </div>
             </div>
 
-            <div className="PreviewText">
-                Weights (kg)
+            <div className="FRONT_BACK">
+                WEIGHTS (kg)
             </div>
             <div className="WeightButtons">
-                
+
                 {this.renderWeightButton("3", "white", "grey", 3)}
                 {this.renderWeightButton("4", "white", "grey", 4)}
                 {this.renderWeightButton("5", "white", "grey", 5)}
