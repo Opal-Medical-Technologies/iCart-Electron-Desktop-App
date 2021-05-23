@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import "./PreviewPane.css";
 
@@ -49,7 +49,7 @@ class PreviewPane extends React.Component {
 
     renderWeightButton(text, textColor, backgroundColor, weight) {
         let button;
-        if (weight == 3) {
+        if (weight === 3) {
             button = <button
                 style={{
                     "background": backgroundColor,
@@ -61,7 +61,7 @@ class PreviewPane extends React.Component {
                 {text}
             </button>
         }
-        else if (weight == 33) {
+        else if (weight === 33) {
             button = <button
                 style={{
                     "background": backgroundColor,
@@ -92,10 +92,10 @@ class PreviewPane extends React.Component {
     }
 
     dosageButtons(dosageList) {
-        if (dosageList.length == 0) {
+        if (dosageList.length === 0) {
             return null;
         }
-        if (dosageList.length == 1) {
+        if (dosageList.length === 1) {
             return (<div style={{ "font-size": "20px" }}>
                 {dosageList[0] + ' ' + this.props.medData.units + '/mL'}
             </div>)
@@ -103,7 +103,7 @@ class PreviewPane extends React.Component {
         else if (dosageList.length > 1 && dosageList.length < 4) {
             return (<div>
                 {dosageList.map((d, index) => (
-                    <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                    <button className={index === this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
                         onClick={() => this.dosageButtonClick(index)}>
                         {d}
                     </button>
@@ -115,7 +115,7 @@ class PreviewPane extends React.Component {
                 <div>
                     <div>
                         {dosageList.slice(0, 3).map((d, index) => (
-                            <button className={index == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                            <button className={index === this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
                                 onClick={() => this.dosageButtonClick(index)}>
                                 {d}
                             </button>
@@ -123,7 +123,7 @@ class PreviewPane extends React.Component {
                     </div>
                     <div>
                         {dosageList.slice(3).map((d, index) => (
-                            <button className={index + 3 == this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
+                            <button className={index + 3 === this.state.activeDosage ? "ActiveDoseButton" : "InactiveDoseButton"}
                                 onClick={() => this.dosageButtonClick(index + 3)}>
                                 {d}
                             </button>

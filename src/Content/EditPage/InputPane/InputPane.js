@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 import "./InputPane.css";
-import { 
+import {
     selectMed,
-    updateMedName, 
+    updateMedName,
     updateMedUnits,
     updateMedConc,
     addDosageSet,
@@ -45,15 +45,15 @@ export default function InputPane() {
     const dispatch = useDispatch();
     console.log(medData)
 
-    return(
-        <div className = "InputPane">
-            {TitleBox({medData: medData, dispatch:dispatch})}
-            {UnitsBox({medData: medData, dispatch:dispatch})}
-            {ConcentrationBox({medData: medData, dispatch:dispatch})}
-            {DosageBox({medData: medData, dispatch:dispatch})}
-            {ConstraintsBox({medData: medData, dispatch:dispatch})}
-            {NotesBox({medData: medData, dispatch:dispatch})}
-            <div style={{"height": "10vw"}}/>
+    return (
+        <div className="InputPane">
+            {TitleBox({ medData: medData, dispatch: dispatch })}
+            {UnitsBox({ medData: medData, dispatch: dispatch })}
+            {ConcentrationBox({ medData: medData, dispatch: dispatch })}
+            {DosageBox({ medData: medData, dispatch: dispatch })}
+            {ConstraintsBox({ medData: medData, dispatch: dispatch })}
+            {NotesBox({ medData: medData, dispatch: dispatch })}
+            <div style={{ "height": "10vw" }} />
         </div>
     );
 }
@@ -61,11 +61,11 @@ export default function InputPane() {
 function TitleBox(props) {
     return (
         <div className="InputPane_TitleBox">
-            <input className="InputPane_TitleBox_Name" type='text' value={props.medData.name} onChange={e => props.dispatch(updateMedName(e.target.value))}/>
+            <input className="InputPane_TitleBox_Name" type='text' value={props.medData.name} onChange={e => props.dispatch(updateMedName(e.target.value))} />
             <div className="InputPane_TitleBox_FolderPath">
                 ACTIVE/MEDICATIONS
             </div>
-            <hr className="InputPane_TitleBox_Divider"/>
+            <hr className="InputPane_TitleBox_Divider" />
         </div>
     )
 }
@@ -76,10 +76,10 @@ function UnitsBox(props) {
             <div className="InputPane_WidgetBox_Title">
                 Units:
             </div>
-            <hr className="InputPane_WidgetBox_Divider"/>
-            <div className = "InputPane_UnitsBox_Units">
+            <hr className="InputPane_WidgetBox_Divider" />
+            <div className="InputPane_UnitsBox_Units">
                 {UNITS.map(unit => (
-                    <button className={unit == props.medData.units ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick = {() => props.dispatch(updateMedUnits(unit))}>
+                    <button className={unit === props.medData.units ? "Active-Unit-Button" : "Inactive-Unit-Button"} onClick={() => props.dispatch(updateMedUnits(unit))}>
                         {unit}
                     </button>
                 ))}
@@ -94,11 +94,11 @@ function ConcentrationBox(props) {
             <div className="InputPane_WidgetBox_Title">
                 Concentration:
             </div>
-            <hr className="InputPane_WidgetBox_Divider"/>
-            <div className = 'InputPane_ConcentrationBox_Input'>
-                <input type ='text' value = {props.medData.conc} onChange = {e => props.dispatch(updateMedConc(e.target.value))} style={{ width: "3.5vw", textAlign: 'center' } }/>
+            <hr className="InputPane_WidgetBox_Divider" />
+            <div className='InputPane_ConcentrationBox_Input'>
+                <input type='text' value={props.medData.conc} onChange={e => props.dispatch(updateMedConc(e.target.value))} style={{ width: "3.5vw", textAlign: 'center' }} />
             </div>
-            <div className = "InputPane_ConcentrationBox_Units">
+            <div className="InputPane_ConcentrationBox_Units">
                 {props.medData.units}/mL
             </div>
         </div>
@@ -112,12 +112,12 @@ function DosageBox(props) {
                 <div className="InputPane_WidgetBox_Title">
                     Dosage:
                 </div>
-                <hr className="InputPane_WidgetBox_Divider"/>
+                <hr className="InputPane_WidgetBox_Divider" />
                 {props.medData.dosages.map((dosage, index) => (
-                        <div>
-                            <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} updateAllWeightsFunction={updateDosageWeightsAll} dispatch={props.dispatch} setIndex={index}/>
-                            <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index} length={props.medData.dosages.length} units={props.medData.units}/>
-                        </div>
+                    <div>
+                        <RenderWeightsToggle weights={dosage.weights} updateWeightsFunction={updateDosageWeights} updateAllWeightsFunction={updateDosageWeightsAll} dispatch={props.dispatch} setIndex={index} />
+                        <DosageButtonInput first={dosage.first} sequential={dosage.sequential} dispatch={props.dispatch} setIndex={index} length={props.medData.dosages.length} units={props.medData.units} />
+                    </div>
                 ))}
             </div>
             <button className="InputPane_WidgetBox_PlusButton" onClick={() => props.dispatch(addDosageSet())}>
@@ -134,34 +134,34 @@ function ConstraintsBox(props) {
                 <div className="InputPane_WidgetBox_Title">
                     Constraints:
                 </div>
-                <hr className="InputPane_WidgetBox_Divider"/>
+                <hr className="InputPane_WidgetBox_Divider" />
                 {props.medData.constraints.map((constraint, index) => (
-                        <div>
-                            <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} updateAllWeightsFunction={updateConstraintsWeightsAll} dispatch={props.dispatch} setIndex={index}/>
-                            <div className = "InputPane_Constraints">
-                                <div className="InputPane_ConstraintsBlockWrapper">
-                                    <div className="InputPane_ConstraintsRowWrapper">
-                                        <div className="InputPane_ContraintsText" style={{"fontWeight": "600", "fontSize": "150%"}}>
-                                            Single Dose
+                    <div>
+                        <RenderWeightsToggle weights={constraint.weights} updateWeightsFunction={updateConstraintsWeights} updateAllWeightsFunction={updateConstraintsWeightsAll} dispatch={props.dispatch} setIndex={index} />
+                        <div className="InputPane_Constraints">
+                            <div className="InputPane_ConstraintsBlockWrapper">
+                                <div className="InputPane_ConstraintsRowWrapper">
+                                    <div className="InputPane_ContraintsText" style={{ "fontWeight": "600", "fontSize": "150%" }}>
+                                        Single Dose
                                         </div>
-                                        {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smin")}
-                                        {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smax")}
-                                    </div>
-                                    <div className="InputPane_ConstraintsRowWrapper">
-                                        <div className="InputPane_ContraintsText" style={{"fontWeight": "600", "fontSize": "150%"}}>
-                                            {"Cuml. Dose"}
-                                        </div>
-                                        {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmin")}
-                                        {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmax")}
-                                    </div>
+                                    {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smin")}
+                                    {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "smax")}
                                 </div>
-                                <div className="InputPane_DeleteConstraints">
-                                    <button className="InputPane_DeleteConstraintsButton" onClick={() => props.dispatch(deleteConstraintsSet(index))}>
-                                    x
-                                    </button>
+                                <div className="InputPane_ConstraintsRowWrapper">
+                                    <div className="InputPane_ContraintsText" style={{ "fontWeight": "600", "fontSize": "150%" }}>
+                                        {"Cuml. Dose"}
+                                    </div>
+                                    {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmin")}
+                                    {ConstraintsLine(constraint, index, props.medData.units, props.dispatch, "cmax")}
                                 </div>
                             </div>
+                            <div className="InputPane_DeleteConstraints">
+                                <button className="InputPane_DeleteConstraintsButton" onClick={() => props.dispatch(deleteConstraintsSet(index))}>
+                                    x
+                                    </button>
+                            </div>
                         </div>
+                    </div>
 
                 ))}
             </div>
@@ -179,15 +179,15 @@ function NotesBox(props) {
                 <div className="InputPane_WidgetBox_Title">
                     Notes:
                 </div>
-                <hr className="InputPane_WidgetBox_Divider"/>
+                <hr className="InputPane_WidgetBox_Divider" />
                 {props.medData.notes.map((note, index) => (
                     <div>
                         <div>
-                            <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} updateAllWeightsFunction={updateNotesWeightsAll} dispatch={props.dispatch} setIndex={index}/>
+                            <RenderWeightsToggle weights={note.weights} updateWeightsFunction={updateNotesWeights} updateAllWeightsFunction={updateNotesWeightsAll} dispatch={props.dispatch} setIndex={index} />
                         </div>
                         <div className="InputPane_NotesBlock">
                             <div className="InputPane_NotesBlockText">
-                                <input type ='text' value = {note.note} onChange = {e => props.dispatch(updateNotesText({setIndex: index, text: e.target.value}))} style={{ width: "90%", textAlign: 'center' } }/>
+                                <input type='text' value={note.note} onChange={e => props.dispatch(updateNotesText({ setIndex: index, text: e.target.value }))} style={{ width: "90%", textAlign: 'center' }} />
                             </div>
                             <div className="InputPane_DeleteNotes">
                                 <button className="InputPane_DeleteNotesButton" onClick={() => props.dispatch(deleteNotesSet(index))}>
@@ -207,25 +207,25 @@ function NotesBox(props) {
 
 function ConstraintsLine(constraint, index, units, dispatch, type) {
     let addConstraint, deleteConstraint, updateConstraint, typestring;
-    if (type == "smin") {
+    if (type === "smin") {
         addConstraint = addSingleMinConstraint;
         deleteConstraint = deleteSingleMinConstraint;
         updateConstraint = updateSingleMinConstraint;
         typestring = "Min";
     }
-    else if (type == "smax") {
+    else if (type === "smax") {
         addConstraint = addSingleMaxConstraint;
         deleteConstraint = deleteSingleMaxConstraint;
         updateConstraint = updateSingleMaxConstraint;
         typestring = "Max";
     }
-    else if (type == "cmin") {
+    else if (type === "cmin") {
         addConstraint = addCumulativeMinConstraint;
         deleteConstraint = deleteCumulativeMinConstraint;
         updateConstraint = updateCumulativeMinConstraint;
         typestring = "Min";
     }
-    else if (type == "cmax") {
+    else if (type === "cmax") {
         addConstraint = addCumulativeMaxConstraint;
         deleteConstraint = deleteCumulativeMaxConstraint;
         updateConstraint = updateCumulativeMaxConstraint;
@@ -237,13 +237,15 @@ function ConstraintsLine(constraint, index, units, dispatch, type) {
             <div className="InputPane_ConstraintsUnit_Text">
                 {typestring}
             </div>
-            <div className = "InputPane_ConstraintsCheckBox"> 
-            <input  type="checkbox" checked={constraint[type] != null} onClick={() => {dispatch(
-                (constraint[type] == null) ? addConstraint(index) : deleteConstraint(index)
-            )}} />
+            <div className="InputPane_ConstraintsCheckBox">
+                <input type="checkbox" checked={constraint[type] != null} onClick={() => {
+                    dispatch(
+                        (constraint[type] == null) ? addConstraint(index) : deleteConstraint(index)
+                    )
+                }} />
             </div>
-            <div className = "InputPane_ConstraintsInput">
-                <input type ='text' disabled = {constraint[type]==null} value = {(constraint[type]==null) ? "" : constraint[type]} onChange = {e => dispatch(updateConstraint({setIndex: index, amount: e.target.value}))} style={{ width: "3.5vw", textAlign: 'center' } }/>
+            <div className="InputPane_ConstraintsInput">
+                <input type='text' disabled={constraint[type] == null} value={(constraint[type] == null) ? "" : constraint[type]} onChange={e => dispatch(updateConstraint({ setIndex: index, amount: e.target.value }))} style={{ width: "3.5vw", textAlign: 'center' }} />
             </div>
             <div className="InputPane_ConstraintsUnit_Text">
                 {units}

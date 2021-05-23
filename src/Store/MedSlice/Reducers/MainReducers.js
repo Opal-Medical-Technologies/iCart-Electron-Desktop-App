@@ -39,8 +39,8 @@ function addMedicationReducer(state) {
 
 function deleteMedicationReducer(state, deleteIndex) {
     state.medList.splice(deleteIndex, 1);
-    if (state.currentMedId == deleteIndex && state.currentMedId != 0) {
-        state.currentMedId -=1;
+    if (state.currentMedId === deleteIndex && state.currentMedId !== 0) {
+        state.currentMedId -= 1;
     }
 }
 
